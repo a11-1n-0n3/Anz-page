@@ -26,7 +26,7 @@ export function TeamGrid() {
   if (team.length === 0) return null;
 
   return (
-    <Section id="team" className="border-t border-border">
+    <Section id="team">
       <Container>
         <SectionHeading
           eyebrow={t("eyebrow")}
@@ -34,16 +34,19 @@ export function TeamGrid() {
           description={t("description")}
         />
 
-        <ul className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
-            <li key={member.id}>
+            <li
+              key={member.id}
+              className="rounded-lg border border-border bg-card p-5"
+            >
               {member.photo ? (
                 <Image
                   src={member.photo}
                   alt=""
                   width={320}
                   height={320}
-                  className="aspect-square w-full rounded-xl object-cover"
+                  className="aspect-square w-full rounded-2xl object-cover"
                 />
               ) : (
                 /*
@@ -53,7 +56,7 @@ export function TeamGrid() {
                  */
                 <div
                   aria-hidden
-                  className="flex aspect-square w-full items-center justify-center rounded-xl border border-dashed border-border bg-secondary/60"
+                  className="flex aspect-square w-full items-center justify-center rounded-2xl border border-dashed border-border bg-[linear-gradient(160deg,var(--neon-soft),var(--secondary))]"
                 >
                   <User strokeWidth={1.25} className="size-10 text-muted-foreground/50" />
                 </div>
@@ -62,7 +65,7 @@ export function TeamGrid() {
               <h3 className="mt-5 text-base font-semibold tracking-tight">
                 {member.name}
               </h3>
-              <p className="mt-1 text-sm text-gold-ink">{member.role[locale]}</p>
+              <p className="mt-1 text-sm text-neon-ink">{member.role[locale]}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {member.bio[locale]}
               </p>

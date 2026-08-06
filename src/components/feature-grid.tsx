@@ -32,7 +32,7 @@ export function FeatureGrid() {
   const t = useTranslations("features");
 
   return (
-    <Section id="features" className="border-t border-border">
+    <Section id="features">
       <Container>
         <SectionHeading
           eyebrow={t("eyebrow")}
@@ -41,28 +41,45 @@ export function FeatureGrid() {
         />
 
         {/*
-          Two columns, not one.
-          Before: icon + a single text column capped at max-w-2xl, so every row
-          filled 672px of its 1088px track and the rules ran on through 400px
-          of nothing — the section read as unfinished. Splitting label from
-          description makes the rule span real content edge to edge, and gives
-          a scannable left rail of domain names.
+          Cards, not the ruled two-column list this used to be.
+
+          The old list was a deliberate fix for a real problem: a single narrow
+          text column left its horizontal rules running through 400px of empty
+          track, and the section read as unfinished. Splitting label from
+          description made the rules span real content.
+
+          Cards solve the same problem differently — there is no rule left to
+          strand — and they are the form this page's design language is built
+          on: rounded surfaces lifted off a tinted ground. What is given up is
+          the scannable left rail of domain names; three columns of headings
+          are still scannable, just in a grid instead of a line.
         */}
-        <ul className="mt-14 divide-y divide-border border-y border-border">
+        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <li
               key={feature.id}
-              className="group grid gap-x-10 gap-y-2 py-7 md:grid-cols-[minmax(0,22rem)_1fr] md:items-baseline md:py-8"
+              className="group relative overflow-hidden rounded-lg border border-border bg-card p-7 transition-shadow duration-300 hover:shadow-[0_18px_40px_-24px_rgba(11,22,32,0.35)]"
             >
-              <h3 className="flex items-center gap-3 text-base font-semibold tracking-tight sm:text-lg">
+              {/* Faint corner wash — the same light the hero canvas is lit by. */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -top-16 -right-16 size-40 rounded-full bg-neon-soft opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
+              />
+
+              <span
+                aria-hidden
+                className="flex size-11 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--neon-soft),var(--card))] ring-1 ring-neon/25"
+              >
                 <feature.icon
-                  aria-hidden
                   strokeWidth={1.5}
-                  className="size-5 shrink-0 text-gold-ink transition-transform duration-300 group-hover:translate-x-0.5"
+                  className="size-5 text-neon-ink"
                 />
+              </span>
+
+              <h3 className="mt-5 text-base font-semibold tracking-tight sm:text-lg">
                 {t(`items.${feature.id}.title`)}
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+              <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
                 {t(`items.${feature.id}.description`)}
               </p>
             </li>

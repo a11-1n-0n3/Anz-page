@@ -355,7 +355,40 @@ Không có test runner trong dự án (`package.json` chỉ có `dev`/`build`/
 | Card feature làm mất lợi thế của list 2 cột | Đã ghi nhận là đánh đổi có ý thức, kèm lý do trong comment mới. |
 | Đổi `--gold*` → `--neon*` sót chỗ | `grep -rn "gold" src/` sau khi sửa phải trả về 0 dòng. |
 
-## 9. Thứ tự triển khai
+## 9. Sai khác so với spec khi triển khai
+
+Ghi lại để văn bản khớp code. Tất cả đều là hệ quả của việc đo trên trang thật.
+
+1. **Prop của `PartnerStrip` tên `inFrame`, không phải `onDark`.** Nó chuyển
+   *cấu trúc* (bỏ `Container`, bỏ viền, thêm scrim), không chuyển màu — màu đã
+   do token lo. Tên cũ mô tả sai việc nó làm.
+
+2. **Console trong hero trở thành kính trong.** Bản đặc che 1024px trên tổng
+   1088px của khung và giấu sạch dải sóng. Cho sóng xuyên qua vừa giải quyết
+   được che khuất, vừa đúng nghĩa hơn: đây là lớp phủ nhận diện, nên thứ nằm
+   sau các khung detection phải trông như một cảnh thật.
+
+3. **Dải sóng đặt theo tỉ lệ, không theo phần trăm chiều cao khung.** Kéo giãn
+   SVG trên cả khung hero khiến `slice` phóng cảnh 2.7 lần và chỉ còn giữa một
+   ribbon, phóng to thành vệt phẳng. Ép chiều cao cố định trên khung hẹp thì
+   `slice` cắt vào đúng đỉnh sóng sáng nhất — đo được 1.6:1 cho trust strip ở
+   375px. Định theo `aspect-[16/10] max-h-[64%]` giữ cảnh không bị zoom.
+
+4. **Scrim của trust strip gắn vào chính strip, không vào khung hero.** Bản gắn
+   vào khung phải phủ 38% chiều cao mới với tới strip ở 375px, và làm phẳng cả
+   dải sóng trên đường đi.
+
+5. **Nhãn `anomaly · watch` bỏ `/80`, và scrim chân console tăng từ
+   `from-black/70` lên `from-black/90 via-black/60`.** Đo trên pixel thật:
+   3.78:1 và 3.48:1.
+
+6. **`Section` giữ nguyên, thêm `Frame`** — không đổi API của `Section` như
+   spec ngụ ý.
+
+Kết quả đo cuối: 293 text run trên 3 khổ (375 / 768 / 1440), không run nào dưới
+ngưỡng WCAG AA.
+
+## 10. Thứ tự triển khai
 
 1. `globals.css` — token + `.surface-dark` (nền tảng cho mọi bước sau)
 2. `layout.tsx` — font + themeColor

@@ -57,7 +57,7 @@ export function MobileNav() {
       {open ? (
         <div
           id="mobile-nav-panel"
-          className="fixed inset-x-4 top-[4.75rem] z-40 rounded-2xl border border-border bg-card px-5 pb-6 pt-2 shadow-[0_16px_44px_-16px_rgba(29,29,31,0.35)]"
+          className="fixed inset-x-4 top-[4.75rem] z-40 rounded-lg border border-border bg-card px-5 pb-6 pt-2 shadow-[0_16px_44px_-16px_rgba(29,29,31,0.35)]"
         >
           <nav aria-label={t("mainLabel")}>
             <ul className="divide-y divide-border">
@@ -66,7 +66,7 @@ export function MobileNav() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block py-4 text-base font-medium transition-colors hover:text-gold-ink"
+                    className="block py-4 text-base font-medium transition-colors hover:text-neon-ink"
                   >
                     {t(item.labelKey)}
                   </Link>

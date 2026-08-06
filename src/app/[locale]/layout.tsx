@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Be_Vietnam_Pro, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -20,14 +20,19 @@ import "../globals.css";
  * back mid-word. Popular picks like Instrument Serif, DM Serif Display,
  * Outfit, Sora and Figtree ship NO Vietnamese subset and break on this copy.
  *
- * Fraunces carries the headings: an old-style serif with enough warmth to read
- * as an established firm rather than another startup template, which is the
- * whole point of pairing it with the charcoal-and-gold palette.
+ * Be Vietnam Pro carries the headings. It is a geometric sans — the register
+ * the cyber palette needs, where the previous serif read as a heritage firm —
+ * and it ships an ITALIC, which the hero headline depends on: the highlighted
+ * clause is set in italic, not just recoloured.
+ *
+ * It is also drawn for Vietnamese specifically, so the stacked marks are a
+ * design decision rather than a fallback.
  */
-const fontDisplay = Fraunces({
+const fontDisplay = Be_Vietnam_Pro({
   variable: "--font-display",
   subsets: ["latin", "vietnamese"],
-  weight: ["600"],
+  weight: ["600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -121,7 +126,8 @@ export async function generateMetadata(
 }
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  /* The dark hero is the first thing painted — a white bar above it flashes. */
+  themeColor: "#070d13",
   width: "device-width",
   initialScale: 1,
 };

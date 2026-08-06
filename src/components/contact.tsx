@@ -20,12 +20,12 @@ export function Contact() {
   const t = useTranslations("contact");
 
   return (
-    <Section id="contact" className="border-t border-border">
+    <Section id="contact">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
           <div className="lg:pt-2">
             <Eyebrow>{t("eyebrow")}</Eyebrow>
-            <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
+            <h2 className="mt-4 text-balance text-3xl font-semibold sm:text-4xl">
               {t("title")}
             </h2>
             <p className="mt-4 max-w-md text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -35,7 +35,7 @@ export function Contact() {
             <dl className="mt-10 space-y-5 border-t border-border pt-8">
               <div className="flex items-start gap-3">
                 <dt className="mt-0.5">
-                  <Mail aria-hidden strokeWidth={1.5} className="size-5 text-gold-ink" />
+                  <Mail aria-hidden strokeWidth={1.5} className="size-5 text-neon-ink" />
                   <span className="sr-only">{t("orEmail")}</span>
                 </dt>
                 <dd>
@@ -50,7 +50,7 @@ export function Contact() {
 
               <div className="flex items-start gap-3">
                 <dt className="mt-0.5">
-                  <MapPin aria-hidden strokeWidth={1.5} className="size-5 text-gold-ink" />
+                  <MapPin aria-hidden strokeWidth={1.5} className="size-5 text-neon-ink" />
                 </dt>
                 <dd className="text-[15px] text-muted-foreground">
                   {t("address")}

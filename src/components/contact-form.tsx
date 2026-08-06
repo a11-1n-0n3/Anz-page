@@ -57,7 +57,7 @@ export function ContactForm() {
     return (
       <div
         role="status"
-        className="rounded-xl border border-border bg-card p-8 text-center"
+        className="rounded-lg border border-border bg-card p-8 text-center"
       >
         <p className="font-semibold">{t("successTitle")}</p>
         <p className="mt-2 text-sm text-muted-foreground">{t("successBody")}</p>
@@ -69,7 +69,7 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="space-y-5 rounded-xl border border-border bg-card p-6 sm:p-8"
+      className="space-y-5 rounded-lg border border-border bg-card p-6 sm:p-8"
     >
       {/* Honeypot — hidden from people, filled in by bots, blocked on the server */}
       <div aria-hidden className="absolute left-[-9999px]">

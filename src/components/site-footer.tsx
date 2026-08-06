@@ -12,7 +12,12 @@ export function SiteFooter() {
   const tContact = useTranslations("contact");
 
   return (
-    <footer className="mt-auto border-t border-border bg-secondary/40">
+    /*
+     * The page closes on the same dark canvas it opened on. `surface-dark`
+     * re-declares the tokens, so every child below reads correctly without a
+     * single colour override of its own.
+     */
+    <footer className="surface-dark mt-auto rounded-t-frame">
       <Container className="py-16">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
@@ -22,9 +27,10 @@ export function SiteFooter() {
                 alt=""
                 width={28}
                 height={28}
-                className="size-7"
+                /* Opaque white source PNG — see the note in site-header. */
+                className="size-7 rounded-md"
               />
-              <p className="text-[15px] font-semibold tracking-[0.08em]">
+              <p className="font-display text-[15px] font-bold tracking-[0.06em]">
                 {siteConfig.name}
               </p>
             </div>

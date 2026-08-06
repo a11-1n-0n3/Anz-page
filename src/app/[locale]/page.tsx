@@ -4,7 +4,6 @@ import { Contact } from "@/components/contact";
 import { FeatureGrid } from "@/components/feature-grid";
 import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
-import { PartnerStrip } from "@/components/partner-strip";
 import { TeamGrid } from "@/components/team-grid";
 
 /**
@@ -16,7 +15,8 @@ import { TeamGrid } from "@/components/team-grid";
  *
  * Section order follows the questions a B2B buyer asks, in order:
  *   Hero          what is this
- *   PartnerStrip  has anyone actually bought it        ← trust, early and cheap
+ *                 ↳ the trust strip ("has anyone bought it?") is rendered
+ *                   INSIDE the hero canvas, so it is not listed separately
  *   FeatureGrid   what do you work on
  *   HowItWorks    how would this go
  *   TeamGrid      who would I be working with          ← closing argument
@@ -35,7 +35,6 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   return (
     <>
       <Hero />
-      <PartnerStrip />
       <FeatureGrid />
       <HowItWorks />
       <TeamGrid />

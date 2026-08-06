@@ -28,15 +28,35 @@ export function Section({
 }
 
 /**
+ * Rounded canvas that content sits inside rather than running edge to edge.
+ *
+ * The hero uses it to become an object on the page. `overflow-hidden` is load
+ * bearing: the wave backdrop is drawn well past the frame's bounds so the
+ * curves stay smooth, and this is what crops them back to the radius.
+ */
+export function Frame({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      className={cn(
+        "relative isolate overflow-hidden rounded-frame",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+/**
  * Small caps label above a heading.
  *
- * Uses `gold-ink`, not `gold` — this is text, and plain gold sits at 2.8:1
- * against white.
+ * Uses `neon-ink`, not `neon` — this is text, and plain neon sits at 1.81:1
+ * against white. Both tokens re-declare themselves inside `.surface-dark`, so
+ * this reads correctly on either ground without a prop.
  */
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="inline-flex items-center gap-2 text-[13px] font-medium tracking-[0.14em] text-gold-ink uppercase">
-      <span aria-hidden className="size-1.5 rounded-full bg-gold" />
+    <p className="inline-flex items-center gap-2 text-[13px] font-medium tracking-[0.14em] text-neon-ink uppercase">
+      <span aria-hidden className="size-1.5 rounded-full bg-neon" />
       {children}
     </p>
   );
@@ -64,7 +84,7 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <h2 className="mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] sm:text-4xl">
+      <h2 className="mt-4 text-balance text-3xl font-semibold sm:text-4xl">
         {title}
       </h2>
       {description ? (

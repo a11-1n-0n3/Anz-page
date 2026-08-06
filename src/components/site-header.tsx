@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/button";
@@ -14,12 +15,18 @@ export function SiteHeader() {
 
   return (
     /*
-     * Floating pill instead of a full-width bar.
-     * It only works because the page has a tinted background — on pure white
-     * a white pill would be invisible. The two changes are a package.
+     * The header carries `surface-dark` PERMANENTLY, not just while it sits
+     * over the hero.
+     *
+     * It is sticky, and the page runs dark hero → light body → dark footer. A
+     * transparent bar would put its light text on the light sections and
+     * disappear halfway down the page. Recolouring on scroll would mean a
+     * scroll listener and turning this into a Client Component for a purely
+     * cosmetic effect. Holding one colour costs a small seam where the bar
+     * meets the light sections, and nothing else.
      */
-    <header className="sticky top-0 z-50 pt-3 sm:pt-4">
-      <Container className="flex h-14 items-center justify-between gap-4 rounded-full border border-border/70 bg-card/85 px-4 shadow-[0_2px_18px_-8px_rgba(29,29,31,0.28)] backdrop-blur-md sm:h-16 sm:px-6 lg:px-6">
+    <header className="surface-dark sticky top-0 z-50 border-b border-border/60 bg-background/75 backdrop-blur-xl">
+      <Container className="flex h-16 items-center justify-between gap-4 sm:h-18">
         <Link
           href="/"
           className="group flex items-center gap-2.5 rounded-md text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none"
@@ -29,21 +36,33 @@ export function SiteHeader() {
             alt=""
             width={28}
             height={28}
-            className="size-7"
+            /*
+             * `rounded-md`: the source PNG has an opaque white background (RGB,
+             * no alpha), so on the dark bar it renders as a white tile no
+             * matter what. Rounding it makes that tile read as a deliberate
+             * badge rather than a clipping bug. The real fix is a logo file
+             * with a transparent background.
+             */
+            className="size-7 rounded-md"
             priority
           />
-          <span className="text-[15px] font-semibold tracking-[0.08em]">
+          <span className="font-display text-[15px] font-bold tracking-[0.06em]">
             {siteConfig.name}
           </span>
         </Link>
 
+        {/*
+          Each item is its own pill rather than a bare link in a row. It is the
+          cheapest way to make a nav read as a control surface instead of a
+          sentence, and it gives the hit area some height on a bar this tall.
+        */}
         <nav aria-label={t("mainLabel")} className="hidden md:block">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-1.5">
             {mainNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="rounded text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none"
+                  className="block rounded-full bg-white/[0.06] px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-white/[0.12] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
                 >
                   {t(item.labelKey)}
                 </Link>
@@ -56,7 +75,10 @@ export function SiteHeader() {
           <LanguageSwitcher />
           {/* Desktop CTA; phones get the same action inside the menu panel. */}
           <Button asChild size="sm" className="hidden md:inline-flex">
-            <Link href="/#contact">{t("contact")}</Link>
+            <Link href="/#contact">
+              <ArrowUpRight aria-hidden strokeWidth={2} className="size-4" />
+              {t("contact")}
+            </Link>
           </Button>
           <MobileNav />
         </div>
