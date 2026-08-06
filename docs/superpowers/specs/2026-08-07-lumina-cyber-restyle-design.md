@@ -388,7 +388,40 @@ Ghi lại để văn bản khớp code. Tất cả đều là hệ quả của v
 Kết quả đo cuối: 293 text run trên 3 khổ (375 / 768 / 1440), không run nào dưới
 ngưỡng WCAG AA.
 
-## 10. Thứ tự triển khai
+## 10. Bổ sung — nhịp section tham khảo kms-technology.com
+
+Yêu cầu tiếp theo: tham khảo *layout* của KMS, giữ nguyên màu cyber đã dựng.
+
+**Khác biệt cốt lõi:** KMS xen kẽ 2 cột lệch và full-bleed liên tục; ANZ trước
+đó lặp đúng một nhịp "eyebrow + heading trái + grid đều" suốt trang.
+
+Thêm bốn section, trình tự mới:
+
+```
+Hero → Statement → StatBand → FeatureGrid → HowItWorks
+     → Testimonials → TeamGrid → Insights → Contact
+```
+
+| section | nguồn | ghi chú |
+|---|---|---|
+| `Statement` | messages `statement.*` | H2 lớn trái / đoạn văn phải, không eyebrow. Đây là thứ phá nhịp. |
+| `StatBand` | `stats` trong lib/site.ts | Băng tối `surface-dark`, 3 số. |
+| `Testimonials` | `testimonials` | **Phẳng, không Frame** — `HowItWorks` ngay trên đã là băng `bg-secondary`, hai băng giống nhau liền kề đọc như lỗi render. |
+| `Insights` | `posts` | 2 card, cả card là một link (tránh nhân đôi tab stop). |
+
+**Không làm** (KMS có, ANZ bỏ): announcement bar, mega-menu dropdown, spotlight
+sản phẩm có video, industry carousel, CTA band, mega footer. Ba cái đầu và
+carousel cần nội dung/asset chưa có; CTA band và mega footer đã bàn và loại.
+
+**Placeholder:** `stats`, `testimonials`, `posts` dùng giá trị không thể nhầm là
+thật (`XX+`, `PLACEHOLDER 01`, câu tự nói rõ nó là chỗ đặt). Đây là *claim* về
+công ty — khác với `partners` chỉ là wordmark. Xoá rỗng mảng thì section tự ẩn.
+
+**Đo lại sau khi thêm:** 418 text run trên 3 khổ, 0 dưới AA. Một lỗi phát hiện
+và đã sửa: dấu `·` phân cách trong thẻ Insights dùng `text-border`, 1.28:1 trên
+card trắng.
+
+## 11. Thứ tự triển khai
 
 1. `globals.css` — token + `.surface-dark` (nền tảng cho mọi bước sau)
 2. `layout.tsx` — font + themeColor

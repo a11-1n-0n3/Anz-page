@@ -21,6 +21,13 @@
     "primaryCta": "Book a consultation",
     "secondaryCta": "See our domains"
   },
+  "statement": {
+    "title": "Real engineers, real systems, measurable outcomes.",
+    "body": "We do not sell demo models. Every project starts from one concrete business metric, proves itself on a narrow pilot, and only then goes into the systems you already run — and we stay on to watch quality after handover."
+  },
+  "stats": {
+    "label": "ANZ in numbers"
+  },
   "partners": {
     "label": "Trusted by"
   },
@@ -78,6 +85,17 @@
     "eyebrow": "Our experts",
     "title": "The specialists behind your project",
     "description": "AI engineers and researchers who have taken systems into production, involved directly from the first assessment through to handover."
+  },
+  "testimonials": {
+    "eyebrow": "Client voices",
+    "title": "Working with ANZ",
+    "description": "Feedback from the teams who took our systems into real operation."
+  },
+  "insights": {
+    "eyebrow": "Insights",
+    "title": "Writing from the team",
+    "description": "Engineering notes and lessons from the AI projects we have shipped.",
+    "readMore": "Read post"
   },
   "contact": {
     "eyebrow": "Contact",

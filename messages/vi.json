@@ -21,6 +21,13 @@
     "primaryCta": "Đặt lịch tư vấn",
     "secondaryCta": "Xem lĩnh vực"
   },
+  "statement": {
+    "title": "Kỹ sư thật, hệ thống thật, kết quả đo được.",
+    "body": "Chúng tôi không bán mô hình demo. Mỗi dự án bắt đầu bằng một chỉ số nghiệp vụ cụ thể, chạy thử trên phạm vi hẹp để chứng minh, rồi mới tích hợp vào hệ thống đang vận hành của bạn — và ở lại theo dõi chất lượng sau khi bàn giao."
+  },
+  "stats": {
+    "label": "ANZ qua vài con số"
+  },
   "partners": {
     "label": "Được tin dùng bởi"
   },
@@ -78,6 +85,17 @@
     "eyebrow": "Đội ngũ chuyên gia",
     "title": "Chuyên gia đồng hành cùng dự án của bạn",
     "description": "Kỹ sư và nhà nghiên cứu AI có kinh nghiệm đưa hệ thống vào vận hành ở quy mô sản xuất, tham gia trực tiếp từ khâu khảo sát tới khi bàn giao."
+  },
+  "testimonials": {
+    "eyebrow": "Khách hàng nói gì",
+    "title": "Làm việc cùng ANZ",
+    "description": "Phản hồi từ những đội đã đưa hệ thống của chúng tôi vào vận hành thật."
+  },
+  "insights": {
+    "eyebrow": "Góc nhìn",
+    "title": "Bài viết từ đội ngũ",
+    "description": "Ghi chép kỹ thuật và bài học rút ra từ các dự án AI đã triển khai.",
+    "readMore": "Đọc bài"
   },
   "contact": {
     "eyebrow": "Liên hệ",

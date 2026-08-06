@@ -91,6 +91,101 @@ export const team: TeamMember[] = [
   },
 ];
 
+// PLACEHOLDERS — each section below hides itself when its array is emptied.
+// Everything here is a CLAIM about the company. The values are deliberately
+// unmistakable (XX, PLACEHOLDER) so nothing reads as real if this ships early —
+// replace with verified figures, quotes you have permission to publish, and
+// real posts, or empty the array.
+
+export type Stat = { id: string; value: string; label: Localized };
+
+export const stats: Stat[] = [
+  {
+    id: "s1",
+    value: "XX+",
+    label: {
+      vi: "hệ thống đã đưa vào vận hành",
+      en: "systems taken into production",
+    },
+  },
+  {
+    id: "s2",
+    value: "XX",
+    label: { vi: "lĩnh vực AI chuyên sâu", en: "AI domains we go deep in" },
+  },
+  {
+    id: "s3",
+    value: "X–X",
+    label: { vi: "tuần cho một bản chạy thử", en: "weeks to a working pilot" },
+  },
+];
+
+export type Testimonial = {
+  id: string;
+  quote: Localized;
+  author: string;
+  role: Localized;
+  company: string;
+  // Path under /public. Only ship a logo you have written permission to show.
+  logo?: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "t1",
+    author: "PLACEHOLDER 01",
+    company: "PLACEHOLDER CO",
+    role: { vi: "Chức danh", en: "Job title" },
+    quote: {
+      vi: "Chỗ đặt trích dẫn khách hàng. Thay bằng phản hồi thật đã được người nói cho phép đăng.",
+      en: "Placeholder for a client quote. Replace with real feedback you have permission to publish.",
+    },
+  },
+  {
+    id: "t2",
+    author: "PLACEHOLDER 02",
+    company: "PLACEHOLDER CO",
+    role: { vi: "Chức danh", en: "Job title" },
+    quote: {
+      vi: "Chỗ đặt trích dẫn thứ hai. Hai đến ba câu là vừa.",
+      en: "A second quote goes here. Two or three sentences reads best.",
+    },
+  },
+];
+
+export type Post = {
+  id: string;
+  href: string;
+  title: Localized;
+  tag: Localized;
+  // ISO date. Rendered with the active locale.
+  date: string;
+  cover?: string;
+};
+
+export const posts: Post[] = [
+  {
+    id: "b1",
+    href: "#",
+    date: "2026-01-01",
+    tag: { vi: "Chuyên mục", en: "Category" },
+    title: {
+      vi: "PLACEHOLDER — tiêu đề bài viết, khoảng một tới hai dòng",
+      en: "PLACEHOLDER — post title, about one or two lines long",
+    },
+  },
+  {
+    id: "b2",
+    href: "#",
+    date: "2026-01-01",
+    tag: { vi: "Chuyên mục", en: "Category" },
+    title: {
+      vi: "PLACEHOLDER — tiêu đề bài viết thứ hai",
+      en: "PLACEHOLDER — a second post title",
+    },
+  },
+];
+
 export const footerNav: { titleKey: string; items: NavItem[] }[] = [
   {
     titleKey: "productGroup",

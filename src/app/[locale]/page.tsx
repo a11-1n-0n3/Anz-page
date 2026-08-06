@@ -4,40 +4,30 @@ import { Contact } from "@/components/contact";
 import { FeatureGrid } from "@/components/feature-grid";
 import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
+import { Insights } from "@/components/insights";
+import { StatBand } from "@/components/stat-band";
+import { Statement } from "@/components/statement";
 import { TeamGrid } from "@/components/team-grid";
+import { Testimonials } from "@/components/testimonials";
 
-/**
- * Landing page.
- *
- * A Server Component: both locales are rendered to HTML at build time, so
- * crawlers and the Facebook / LinkedIn / Zalo bots read the content without
- * running any JavaScript.
- *
- * Section order follows the questions a B2B buyer asks, in order:
- *   Hero          what is this
- *                 ↳ the trust strip ("has anyone bought it?") is rendered
- *                   INSIDE the hero canvas, so it is not listed separately
- *   FeatureGrid   what do you work on
- *   HowItWorks    how would this go
- *   TeamGrid      who would I be working with          ← closing argument
- *   Contact       let's talk
- *
- * Only `ContactForm`, the language switcher and the mobile menu are Client
- * Components.
- */
+// StatBand, Testimonials and Insights render null until their records in
+// lib/site.ts are filled, so the shipped page is currently 7 sections, not 10.
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
 
-  // Must be called in the page too, not just the layout — dropping it pushes
-  // the route into dynamic rendering and loses the static benefit.
+  // Must also call in the page — layout alone is not enough for static rendering
   setRequestLocale(locale);
 
   return (
     <>
       <Hero />
+      <Statement />
+      <StatBand />
       <FeatureGrid />
       <HowItWorks />
+      <Testimonials />
       <TeamGrid />
+      <Insights />
       <Contact />
     </>
   );
