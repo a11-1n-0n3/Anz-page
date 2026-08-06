@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+/*
+ * Charcoal + gold. Gold comes from the logo dot — used as a mark, not a flood fill.
+ *
+ * TWO GOLDS, ON PURPOSE:
+ *   --gold      #b8935c  decorative only (fills, borders, dots). Contrast on
+ *                        white is 2.8:1 — below the 4.5:1 WCAG AA floor, so it
+ *                        must never carry text.
+ *   --gold-ink  #856839  the text-safe gold. 5.2:1 on white and 4.8:1 on the
+ *                        secondary band — passes AA on every surface used.
+ * Mixing them up is the easiest way to make the page fail an audit.
+ */
+
+:root {
+  /*
+   * Warm tint, not pure white — the same value as the logo's own canvas.
+   * A page-wide tint is what lets cards and the floating nav read as raised
+   * surfaces without needing heavy borders. (Flow does this with lavender; the
+   * device is the same, the hue follows our own mark.)
+   */
+  --background: #faf8f5;
+  --foreground: #1d1d1f;
+
+  /* Cards sit ABOVE the tint, so they stay pure white. */
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+
+  --primary: #1d1d1f;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f2eee8;
+  --secondary-foreground: #1d1d1f;
+
+  --muted: #f2eee8;
+  --muted-foreground: #6e6e73;
+
+  --accent: #f6f1e9;
+  --accent-foreground: #1d1d1f;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  --border: #e7e1d8;
+  --input: #e7e1d8;
+  /* Focus ring must hit 3:1 against adjacent colours; gold at 2.8:1 did not. */
+  --ring: #1d1d1f;
+
+  --gold: #b8935c;
+  --gold-ink: #856839;
+  --gold-soft: color-mix(in oklab, #b8935c 14%, white);
+
+  --radius: 0.875rem;
+}
+
+.dark {
+  --background: #0f0f10;
+  --foreground: #f5f5f7;
+  --card: #1d1d1f;
+  --card-foreground: #f5f5f7;
+  --primary: #f5f5f7;
+  --primary-foreground: #1d1d1f;
+  --secondary: #2c2c2e;
+  --secondary-foreground: #f5f5f7;
+  --muted: #2c2c2e;
+  --muted-foreground: #a1a1a6;
+  --accent: #3a342c;
+  --accent-foreground: #f5f5f7;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #3a3a3c;
+  --input: #3a3a3c;
+  --ring: #f5f5f7;
+  --gold: #b8935c;
+  /* On a dark ground the relationship inverts: text gold must be LIGHTER. */
+  --gold-ink: #d4ab72;
+  --gold-soft: color-mix(in oklab, #b8935c 22%, #1d1d1f);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-ink: var(--gold-ink);
+  --color-gold-soft: var(--gold-soft);
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /*
+   * `rise` is a one-shot entrance — it stops, so it costs nothing once done.
+   *
+   * There used to be a `pulse-gold` loop on two 6px dots. Measured at 4x CPU
+   * throttle it forced a style recalc on EVERY frame forever (301 recalcs per
+   * 5s) and took the idle page from 97ms to 429ms of main-thread work — 4.4x,
+   * for decoration. `will-change` did not help; it was replaced with a static
+   * halo instead.
+   */
+  --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  /*
+   * Display serif on headings only. Applied here rather than per-component so
+   * a new section cannot accidentally ship with the body face on its heading.
+   * Georgia is the fallback because it is the one serif present on effectively
+   * every OS and it carries Vietnamese marks.
+   */
+  h1,
+  h2 {
+    font-family: var(--font-display), Georgia, serif;
+    /* The serif carries more weight optically — pull the tracking back in. */
+    letter-spacing: -0.015em;
+  }
+
+  /*
+   * Anchor jumps must clear the sticky header (h-16 = 4rem) plus breathing
+   * room, otherwise `#features` lands with its heading tucked underneath.
+   */
+  :target {
+    scroll-margin-top: 6rem;
+  }
+
+  /* Section ids are the scroll targets even when not `:target` yet. */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    /* Delay must be reset too — otherwise entrance content stays invisible
+       for the full delay even though the animation itself is instant. */
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

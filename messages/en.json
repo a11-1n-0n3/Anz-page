@@ -1,0 +1,120 @@
+{
+  "site": {
+    "tagline": "Applied AI for real businesses",
+    "description": "ANZ puts AI into day-to-day operations — computer vision, language and conversational AI, AI for education, and predictive analytics."
+  },
+  "nav": {
+    "mainLabel": "Main navigation",
+    "features": "Domains",
+    "howItWorks": "How we work",
+    "contact": "Contact",
+    "careers": "Careers",
+    "team": "Team"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "vi": "Tiếng Việt",
+    "en": "English"
+  },
+  "hero": {
+    "title": "Put AI <hl>into production</hl> with {name}",
+    "primaryCta": "Book a consultation",
+    "secondaryCta": "See our domains"
+  },
+  "partners": {
+    "label": "Trusted by"
+  },
+  "features": {
+    "eyebrow": "Domains",
+    "title": "Where we work",
+    "description": "We go deep in a handful of AI domains rather than taking on everything — deep enough to ship into real systems.",
+    "items": {
+      "vision": {
+        "title": "Computer vision",
+        "description": "Detects people, vehicles, objects and unusual behaviour in camera feeds. Applied to security monitoring, access control and production-line inspection."
+      },
+      "education": {
+        "title": "AI for education",
+        "description": "Personalised learning paths, automated grading and feedback, per-learner progress tracking. Flagship product: AI Mentor."
+      },
+      "conversational": {
+        "title": "Language and assistants",
+        "description": "Assistants grounded in internal documentation, text classification and summarisation, automated customer support."
+      },
+      "generative": {
+        "title": "Generative AI",
+        "description": "Content generation, summarisation and knowledge extraction over your own data, with traceable sources."
+      },
+      "document": {
+        "title": "Document intelligence",
+        "description": "Extracts structured data from invoices, contracts and scanned forms, replacing manual data entry."
+      },
+      "predictive": {
+        "title": "Analytics and forecasting",
+        "description": "Demand forecasting, anomaly detection and early risk warnings built on your historical data."
+      }
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "How we work",
+    "title": "From idea to a system in production",
+    "description": "We prove the value with numbers before you commit to a large investment.",
+    "steps": {
+      "discovery": {
+        "title": "Scope the problem and the data",
+        "description": "Clarify the business goal, assess the data you already hold, and agree on success metrics up front."
+      },
+      "pilot": {
+        "title": "Build a working pilot",
+        "description": "A functioning proof of concept within 4–6 weeks on a narrow scope, measured against the metrics we agreed."
+      },
+      "rollout": {
+        "title": "Deploy and operate",
+        "description": "Integrate with your existing systems, monitor model quality, and retrain on a schedule as the data shifts."
+      }
+    }
+  },
+  "team": {
+    "eyebrow": "Our experts",
+    "title": "The specialists behind your project",
+    "description": "AI engineers and researchers who have taken systems into production, involved directly from the first assessment through to handover."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Start with your problem",
+    "description": "Describe what you're up against and we'll get back to you within one business day.",
+    "orEmail": "Or email us directly at",
+    "address": "Hanoi, Vietnam"
+  },
+  "form": {
+    "name": "Full name",
+    "email": "Email",
+    "company": "Company",
+    "phone": "Phone number",
+    "message": "The problem you want solved",
+    "submit": "Request a consultation",
+    "submitting": "Sending...",
+    "successTitle": "We've got your details",
+    "successBody": "We'll be in touch within one business day.",
+    "serverError": "Couldn't send right now. Please try again or email us directly.",
+    "errors": {
+      "nameRequired": "Please enter your name",
+      "nameTooLong": "That name is too long",
+      "emailInvalid": "That email address isn't valid",
+      "companyTooLong": "That company name is too long",
+      "phoneInvalid": "That phone number isn't valid",
+      "messageTooShort": "Please describe the problem (at least 10 characters)",
+      "messageTooLong": "That message is too long"
+    }
+  },
+  "footer": {
+    "productGroup": "Explore",
+    "companyGroup": "Company",
+    "rights": "© {year} {name}. All rights reserved."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "backHome": "Back to home"
+  }
+}
