@@ -34,7 +34,7 @@ export function TeamGrid() {
           description={t("description")}
         />
 
-        <ul className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
             <li key={member.id}>
               {member.photo ? (

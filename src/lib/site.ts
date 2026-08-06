@@ -107,52 +107,40 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   {
     id: "m1",
-    name: "[Tên chuyên gia]",
+    name: "Mr. Bùi Chí Minh",
     role: {
-      vi: "Chức danh · Lĩnh vực phụ trách",
-      en: "Title · Area of focus",
+      vi: "Tech Lead",
+      en: "Tech Lead",
     },
     bio: {
-      vi: "Chuyên môn chính và kinh nghiệm nổi bật — học vị, số năm triển khai, lĩnh vực từng làm.",
-      en: "Core expertise and standout experience — degree, years shipping, domains worked in.",
+      vi: "Hơn 7 năm dẫn dắt kỹ thuật các hệ thống AI production — LLM, RAG và tối ưu inference cho sản phẩm doanh nghiệp.",
+      en: "7+ years leading production AI systems — LLMs, RAG, and inference optimization for enterprise products.",
     },
   },
   {
     id: "m2",
-    name: "[Tên chuyên gia]",
+    name: "Mr. Bùi Quốc Tuấn",
     role: {
-      vi: "Chức danh · Lĩnh vực phụ trách",
-      en: "Title · Area of focus",
+      vi: "CEO",
+      en: "CEO",
     },
     bio: {
-      vi: "Chuyên môn chính và kinh nghiệm nổi bật — học vị, số năm triển khai, lĩnh vực từng làm.",
-      en: "Core expertise and standout experience — degree, years shipping, domains worked in.",
+      vi: "Hơn 10 năm chuyên sâu bảo mật ứng dụng và hạ tầng — đánh giá rủi ro, hardening và tuân thủ cho sản phẩm số quy mô lớn.",
+      en: "10+ years in application and infrastructure security — risk assessment, hardening, and compliance for large-scale digital products.",
     },
   },
   {
     id: "m3",
-    name: "[Tên chuyên gia]",
+    name: "Mr. Văn Sang",
     role: {
-      vi: "Chức danh · Lĩnh vực phụ trách",
-      en: "Title · Area of focus",
+      vi: "Senior AI Engineer",
+      en: "Senior AI Engineer",
     },
     bio: {
-      vi: "Chuyên môn chính và kinh nghiệm nổi bật — học vị, số năm triển khai, lĩnh vực từng làm.",
-      en: "Core expertise and standout experience — degree, years shipping, domains worked in.",
+      vi: "Hơn 5 năm xây dựng và vận hành mô hình AI trên production — fine-tuning, đánh giá chất lượng và tích hợp hệ thống thực tế.",
+      en: "5+ years building and running production AI models — fine-tuning, quality evaluation, and real-world system integration.",
     },
-  },
-  {
-    id: "m4",
-    name: "[Tên chuyên gia]",
-    role: {
-      vi: "Chức danh · Lĩnh vực phụ trách",
-      en: "Title · Area of focus",
-    },
-    bio: {
-      vi: "Chuyên môn chính và kinh nghiệm nổi bật — học vị, số năm triển khai, lĩnh vực từng làm.",
-      en: "Core expertise and standout experience — degree, years shipping, domains worked in.",
-    },
-  },
+  }
 ];
 
 export const footerNav: { titleKey: string; items: NavItem[] }[] = [
