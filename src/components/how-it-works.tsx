@@ -10,18 +10,12 @@ export function HowItWorks() {
   return (
     <Section id="how-it-works" className="pt-0">
       <Container>
-        {/*
-          A framed band rather than a full-bleed one. It echoes the hero canvas
-          at half the intensity, which is what marks this as the one process
-          section on a page otherwise made of open grids.
-        */}
         <Frame className="border border-border bg-secondary px-6 py-14 sm:px-12 sm:py-20">
           <div
             aria-hidden
             className="pointer-events-none absolute -top-24 -right-24 -z-10 size-80 rounded-full bg-neon-soft blur-3xl"
           />
 
-          {/* Left-aligned like every other section heading on the page. */}
           <SectionHeading
             eyebrow={t("eyebrow")}
             title={t("title")}
@@ -29,10 +23,6 @@ export function HowItWorks() {
           />
 
           <ol className="relative mt-16 grid gap-10 md:grid-cols-3 md:gap-10">
-            {/*
-              Connector sits behind the numbers and stops at the first and last
-              marker instead of running to the section edges.
-            */}
             <div
               aria-hidden
               className="pointer-events-none absolute top-6 right-[16.67%] left-[16.67%] hidden h-px bg-border md:block"

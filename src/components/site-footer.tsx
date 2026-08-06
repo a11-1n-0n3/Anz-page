@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 
+import { BrandMark } from "@/components/brand-mark";
 import { Container } from "@/components/section";
 import { footerNav, siteConfig } from "@/lib/site";
 import { Link } from "@/i18n/navigation";
@@ -12,28 +12,11 @@ export function SiteFooter() {
   const tContact = useTranslations("contact");
 
   return (
-    /*
-     * The page closes on the same dark canvas it opened on. `surface-dark`
-     * re-declares the tokens, so every child below reads correctly without a
-     * single colour override of its own.
-     */
     <footer className="surface-dark mt-auto rounded-t-frame">
       <Container className="py-16">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2.5">
-              <Image
-                src="/assets/logo.png"
-                alt=""
-                width={28}
-                height={28}
-                /* Opaque white source PNG — see the note in site-header. */
-                className="size-7 rounded-md"
-              />
-              <p className="font-display text-[15px] font-bold tracking-[0.06em]">
-                {siteConfig.name}
-              </p>
-            </div>
+            <BrandMark size="md" />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               {tSite("description")}
             </p>

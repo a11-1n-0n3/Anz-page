@@ -11,23 +11,7 @@ import { ogLocales, routing, type Locale } from "@/i18n/routing";
 
 import "../globals.css";
 
-/**
- * Two faces, self-hosted via next/font — preloaded, subset, no layout shift.
- *
- * Both were checked against the Google Fonts metadata for a real `vietnamese`
- * subset (only 516 of 1942 families have one) and then rendered at 3x to
- * confirm the stacked marks — ằ ẵ ặ ỡ ự ỹ — sit correctly rather than falling
- * back mid-word. Popular picks like Instrument Serif, DM Serif Display,
- * Outfit, Sora and Figtree ship NO Vietnamese subset and break on this copy.
- *
- * Be Vietnam Pro carries the headings. It is a geometric sans — the register
- * the cyber palette needs, where the previous serif read as a heritage firm —
- * and it ships an ITALIC, which the hero headline depends on: the highlighted
- * clause is set in italic, not just recoloured.
- *
- * It is also drawn for Vietnamese specifically, so the stacked marks are a
- * design decision rather than a fallback.
- */
+// vietnamese subset required — many display fonts lack it
 const fontDisplay = Be_Vietnam_Pro({
   variable: "--font-display",
   subsets: ["latin", "vietnamese"],
@@ -36,7 +20,6 @@ const fontDisplay = Be_Vietnam_Pro({
   display: "swap",
 });
 
-/** Inter runs the body: neutral, dense, and legible at 14–15px. */
 const fontSans = Inter({
   variable: "--font-sans",
   subsets: ["latin", "vietnamese"],
@@ -44,7 +27,6 @@ const fontSans = Inter({
   display: "swap",
 });
 
-/** Pre-render both locales at build time — the pages stay fully static. */
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -61,17 +43,10 @@ export async function generateMetadata(
   const title = `${siteConfig.name} — ${t("tagline")}`;
   const description = t("description");
 
-  /** Home page per locale — Vietnamese is the default, so it has no prefix. */
   const isDefaultLocale = locale === routing.defaultLocale;
   const path = isDefaultLocale ? "/" : `/${locale}`;
 
-  /**
-   * Reference the shared image explicitly.
-   *
-   * `app/opengraph-image.tsx` sits outside `[locale]`, so Next generates the
-   * asset but does NOT attach it to this route's metadata — without these
-   * lines the pages ship no og:image at all and shared links have no preview.
-   */
+  // opengraph-image.tsx sits outside [locale] — must attach explicitly
   const ogImage = {
     url: "/opengraph-image",
     width: 1200,
@@ -80,20 +55,11 @@ export async function generateMetadata(
   };
 
   return {
-    /**
-     * REQUIRED. Without this, og:image resolves to a relative path and
-     * Facebook / LinkedIn / Zalo drop the preview image when a link is shared.
-     * Image itself comes from `app/opengraph-image.tsx` (one shared asset).
-     */
+    // Required — relative og:image paths break social previews
     metadataBase: new URL(siteConfig.url),
     title: { default: title, template: `%s | ${siteConfig.name}` },
     description,
     applicationName: siteConfig.name,
-    /**
-     * hreflang tells Google these two URLs are the same page in different
-     * languages, so neither is treated as duplicate content. Without it the
-     * English version barely gets indexed.
-     */
     alternates: {
       canonical: path,
       languages: {
@@ -126,7 +92,6 @@ export async function generateMetadata(
 }
 
 export const viewport: Viewport = {
-  /* The dark hero is the first thing painted — a white bar above it flashes. */
   themeColor: "#070d13",
   width: "device-width",
   initialScale: 1,
@@ -138,12 +103,10 @@ export default async function LocaleLayout({
 }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
 
-  // An unsupported locale such as /fr should 404 rather than render empty.
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
-  // Enables static rendering for every Server Component below.
   setRequestLocale(locale);
 
   return (
@@ -152,11 +115,6 @@ export default async function LocaleLayout({
       className={`${fontSans.variable} ${fontDisplay.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        {/*
-          Only messages a Client Component actually needs are shipped to the
-          browser. Everything else is translated on the server and costs no
-          bytes on the wire.
-        */}
         <NextIntlClientProvider>
           <SiteHeader />
           <main className="flex-1">{children}</main>

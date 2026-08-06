@@ -2,15 +2,6 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-/**
- * Layout primitives that carry the page's rhythm.
- *
- * The whole page uses ONE alignment rule: section headings are left-aligned.
- * Only the hero is centred, because it is the single moment where the page
- * speaks rather than explains. Mixing centred and left-aligned headings down
- * a long page forces the eye to re-anchor at every scroll stop.
- */
-
 export function Container({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -27,13 +18,6 @@ export function Section({
   return <section className={cn("py-20 sm:py-28", className)} {...props} />;
 }
 
-/**
- * Rounded canvas that content sits inside rather than running edge to edge.
- *
- * The hero uses it to become an object on the page. `overflow-hidden` is load
- * bearing: the wave backdrop is drawn well past the frame's bounds so the
- * curves stay smooth, and this is what crops them back to the radius.
- */
 export function Frame({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -46,13 +30,7 @@ export function Frame({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-/**
- * Small caps label above a heading.
- *
- * Uses `neon-ink`, not `neon` — this is text, and plain neon sits at 1.81:1
- * against white. Both tokens re-declare themselves inside `.surface-dark`, so
- * this reads correctly on either ground without a prop.
- */
+// neon-ink, not neon — plain neon is 1.81:1 on white
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <p className="inline-flex items-center gap-2 text-[13px] font-medium tracking-[0.14em] text-neon-ink uppercase">

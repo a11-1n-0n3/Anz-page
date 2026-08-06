@@ -13,15 +13,6 @@ import {
   type ContactInput,
 } from "@/lib/contact";
 
-/**
- * One of only two Client Components on the page (the other is the language
- * switcher). Everything else is a Server Component rendered to HTML, costing
- * no client JavaScript.
- *
- * The schema returns error KEYS ("emailInvalid"); this component maps them to
- * text in whichever language is active. That is what keeps a single schema
- * working for both Vietnamese and English.
- */
 export function ContactForm() {
   const t = useTranslations("form");
   const [serverErrorKey, setServerErrorKey] = useState<string | null>(null);
@@ -36,7 +27,6 @@ export function ContactForm() {
     defaultValues: { name: "", email: "", company: "", phone: "", message: "" },
   });
 
-  /** Turn a schema error key into translated text. */
   function errorText(key?: string) {
     return key ? t(`errors.${key}`) : undefined;
   }
@@ -71,7 +61,7 @@ export function ContactForm() {
       noValidate
       className="space-y-5 rounded-lg border border-border bg-card p-6 sm:p-8"
     >
-      {/* Honeypot — hidden from people, filled in by bots, blocked on the server */}
+      {/* honeypot */}
       <div aria-hidden className="absolute left-[-9999px]">
         <label htmlFor="website">Website</label>
         <input

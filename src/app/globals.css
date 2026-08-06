@@ -1,33 +1,15 @@
 @import "tailwindcss";
 
 /*
- * Cyber navy. The page runs two surfaces in one document:
- * light body sections, dark hero and footer.
- *
- * That split is handled by REDECLARING TOKENS inside `.surface-dark`, not by
- * scattering `dark:` variants through the components. A child never has to
- * know which ground it is standing on — it reads `--foreground` and gets the
- * right answer either way. Adding another dark band later is one class.
- *
- * TWO BLUES, ON PURPOSE:
- *   --neon      #22d3ee  decorative only (fills, borders, dots, gradients).
- *                        Contrast on white is 1.81:1 — far below the 4.5:1
- *                        WCAG AA floor, so it must never carry text.
- *   --neon-ink  #0b63c9  the text-safe blue. 5.45:1 on the page background
- *                        and 5.77:1 on card white. On the dark surface the
- *                        relationship inverts and it becomes #67e8f9.
- * Mixing them up is the easiest way to make the page fail an audit.
+ * Two surfaces via token redeclare on .surface-dark (not dark: variants).
+ * --neon: decorative only (1.81:1 on white — never text)
+ * --neon-ink: text-safe blue
  */
 
 :root {
-  /*
-   * Cool near-white rather than pure white, so cards and the raised panels
-   * read as surfaces sitting above the page instead of merging into it.
-   */
   --background: #f6f9fb;
   --foreground: #0b1620;
 
-  /* Cards sit ABOVE the tint, so they stay pure white. */
   --card: #ffffff;
   --card-foreground: #0b1620;
 
@@ -48,7 +30,6 @@
 
   --border: #dce5ec;
   --input: #dce5ec;
-  /* Focus ring must hit 3:1 against adjacent colours; --neon at 1.81:1 does not. */
   --ring: #0b63c9;
 
   --neon: #22d3ee;
@@ -59,13 +40,6 @@
   --frame-radius: 2.25rem;
 }
 
-/*
- * Dark surface — hero canvas, sticky header, footer.
- *
- * This replaced a `.dark` block that was dead code: the app has no theme
- * toggle and nothing ever set the class. Surface here follows POSITION on the
- * page, not a user preference.
- */
 .surface-dark {
   --background: #070d13;
   --foreground: #e6f1f8;
@@ -73,7 +47,6 @@
   --card: #0e1720;
   --card-foreground: #e6f1f8;
 
-  /* Buttons invert with the ground: light pill, dark label. */
   --primary: #e6f1f8;
   --primary-foreground: #070d13;
 
@@ -94,7 +67,6 @@
   --ring: #67e8f9;
 
   --neon: #22d3ee;
-  /* On a dark ground the relationship inverts: text blue must be LIGHTER. */
   --neon-ink: #67e8f9;
   --neon-soft: color-mix(in oklab, #22d3ee 18%, #0e1720);
 
@@ -130,27 +102,9 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 6px);
   --radius-sm: calc(var(--radius) - 10px);
-  /*
-   * Registered here so it can be used as `rounded-frame`. Tailwind 4 dropped
-   * v3's `rounded-[--var]` shorthand — that form silently produces nothing.
-   *
-   * The source variable is `--frame-radius`, deliberately NOT `--radius-frame`:
-   * `@theme` emits its own key into `:root`, so naming them the same would
-   * produce `--radius-frame: var(--radius-frame)` — a cycle, and the property
-   * drops out entirely at computed-value time.
-   */
+  /* Source is --frame-radius; naming it --radius-frame creates a cycle */
   --radius-frame: var(--frame-radius);
 
-  /*
-   * `rise` is a one-shot entrance — it stops, so it costs nothing once done.
-   *
-   * There used to be a `pulse-gold` loop on two 6px dots. Measured at 4x CPU
-   * throttle it forced a style recalc on EVERY frame forever (301 recalcs per
-   * 5s) and took the idle page from 97ms to 429ms of main-thread work — 4.4x,
-   * for decoration. `will-change` did not help; it was replaced with a static
-   * halo instead. The neon waves follow the same rule: drawn once, never
-   * animated.
-   */
   --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -176,30 +130,16 @@
     font-family: var(--font-sans), system-ui, sans-serif;
   }
 
-  /*
-   * Display face on headings only. Applied here rather than per-component so
-   * a new section cannot accidentally ship with the body face on its heading.
-   *
-   * Be Vietnam Pro replaced Fraunces: the geometric sans is what carries the
-   * cyber register, and it ships a real `vietnamese` subset with correct
-   * stacked marks. Tracking is pulled tighter than the serif needed — a
-   * geometric sans at display size reads loose at 0.
-   */
   h1,
   h2 {
     font-family: var(--font-display), system-ui, sans-serif;
     letter-spacing: -0.03em;
   }
 
-  /*
-   * Anchor jumps must clear the sticky header (h-16 = 4rem) plus breathing
-   * room, otherwise `#features` lands with its heading tucked underneath.
-   */
   :target {
     scroll-margin-top: 6rem;
   }
 
-  /* Section ids are the scroll targets even when not `:target` yet. */
   section[id] {
     scroll-margin-top: 6rem;
   }
@@ -210,8 +150,6 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
-    /* Delay must be reset too — otherwise entrance content stays invisible
-       for the full delay even though the animation itself is instant. */
     animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;

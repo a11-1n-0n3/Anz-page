@@ -1,9 +1,6 @@
 import { z } from "zod";
 
-/**
- * Shared client + server schema. Messages are translation KEYS — the UI maps
- * them through `t()` so one schema works for both locales.
- */
+// Error messages are translation keys — UI maps them through t()
 export const contactSchema = z.object({
   name: z.string().trim().min(2, "nameRequired").max(100, "nameTooLong"),
   email: z.email("emailInvalid").trim().toLowerCase().max(200),
@@ -24,8 +21,7 @@ export const contactSchema = z.object({
     .trim()
     .min(10, "messageTooShort")
     .max(2000, "messageTooLong"),
-  /** Honeypot — bots fill it; the action returns fake success. */
-  website: z.string().max(500).optional(),
+  website: z.string().max(500).optional(), // honeypot
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;

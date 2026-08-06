@@ -6,19 +6,6 @@ import { Container, Section, SectionHeading } from "@/components/section";
 import { team } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 
-/**
- * Experts section, placed immediately before the contact form.
- *
- * Buyers of AI services are buying people, not a boxed product — background,
- * publications and where someone worked before all move the decision. That
- * makes this a closing argument rather than an attention-grabber, so it sits
- * late in the page, right where the visitor is deciding whether to write.
- *
- * The section's own heading comes from `messages` (interface copy); each
- * person's name, role and bio come from `lib/site.ts` (a content record).
- *
- * Renders nothing when `team` is empty.
- */
 export function TeamGrid() {
   const t = useTranslations("team");
   const locale = useLocale() as Locale;
@@ -49,11 +36,7 @@ export function TeamGrid() {
                   className="aspect-square w-full rounded-2xl object-cover"
                 />
               ) : (
-                /*
-                 * TODO(anz): replace with a real portrait.
-                 * Neutral avatar on purpose — an invented face or name would
-                 * be a fabricated person on a page that sells trust.
-                 */
+                // TODO(anz): replace with a real portrait
                 <div
                   aria-hidden
                   className="flex aspect-square w-full items-center justify-center rounded-2xl border border-dashed border-border bg-[linear-gradient(160deg,var(--neon-soft),var(--secondary))]"

@@ -8,22 +8,10 @@ import { Button } from "@/components/button";
 import { mainNav } from "@/lib/site";
 import { Link } from "@/i18n/navigation";
 
-/**
- * Navigation for phones.
- *
- * Before this existed the header hid `nav` below `md` and hid the CTA below
- * `sm`, so a phone visitor had no way to reach any section or the contact
- * form except by scrolling the whole page.
- *
- * Client Component because the panel has to close on navigation — with the
- * links being same-page anchors, a JS-free `<details>` would stay open over
- * the content the visitor just jumped to.
- */
 export function MobileNav() {
   const t = useTranslations("nav");
   const [open, setOpen] = useState(false);
 
-  // Escape closes, and the page must not scroll behind the open panel.
   useEffect(() => {
     if (!open) return;
 

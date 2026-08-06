@@ -2,14 +2,7 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-/**
- * Fields use `bg-card` (white), NOT `bg-background`.
- *
- * The page background is a cool tint rather than white, so `bg-background`
- * renders the inputs grey inside the white form card — they read as disabled.
- * White on white plus the border is the correct pairing here.
- */
-
+// bg-card, not bg-background — page tint makes inputs look disabled inside the form card
 export function Input({ className, ...props }: React.ComponentProps<"input">) {
   return (
     <input

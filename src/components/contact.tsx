@@ -6,16 +6,6 @@ import { siteConfig } from "@/lib/site";
 
 import { ContactForm } from "./contact-form";
 
-/**
- * Two columns: the pitch and the contact details on the left, the form on the
- * right.
- *
- * Previously this was a centred heading with the form stacked underneath,
- * which left the heading floating over a narrow column and pushed the email
- * fallback below the fold. Side by side, the form is the visual anchor while
- * the direct-contact route stays visible next to it — for the visitors who
- * would rather send an email than fill in six fields.
- */
 export function Contact() {
   const t = useTranslations("contact");
 

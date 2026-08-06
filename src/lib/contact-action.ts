@@ -10,10 +10,6 @@ import {
   type ContactResult,
 } from "@/lib/contact";
 
-/**
- * Contact form Server Action. Schema stays in `contact.ts` so the client can
- * import it without pulling this server module into the browser bundle.
- */
 export async function createContactAction(
   input: ContactInput,
 ): Promise<ContactResult> {

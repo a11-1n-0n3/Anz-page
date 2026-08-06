@@ -7,17 +7,7 @@ import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 
-/**
- * Vietnamese ↔ English toggle.
- *
- * Uses next-intl's `usePathname` / `useRouter`, NOT the ones from
- * `next/navigation`: next-intl's `usePathname` strips the locale prefix, so on
- * `/en` it returns `/`. That is what lets switching languages stay on the
- * current page instead of always bouncing to the home page.
- *
- * `router.replace` also writes the locale cookie, so the choice sticks on the
- * next visit.
- */
+// usePathname/useRouter from i18n, not next/navigation — strips locale prefix
 export function LanguageSwitcher() {
   const t = useTranslations("languageSwitcher");
   const activeLocale = useLocale() as Locale;
@@ -52,7 +42,6 @@ export function LanguageSwitcher() {
             lang={locale}
             onClick={() => switchTo(locale)}
             disabled={isPending}
-            // Screen readers need to know which option is selected.
             aria-current={isActive ? "true" : undefined}
             className={cn(
               "rounded-full px-2.5 py-1 text-xs font-medium uppercase transition-colors",
@@ -62,7 +51,6 @@ export function LanguageSwitcher() {
                 : "text-muted-foreground hover:text-foreground",
             )}
           >
-            {/* Full name for screen readers, short code for sighted users */}
             <span className="sr-only">{t(locale)}</span>
             <span aria-hidden>{locale}</span>
           </button>
