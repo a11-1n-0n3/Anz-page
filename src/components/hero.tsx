@@ -13,14 +13,18 @@ export function Hero() {
   const tSite = useTranslations("site");
 
   return (
-    <Section className="py-0 sm:py-0">
+    <Section className="py-0 sm:py-0 mb-32">
       <div className="surface-dark relative isolate flex min-h-[min(88vh,52rem)] flex-col overflow-hidden bg-background px-5 pt-20 pb-10 sm:px-8 sm:pt-24 sm:pb-12">
         {/* Desktop only — no room for it beside the headline at 375px */}
         <Scanlines className="pointer-events-none absolute inset-0 -z-20 max-sm:hidden" />
 
         <div className="relative z-0 mx-auto flex w-full max-w-3xl flex-1 -translate-y-6 flex-col items-center justify-center text-center sm:-translate-y-10">
-          <p className="animate-rise inline-flex items-center gap-2 rounded-sm border border-border bg-card/70 px-3 py-1.5 text-[10px] font-medium tracking-[0.12em] text-foreground uppercase backdrop-blur-sm sm:px-3.5 sm:text-[12px] sm:tracking-[0.14em]">
-            <span aria-hidden className="size-1.5 bg-brand-ink" />
+          <p className="animate-rise inline-flex items-start gap-2 rounded-sm border border-border bg-card/70 px-3 py-1.5 text-[10px] font-medium tracking-[0.12em] text-foreground uppercase backdrop-blur-sm sm:px-3.5 sm:text-[12px] sm:tracking-[0.14em]">
+            {/* mt keeps the marker on line one when the tagline wraps */}
+            <span
+              aria-hidden
+              className="mt-[0.42em] size-1.5 shrink-0 bg-brand-ink"
+            />
             {tSite("tagline")}
           </p>
 

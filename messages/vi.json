@@ -1,12 +1,12 @@
 {
   "site": {
     "tagline": "AI ứng dụng cho sản xuất, tài chính, bán lẻ và giáo dục",
-    "description": "Chúng tôi nhận một bài toán vận hành cụ thể — đếm sản lượng trên dây chuyền, bóc tách chứng từ, dự báo tồn kho — rồi giao lại một hệ thống chạy được trong hạ tầng bạn đang có."
+    "description": "ANZ tiếp nhận một bài toán vận hành cụ thể — kiểm đếm sản lượng trên dây chuyền, trích xuất dữ liệu từ chứng từ, dự báo tồn kho — và bàn giao hệ thống vận hành được trên hạ tầng sẵn có của doanh nghiệp."
   },
   "nav": {
     "mainLabel": "Điều hướng chính",
     "features": "Bài toán",
-    "howItWorks": "Cách làm việc",
+    "howItWorks": "Quy trình triển khai",
     "contact": "Liên hệ",
     "careers": "Tuyển dụng",
     "team": "Đội ngũ"
@@ -17,90 +17,93 @@
     "en": "English"
   },
   "hero": {
-    "title": "Đưa AI vào <hl>hệ thống đang chạy</hl> của bạn",
-    "primaryCta": "Mô tả bài toán của bạn",
-    "secondaryCta": "Xem bài toán chúng tôi nhận"
+    "title": "Đưa AI vào <hl>hệ thống đang vận hành</hl>",
+    "primaryCta": "Đặt lịch tư vấn",
+    "secondaryCta": "Xem các bài toán triển khai"
   },
   "statement": {
-    "title": "Phần khó không nằm ở mô hình. Nó nằm ở chỗ đưa mô hình vào hệ thống đang chạy.",
-    "body": "Một mô hình đạt điểm cao trên tập kiểm thử vẫn có thể vô dụng trước camera lắp lệch, bản scan mờ hay dữ liệu nhập tay thiếu trường. Chúng tôi bắt đầu từ chỉ số nghiệp vụ bạn đang theo dõi, chứng minh trên phạm vi hẹp trước khi bàn giao, và ở lại theo dõi chất lượng khi dữ liệu thay đổi."
+    "title": "Thách thức không nằm ở mô hình, mà ở việc đưa mô hình vào hệ thống đang vận hành.",
+    "body": "Một mô hình đạt độ chính xác cao trên tập kiểm thử vẫn có thể không sử dụng được khi gặp góc đặt camera sai lệch, ảnh quét chất lượng thấp hoặc dữ liệu nhập liệu thủ công thiếu trường thông tin. ANZ khởi đầu từ chỉ số nghiệp vụ doanh nghiệp đang theo dõi, chứng minh hiệu quả trên phạm vi thí điểm trước khi bàn giao, và tiếp tục giám sát chất lượng mô hình khi đặc tính dữ liệu thay đổi."
   },
   "stats": {
-    "label": "ANZ qua vài con số"
+    "label": "ANZ qua các chỉ số",
+    "title": "Sẵn sàng triển khai bài toán đầu tiên?",
+    "body": "Đội ngũ kỹ sư ANZ tiếp nhận khảo sát, xây dựng bản thí điểm và bàn giao hệ thống vận hành trên hạ tầng sẵn có của doanh nghiệp.",
+    "cta": "Liên hệ với ANZ"
   },
   "partners": {
     "label": "Được tin dùng bởi"
   },
   "features": {
     "eyebrow": "Bài toán",
-    "title": "Những bài toán chúng tôi nhận",
-    "description": "Sáu bài toán vận hành trong sản xuất, tài chính, bán lẻ – logistics và giáo dục. Chúng tôi làm sâu vào số ít thay vì nhận mọi thứ.",
+    "title": "Các bài toán ANZ triển khai",
+    "description": "Sáu bài toán vận hành thuộc lĩnh vực sản xuất, tài chính – ngân hàng, bán lẻ – logistics và giáo dục. ANZ tập trung chuyên sâu vào số ít thay vì mở rộng phạm vi.",
     "items": {
       "vision": {
-        "title": "Giám sát dây chuyền và kho bằng camera sẵn có",
-        "description": "Đếm sản lượng, phát hiện lỗi và cảnh báo vi phạm an toàn từ chính luồng camera đang lắp. Không phải thay thiết bị — mô hình chạy trên máy đặt tại chỗ hoặc trên server của bạn."
+        "title": "Giám sát dây chuyền và kho vận trên hạ tầng camera sẵn có",
+        "description": "Kiểm đếm sản lượng, phát hiện lỗi sản phẩm và cảnh báo vi phạm an toàn lao động từ luồng camera đang vận hành. Không yêu cầu thay thế thiết bị — mô hình suy luận trên thiết bị biên đặt tại chỗ hoặc trên máy chủ nội bộ."
       },
       "education": {
-        "title": "Chấm bài và theo dõi tiến độ từng học viên",
-        "description": "Chấm tự luận kèm nhận xét, gợi ý lộ trình học bám theo điểm yếu của từng người, báo cáo tiến độ cho giáo viên. Sản phẩm AI Mentor của chúng tôi đi theo hướng này."
+        "title": "Chấm điểm tự động và theo dõi tiến độ từng học viên",
+        "description": "Chấm bài tự luận kèm nhận xét, cá nhân hoá lộ trình học theo năng lực từng học viên, báo cáo tiến độ cho giảng viên. Sản phẩm AI Mentor của ANZ được xây dựng theo định hướng này."
       },
       "conversational": {
-        "title": "Trợ lý trả lời dựa trên tài liệu nội bộ",
-        "description": "Nhân viên hỏi bằng tiếng Việt, hệ thống trả lời kèm trích dẫn đúng trang trong quy trình, hợp đồng hay sổ tay kỹ thuật. Không tìm thấy nguồn thì từ chối trả lời, không đoán."
+        "title": "Trợ lý hỏi đáp trên kho tài liệu nội bộ",
+        "description": "Nhân sự đặt câu hỏi bằng tiếng Việt, hệ thống phản hồi kèm trích dẫn đúng vị trí trong quy trình, hợp đồng hoặc tài liệu kỹ thuật. Khi không xác định được nguồn, hệ thống từ chối trả lời thay vì suy đoán."
       },
       "generative": {
-        "title": "Soạn thảo và tóm tắt trên dữ liệu của riêng bạn",
-        "description": "Soạn báo cáo, tóm tắt biên bản, rút tri thức từ kho tài liệu nội bộ. Nếu bạn yêu cầu dữ liệu không được rời hạ tầng, chúng tôi triển khai trong mạng của bạn."
+        "title": "Soạn thảo và tổng hợp nội dung trên dữ liệu nội bộ",
+        "description": "Soạn thảo báo cáo, tổng hợp biên bản, trích xuất tri thức từ kho tài liệu của doanh nghiệp. Trường hợp dữ liệu không được phép rời hạ tầng, ANZ triển khai trọn bộ trong mạng nội bộ."
       },
       "document": {
-        "title": "Bóc tách hoá đơn, hợp đồng và biểu mẫu scan",
-        "description": "Chuyển chứng từ giấy thành dữ liệu có cấu trúc đẩy thẳng vào ERP hoặc phần mềm kế toán. Trường nào mô hình không chắc thì đưa sang hàng đợi cho người kiểm, không điền bừa."
+        "title": "Trích xuất dữ liệu từ hoá đơn, hợp đồng và biểu mẫu",
+        "description": "Chuyển chứng từ giấy thành dữ liệu có cấu trúc, đồng bộ trực tiếp vào ERP hoặc phần mềm kế toán. Các trường có độ tin cậy thấp được chuyển sang quy trình kiểm duyệt thủ công thay vì tự động điền."
       },
       "predictive": {
-        "title": "Dự báo nhu cầu và cảnh báo bất thường sớm",
-        "description": "Dự báo tồn kho và đơn hàng cho bán lẻ – logistics, phát hiện giao dịch bất thường cho tài chính. Dựng trên dữ liệu lịch sử bạn đã có, không phải đi thu thập mới."
+        "title": "Dự báo nhu cầu và cảnh báo bất thường",
+        "description": "Dự báo tồn kho và đơn hàng cho bán lẻ – logistics, phát hiện giao dịch bất thường cho tài chính – ngân hàng. Xây dựng trên dữ liệu lịch sử sẵn có, không yêu cầu triển khai thu thập dữ liệu mới."
       }
     }
   },
   "howItWorks": {
-    "eyebrow": "Cách làm việc",
-    "title": "Từ bài toán tới hệ thống chạy thật",
-    "description": "Bạn nhìn thấy số liệu trước khi cam kết ngân sách lớn.",
+    "eyebrow": "Quy trình triển khai",
+    "title": "Từ bài toán nghiệp vụ đến hệ thống vận hành",
+    "description": "Doanh nghiệp có số liệu kiểm chứng trước khi phê duyệt ngân sách triển khai diện rộng.",
     "steps": {
       "discovery": {
-        "title": "Chốt chỉ số trước khi viết dòng code nào",
-        "description": "Chúng tôi hỏi hôm nay bạn đang đo cái gì và con số nào cần thay đổi. Nếu dữ liệu hiện có không đủ để chạm tới con số đó, bạn nghe điều này ngay ở bước này chứ không phải sau khi đã ký hợp đồng."
+        "title": "Thống nhất chỉ số nghiệp vụ trước khi phát triển",
+        "description": "ANZ xác định chỉ số doanh nghiệp đang theo dõi và mức cải thiện cần đạt. Trường hợp dữ liệu hiện có không đủ để đạt mức đó, doanh nghiệp được thông báo ngay tại bước này, trước khi ký kết hợp đồng."
       },
       "pilot": {
-        "title": "Chứng minh trên một phạm vi hẹp",
-        "description": "Một dây chuyền, một loại chứng từ, một chi nhánh. Bản chạy thử được đo bằng đúng chỉ số đã chốt, trên dữ liệu thật của bạn chứ không phải một tập mẫu sạch sẽ."
+        "title": "Chứng minh hiệu quả trên phạm vi thí điểm",
+        "description": "Một dây chuyền, một loại chứng từ hoặc một chi nhánh. Bản thí điểm được đo bằng đúng chỉ số đã thống nhất, trên dữ liệu thực tế của doanh nghiệp thay vì tập dữ liệu mẫu đã làm sạch."
       },
       "rollout": {
-        "title": "Tích hợp, rồi ở lại vận hành",
-        "description": "Nối vào ERP, hệ camera hay kho dữ liệu bạn đang chạy; theo dõi chất lượng mô hình sau bàn giao và huấn luyện lại khi dữ liệu đổi."
+        "title": "Tích hợp và đồng hành vận hành",
+        "description": "Tích hợp vào hệ thống ERP, mạng camera hoặc kho dữ liệu sẵn có; giám sát chất lượng mô hình sau bàn giao và tái huấn luyện khi đặc tính dữ liệu thay đổi."
       }
     }
   },
   "team": {
     "eyebrow": "Đội ngũ",
-    "title": "Người viết code chính là người bạn ngồi họp cùng",
-    "description": "Không có tầng bán hàng ở giữa. Kỹ sư khảo sát bài toán cũng là kỹ sư bàn giao hệ thống và trực khi có sự cố."
+    "title": "Kỹ sư phát triển hệ thống trực tiếp làm việc cùng doanh nghiệp",
+    "description": "Không qua tầng trung gian kinh doanh. Kỹ sư khảo sát bài toán cũng là người bàn giao hệ thống và chịu trách nhiệm xử lý sự cố sau triển khai."
   },
   "testimonials": {
-    "eyebrow": "Khách hàng nói gì",
-    "title": "Làm việc cùng ANZ",
-    "description": "Phản hồi từ những đội đã đưa hệ thống của chúng tôi vào vận hành thật."
+    "eyebrow": "Phản hồi khách hàng",
+    "title": "Hợp tác cùng ANZ",
+    "description": "Phản hồi từ các tổ chức đã đưa hệ thống của ANZ vào vận hành thực tế."
   },
   "insights": {
-    "eyebrow": "Góc nhìn",
-    "title": "Bài viết từ đội ngũ",
-    "description": "Ghi chép kỹ thuật và bài học rút ra từ các dự án AI đã triển khai.",
-    "readMore": "Đọc bài"
+    "eyebrow": "Góc nhìn chuyên môn",
+    "title": "Bài viết chuyên môn",
+    "description": "Ghi chép kỹ thuật và kinh nghiệm đúc kết từ các dự án AI đã triển khai.",
+    "readMore": "Đọc tiếp"
   },
   "contact": {
     "eyebrow": "Liên hệ",
-    "title": "Bắt đầu từ bài toán của bạn",
-    "description": "Nói ngắn gọn hôm nay bạn đang đo cái gì và muốn con số nào thay đổi. Chúng tôi phản hồi trong 1 ngày làm việc.",
+    "title": "Bắt đầu từ bài toán của doanh nghiệp",
+    "description": "Mô tả ngắn gọn chỉ số nghiệp vụ hiện tại và mục tiêu cần đạt. ANZ phản hồi trong vòng 01 ngày làm việc.",
     "orEmail": "Hoặc gửi email trực tiếp tới",
     "address": "Hà Nội, Việt Nam"
   },
@@ -109,12 +112,12 @@
     "email": "Email",
     "company": "Công ty",
     "phone": "Số điện thoại",
-    "message": "Bạn đang đo cái gì, và muốn con số nào thay đổi?",
+    "message": "Chỉ số nghiệp vụ hiện tại và mục tiêu cần đạt",
     "submit": "Gửi yêu cầu tư vấn",
     "submitting": "Đang gửi...",
-    "successTitle": "Đã nhận được thông tin của bạn",
-    "successBody": "Chúng tôi sẽ liên hệ lại trong vòng 1 ngày làm việc.",
-    "serverError": "Không gửi được lúc này. Vui lòng thử lại hoặc liên hệ trực tiếp qua email.",
+    "successTitle": "Đã tiếp nhận thông tin",
+    "successBody": "ANZ sẽ liên hệ lại trong vòng 01 ngày làm việc.",
+    "serverError": "Không thể gửi yêu cầu tại thời điểm này. Vui lòng thử lại hoặc liên hệ trực tiếp qua email.",
     "errors": {
       "nameRequired": "Vui lòng nhập họ tên",
       "nameTooLong": "Họ tên quá dài",
@@ -126,13 +129,13 @@
     }
   },
   "footer": {
-    "productGroup": "Khám phá",
+    "productGroup": "Dịch vụ",
     "companyGroup": "Công ty",
     "rights": "© {year} {name}. Bảo lưu mọi quyền."
   },
   "notFound": {
     "title": "Không tìm thấy trang",
-    "description": "Đường dẫn bạn truy cập không tồn tại hoặc đã được chuyển đi.",
+    "description": "Đường dẫn không tồn tại hoặc đã được chuyển đến địa chỉ khác.",
     "backHome": "Về trang chủ"
   }
 }
