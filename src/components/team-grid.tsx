@@ -33,13 +33,13 @@ export function TeamGrid() {
                   alt=""
                   width={320}
                   height={320}
-                  className="aspect-square w-full rounded-2xl object-cover"
+                  className="aspect-square w-full rounded-sm object-cover"
                 />
               ) : (
                 // TODO(anz): replace with a real portrait
                 <div
                   aria-hidden
-                  className="flex aspect-square w-full items-center justify-center rounded-2xl border border-dashed border-border bg-[linear-gradient(160deg,var(--neon-soft),var(--secondary))]"
+                  className="flex aspect-square w-full items-center justify-center rounded-sm border border-dashed border-border bg-[linear-gradient(160deg,var(--brand-soft),var(--secondary))]"
                 >
                   <User strokeWidth={1.25} className="size-10 text-muted-foreground/50" />
                 </div>
@@ -48,7 +48,7 @@ export function TeamGrid() {
               <h3 className="mt-5 text-base font-semibold tracking-tight">
                 {member.name}
               </h3>
-              <p className="mt-1 text-sm text-neon-ink">{member.role[locale]}</p>
+              <p className="mt-1 text-sm text-brand-ink">{member.role[locale]}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {member.bio[locale]}
               </p>

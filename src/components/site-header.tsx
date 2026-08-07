@@ -29,7 +29,7 @@ export function SiteHeader() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block rounded-full bg-white/[0.06] px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-white/[0.12] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                  className="block rounded-sm bg-white/[0.06] px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-white/[0.12] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
                 >
                   {t(item.labelKey)}
                 </Link>

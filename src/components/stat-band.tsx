@@ -17,7 +17,7 @@ export function StatBand() {
         <Frame className="surface-dark px-6 py-12 sm:px-12 sm:py-14">
           <div
             aria-hidden
-            className="pointer-events-none absolute -bottom-32 -left-20 -z-10 size-96 rounded-full bg-neon-soft blur-3xl"
+            className="pointer-events-none absolute -bottom-32 -left-20 -z-10 size-96 rounded-full bg-brand-soft blur-3xl"
           />
 
           <p className="text-center text-[12px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
@@ -29,7 +29,7 @@ export function StatBand() {
               <div key={stat.id} className="text-center">
                 <dt className="sr-only">{stat.label[locale]}</dt>
                 <dd>
-                  <span className="block text-4xl font-semibold tabular-nums text-neon-ink sm:text-5xl">
+                  <span className="block text-4xl font-semibold tabular-nums text-brand-ink sm:text-5xl">
                     {stat.value}
                   </span>
                   <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">

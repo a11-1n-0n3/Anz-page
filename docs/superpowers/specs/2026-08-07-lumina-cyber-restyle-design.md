@@ -421,7 +421,55 @@ công ty — khác với `partners` chỉ là wordmark. Xoá rỗng mảng thì 
 và đã sửa: dấu `·` phân cách trong thẻ Insights dùng `text-border`, 1.28:1 trên
 card trắng.
 
-## 11. Thứ tự triển khai
+## 11. Bổ sung — nền và màu theo composio.dev
+
+Yêu cầu: lấy nền và màu của Composio, kèm góc vuông.
+
+**Ba điều đo được trước khi làm:**
+
+1. Nền tối của Composio là **xám trung tính** `#0f0f0f`, không có hue. Navy
+   `#070d13` cũ là khác biệt dễ thấy nhất giữa hai trang.
+2. Brand `#0007cd` đạt 10.98:1 trên trắng nhưng **1.75:1 trên `#0f0f0f`**.
+   Composio không bao giờ đặt nó lên nền tối làm chữ — chỉ làm nền cho chữ
+   trắng. Nên `--brand-ink` phải nâng lên `#8b9bff` (7.51:1) ở bề mặt tối.
+3. Màu của Composio đến từ **tranh**, không từ giao diện. Chrome gần như đơn
+   sắc; toàn bộ màu nằm ở nền hero và khối gradient minh hoạ.
+
+**Token mới** (`--neon*` đổi tên thành `--brand*` — "neon" không còn đúng với
+ultramarine):
+
+| | sáng | tối |
+|---|---|---|
+| `--background` | `#f6f6f6` | `#0f0f0f` |
+| `--card` | `#ffffff` | `#1e1e1e` |
+| `--secondary` | `#ececec` | `#2a2a2a` |
+| `--muted-foreground` | `#666666` | `#a1a1a1` |
+| `--border` | `#e2e2e2` | `#2c2c2c` |
+| `--brand` (fill) | `#0007cd` | `#0007cd` |
+| `--brand-ink` (chữ) | `#0007cd` | `#8b9bff` |
+
+`--radius` 1.25rem → 0.375rem, `--frame-radius` 2.25rem → 0.75rem. Nút, input,
+nav pill, language switcher, ảnh team đều về gần vuông. Eyebrow thành tag có
+khung với marker vuông. Chữ **không** viết in hoa — tiếng Việt in hoa có dấu
+đọc khó hơn tiếng Anh.
+
+**`scanlines.tsx` thay `neon-waves.tsx`.** Sọc là một `<pattern>` dùng làm mask
+phủ lên 46 khối mỗi bên, không phải một `<rect>` cho mỗi vạch — vẽ từng vạch
+cần ~900 node cho cùng một bức hình.
+
+**Giới hạn đã biết: motif chỉ có ở desktop.** Field cố ý rỗng ở giữa để chữ
+canh giữa nằm trên nền phẳng, và ở 375px các cột rơi đúng chỗ headline. Đã thử
+ba cách và cả ba đều đưa sọc trở lại sau chữ:
+
+- thu hẹp viewBox → crop vẫn rơi vào vùng rỗng
+- cho SVG tràn ra ngoài khung → khung `overflow-hidden` cắt lại về giữa
+- xoá theo trục dọc thay vì ngang → cột rơi đúng dải headline
+
+Ở 375px không có chỗ cho cả hai. Hero mobile là nền phẳng `#0f0f0f`.
+
+**Đo lại:** 418 text run trên 3 khổ, 0 dưới AA.
+
+## 12. Thứ tự triển khai
 
 1. `globals.css` — token + `.surface-dark` (nền tảng cho mọi bước sau)
 2. `layout.tsx` — font + themeColor

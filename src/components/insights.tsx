@@ -42,12 +42,12 @@ export function Insights() {
                 ) : (
                   <div
                     aria-hidden
-                    className="aspect-[16/9] w-full bg-[linear-gradient(140deg,var(--neon-soft),var(--secondary))]"
+                    className="aspect-[16/9] w-full bg-[linear-gradient(140deg,var(--brand-soft),var(--secondary))]"
                   />
                 )}
 
                 <div className="p-6">
-                  <div className="flex items-center gap-3 text-[12px] font-medium tracking-[0.14em] text-neon-ink uppercase">
+                  <div className="flex items-center gap-3 text-[12px] font-medium tracking-[0.14em] text-brand-ink uppercase">
                     {post.tag[locale]}
                     {/* muted, not border: --border is 1.28:1 on card white */}
                     <span aria-hidden className="text-muted-foreground">
@@ -69,7 +69,7 @@ export function Insights() {
                     {post.title[locale]}
                   </h3>
 
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-neon-ink">
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-brand-ink">
                     {t("readMore")}
                     <ArrowUpRight
                       aria-hidden

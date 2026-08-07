@@ -30,11 +30,11 @@ export function Frame({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-// neon-ink, not neon — plain neon is 1.81:1 on white
+// Boxed tag, not bare small-caps. brand-ink not brand — brand is 1.75:1 on dark
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="inline-flex items-center gap-2 text-[13px] font-medium tracking-[0.14em] text-neon-ink uppercase">
-      <span aria-hidden className="size-1.5 rounded-full bg-neon" />
+    <p className="inline-flex items-center gap-2 rounded-sm border border-border px-2.5 py-1 text-[11px] font-medium tracking-[0.14em] text-foreground uppercase">
+      <span aria-hidden className="size-1.5 bg-brand-ink" />
       {children}
     </p>
   );

@@ -43,11 +43,11 @@ export function Testimonials() {
                   <Quote
                     aria-hidden
                     strokeWidth={1.5}
-                    className="size-6 text-neon-ink"
+                    className="size-6 text-brand-ink"
                   />
                 )}
 
-                <blockquote className="mt-5 text-pretty text-[15px] leading-relaxed text-neon-ink">
+                <blockquote className="mt-5 text-pretty text-[15px] leading-relaxed text-brand-ink">
                   {item.quote[locale]}
                 </blockquote>
 

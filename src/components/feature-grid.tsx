@@ -40,16 +40,16 @@ export function FeatureGrid() {
             >
               <div
                 aria-hidden
-                className="pointer-events-none absolute -top-16 -right-16 size-40 rounded-full bg-neon-soft opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
+                className="pointer-events-none absolute -top-16 -right-16 size-40 rounded-full bg-brand-soft opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
               />
 
               <span
                 aria-hidden
-                className="flex size-11 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--neon-soft),var(--card))] ring-1 ring-neon/25"
+                className="flex size-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,var(--brand-soft),var(--card))] ring-1 ring-brand/25"
               >
                 <feature.icon
                   strokeWidth={1.5}
-                  className="size-5 text-neon-ink"
+                  className="size-5 text-brand-ink"
                 />
               </span>
 

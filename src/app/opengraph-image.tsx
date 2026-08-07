@@ -17,16 +17,16 @@ export default function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #070d13 0%, #0e1720 55%, #10293b 100%)",
+          background: "linear-gradient(135deg, #0f0f0f 0%, #1e1e1e 60%, #141433 100%)",
         }}
       >
-        <div style={{ fontSize: 72, fontWeight: 700, color: "#e6f1f8" }}>
+        <div style={{ fontSize: 72, fontWeight: 700, color: "#ffffff" }}>
           {siteConfig.name}
         </div>
-        <div style={{ marginTop: 20, fontSize: 34, color: "#67e8f9" }}>
+        <div style={{ marginTop: 20, fontSize: 34, color: "#8b9bff" }}>
           {siteConfig.ogTagline}
         </div>
-        <div style={{ marginTop: 28, fontSize: 28, color: "#93a7b6" }}>
+        <div style={{ marginTop: 28, fontSize: 28, color: "#a1a1a1" }}>
           {siteConfig.url.replace(/^https?:\/\//, "")}
         </div>
       </div>

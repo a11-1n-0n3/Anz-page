@@ -13,7 +13,7 @@ export function HowItWorks() {
         <Frame className="border border-border bg-secondary px-6 py-14 sm:px-12 sm:py-20">
           <div
             aria-hidden
-            className="pointer-events-none absolute -top-24 -right-24 -z-10 size-80 rounded-full bg-neon-soft blur-3xl"
+            className="pointer-events-none absolute -top-24 -right-24 -z-10 size-80 rounded-full bg-brand-soft blur-3xl"
           />
 
           <SectionHeading
@@ -32,7 +32,7 @@ export function HowItWorks() {
               <li key={id} className="relative">
                 <span
                   aria-hidden
-                  className="relative z-10 flex size-12 items-center justify-center rounded-full bg-card text-sm font-semibold tabular-nums text-neon-ink ring-1 ring-neon/30"
+                  className="relative z-10 flex size-12 items-center justify-center rounded-full bg-card text-sm font-semibold tabular-nums text-brand-ink ring-1 ring-brand/30"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>

@@ -25,7 +25,7 @@ export function Contact() {
             <dl className="mt-10 space-y-5 border-t border-border pt-8">
               <div className="flex items-start gap-3">
                 <dt className="mt-0.5">
-                  <Mail aria-hidden strokeWidth={1.5} className="size-5 text-neon-ink" />
+                  <Mail aria-hidden strokeWidth={1.5} className="size-5 text-brand-ink" />
                   <span className="sr-only">{t("orEmail")}</span>
                 </dt>
                 <dd>
@@ -40,7 +40,7 @@ export function Contact() {
 
               <div className="flex items-start gap-3">
                 <dt className="mt-0.5">
-                  <MapPin aria-hidden strokeWidth={1.5} className="size-5 text-neon-ink" />
+                  <MapPin aria-hidden strokeWidth={1.5} className="size-5 text-brand-ink" />
                 </dt>
                 <dd className="text-[15px] text-muted-foreground">
                   {t("address")}

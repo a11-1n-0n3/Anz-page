@@ -28,7 +28,7 @@ export function LanguageSwitcher() {
       role="group"
       aria-label={t("label")}
       className={cn(
-        "flex items-center rounded-full border border-border p-0.5",
+        "flex items-center rounded-sm border border-border p-0.5",
         isPending && "opacity-60",
       )}
     >
@@ -44,7 +44,7 @@ export function LanguageSwitcher() {
             disabled={isPending}
             aria-current={isActive ? "true" : undefined}
             className={cn(
-              "rounded-full px-2.5 py-1 text-xs font-medium uppercase transition-colors",
+              "rounded-sm px-2.5 py-1 text-xs font-medium uppercase transition-colors",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
               isActive
                 ? "bg-secondary text-secondary-foreground"

@@ -2,7 +2,11 @@ import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -92,7 +96,7 @@ export async function generateMetadata(
 }
 
 export const viewport: Viewport = {
-  themeColor: "#070d13",
+  themeColor: "#0f0f0f",
   width: "device-width",
   initialScale: 1,
 };
@@ -108,6 +112,7 @@ export default async function LocaleLayout({
   }
 
   setRequestLocale(locale);
+  const messages = await getMessages();
 
   return (
     <html
@@ -115,7 +120,7 @@ export default async function LocaleLayout({
       className={`${fontSans.variable} ${fontDisplay.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <SiteHeader />
           <main className="flex-1">{children}</main>
           <SiteFooter />
