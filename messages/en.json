@@ -1,11 +1,11 @@
 {
   "site": {
-    "tagline": "Applied AI for real businesses",
-    "description": "ANZ puts AI into day-to-day operations — computer vision, language and conversational AI, AI for education, and predictive analytics."
+    "tagline": "Applied AI for manufacturing, finance, retail and education",
+    "description": "We take one concrete operational problem — counting output on a line, pulling data off paperwork, forecasting stock — and hand back a system running inside the infrastructure you already have."
   },
   "nav": {
     "mainLabel": "Main navigation",
-    "features": "Domains",
+    "features": "What we solve",
     "howItWorks": "How we work",
     "contact": "Contact",
     "careers": "Careers",
@@ -17,13 +17,13 @@
     "en": "English"
   },
   "hero": {
-    "title": "Put AI <hl>into production</hl> with {name}",
-    "primaryCta": "Book a consultation",
-    "secondaryCta": "See our domains"
+    "title": "Get AI into <hl>the systems you already run</hl>",
+    "primaryCta": "Describe your problem",
+    "secondaryCta": "See what we solve"
   },
   "statement": {
-    "title": "Real engineers, real systems, measurable outcomes.",
-    "body": "We do not sell demo models. Every project starts from one concrete business metric, proves itself on a narrow pilot, and only then goes into the systems you already run — and we stay on to watch quality after handover."
+    "title": "The model is not the hard part. Getting it into a system that is already running is.",
+    "body": "A model that scores well on a test set can still be useless against a badly angled camera, a blurred scan, or hand-typed records with fields missing. We start from the business metric you already track, prove it on a narrow scope before handover, and stay on to watch quality as the data shifts."
   },
   "stats": {
     "label": "ANZ in numbers"
@@ -32,59 +32,59 @@
     "label": "Trusted by"
   },
   "features": {
-    "eyebrow": "Domains",
-    "title": "Where we work",
-    "description": "We go deep in a handful of AI domains rather than taking on everything — deep enough to ship into real systems.",
+    "eyebrow": "What we solve",
+    "title": "The problems we take on",
+    "description": "Six operational problems across manufacturing, finance, retail and logistics, and education. We go deep on a few rather than taking on everything.",
     "items": {
       "vision": {
-        "title": "Computer vision",
-        "description": "Detects people, vehicles, objects and unusual behaviour in camera feeds. Applied to security monitoring, access control and production-line inspection."
+        "title": "Watch lines and warehouses with the cameras already installed",
+        "description": "Count output, catch defects and flag safety breaches from the feeds you already have. No hardware swap — the model runs on an edge box on site or on your own server."
       },
       "education": {
-        "title": "AI for education",
-        "description": "Personalised learning paths, automated grading and feedback, per-learner progress tracking. Flagship product: AI Mentor."
+        "title": "Mark work and track each learner's progress",
+        "description": "Written feedback on open answers, learning paths that follow each learner's gaps, progress reports for teachers. Our AI Mentor product is built along these lines."
       },
       "conversational": {
-        "title": "Language and assistants",
-        "description": "Assistants grounded in internal documentation, text classification and summarisation, automated customer support."
+        "title": "An assistant that answers from your own documents",
+        "description": "Staff ask in plain Vietnamese and get an answer citing the exact page of the procedure, contract or manual. When it cannot find a source it declines rather than guesses."
       },
       "generative": {
-        "title": "Generative AI",
-        "description": "Content generation, summarisation and knowledge extraction over your own data, with traceable sources."
+        "title": "Drafting and summarising on top of your own data",
+        "description": "Draft reports, summarise minutes, pull knowledge out of an internal document store. If the data may not leave your infrastructure, we deploy inside your network."
       },
       "document": {
-        "title": "Document intelligence",
-        "description": "Extracts structured data from invoices, contracts and scanned forms, replacing manual data entry."
+        "title": "Read invoices, contracts and scanned forms",
+        "description": "Turn paper into structured records that go straight into your ERP or accounting software. Fields the model is unsure of go to a review queue instead of being filled in blind."
       },
       "predictive": {
-        "title": "Analytics and forecasting",
-        "description": "Demand forecasting, anomaly detection and early risk warnings built on your historical data."
+        "title": "Forecast demand and flag anomalies early",
+        "description": "Stock and order forecasting for retail and logistics, anomaly detection for finance. Built on the history you already hold, not on a new data collection project."
       }
     }
   },
   "howItWorks": {
     "eyebrow": "How we work",
-    "title": "From idea to a system in production",
-    "description": "We prove the value with numbers before you commit to a large investment.",
+    "title": "From the problem to a system in production",
+    "description": "You see the numbers before you commit a large budget.",
     "steps": {
       "discovery": {
-        "title": "Scope the problem and the data",
-        "description": "Clarify the business goal, assess the data you already hold, and agree on success metrics up front."
+        "title": "Agree the number before any code is written",
+        "description": "We ask what you measure today and which figure has to move. If the data you hold cannot get to that figure, you hear it at this step rather than after the contract is signed."
       },
       "pilot": {
-        "title": "Build a working pilot",
-        "description": "A functioning proof of concept within 4–6 weeks on a narrow scope, measured against the metrics we agreed."
+        "title": "Prove it on a narrow scope",
+        "description": "One line, one document type, one branch. The pilot is measured on the figure we agreed, against your real data rather than a clean sample set."
       },
       "rollout": {
-        "title": "Deploy and operate",
-        "description": "Integrate with your existing systems, monitor model quality, and retrain on a schedule as the data shifts."
+        "title": "Integrate, then stay on",
+        "description": "Wire into the ERP, camera network or data store you already run; watch model quality after handover and retrain when the data shifts."
       }
     }
   },
   "team": {
-    "eyebrow": "Our experts",
-    "title": "The specialists behind your project",
-    "description": "AI engineers and researchers who have taken systems into production, involved directly from the first assessment through to handover."
+    "eyebrow": "The team",
+    "title": "The engineers who build it are the ones in the room",
+    "description": "No sales layer in between. The engineer who scopes the problem is the engineer who hands the system over and picks up the phone when it breaks."
   },
   "testimonials": {
     "eyebrow": "Client voices",
@@ -100,7 +100,7 @@
   "contact": {
     "eyebrow": "Contact",
     "title": "Start with your problem",
-    "description": "Describe what you're up against and we'll get back to you within one business day.",
+    "description": "Tell us briefly what you measure today and which number you want to move. We reply within one business day.",
     "orEmail": "Or email us directly at",
     "address": "Hanoi, Vietnam"
   },
@@ -109,7 +109,7 @@
     "email": "Email",
     "company": "Company",
     "phone": "Phone number",
-    "message": "The problem you want solved",
+    "message": "What do you measure today, and which number should move?",
     "submit": "Request a consultation",
     "submitting": "Sending...",
     "successTitle": "We've got your details",

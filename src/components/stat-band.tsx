@@ -24,7 +24,7 @@ export function StatBand() {
             {t("label")}
           </p>
 
-          <dl className="mt-10 grid gap-8 sm:grid-cols-3 sm:gap-6">
+          <dl className="mt-10 grid gap-8 sm:grid-cols-2 sm:gap-6">
             {stats.map((stat) => (
               <div key={stat.id} className="text-center">
                 <dt className="sr-only">{stat.label[locale]}</dt>

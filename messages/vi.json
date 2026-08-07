@@ -1,12 +1,12 @@
 {
   "site": {
-    "tagline": "Giải pháp AI ứng dụng cho doanh nghiệp",
-    "description": "ANZ triển khai AI vào vận hành thực tế — thị giác máy tính, xử lý ngôn ngữ, AI cho giáo dục và phân tích dự báo."
+    "tagline": "AI ứng dụng cho sản xuất, tài chính, bán lẻ và giáo dục",
+    "description": "Chúng tôi nhận một bài toán vận hành cụ thể — đếm sản lượng trên dây chuyền, bóc tách chứng từ, dự báo tồn kho — rồi giao lại một hệ thống chạy được trong hạ tầng bạn đang có."
   },
   "nav": {
     "mainLabel": "Điều hướng chính",
-    "features": "Lĩnh vực",
-    "howItWorks": "Cách triển khai",
+    "features": "Bài toán",
+    "howItWorks": "Cách làm việc",
     "contact": "Liên hệ",
     "careers": "Tuyển dụng",
     "team": "Đội ngũ"
@@ -17,13 +17,13 @@
     "en": "English"
   },
   "hero": {
-    "title": "Đưa AI vào <hl>vận hành thực tế</hl> cùng {name}",
-    "primaryCta": "Đặt lịch tư vấn",
-    "secondaryCta": "Xem lĩnh vực"
+    "title": "Đưa AI vào <hl>hệ thống đang chạy</hl> của bạn",
+    "primaryCta": "Mô tả bài toán của bạn",
+    "secondaryCta": "Xem bài toán chúng tôi nhận"
   },
   "statement": {
-    "title": "Kỹ sư thật, hệ thống thật, kết quả đo được.",
-    "body": "Chúng tôi không bán mô hình demo. Mỗi dự án bắt đầu bằng một chỉ số nghiệp vụ cụ thể, chạy thử trên phạm vi hẹp để chứng minh, rồi mới tích hợp vào hệ thống đang vận hành của bạn — và ở lại theo dõi chất lượng sau khi bàn giao."
+    "title": "Phần khó không nằm ở mô hình. Nó nằm ở chỗ đưa mô hình vào hệ thống đang chạy.",
+    "body": "Một mô hình đạt điểm cao trên tập kiểm thử vẫn có thể vô dụng trước camera lắp lệch, bản scan mờ hay dữ liệu nhập tay thiếu trường. Chúng tôi bắt đầu từ chỉ số nghiệp vụ bạn đang theo dõi, chứng minh trên phạm vi hẹp trước khi bàn giao, và ở lại theo dõi chất lượng khi dữ liệu thay đổi."
   },
   "stats": {
     "label": "ANZ qua vài con số"
@@ -32,59 +32,59 @@
     "label": "Được tin dùng bởi"
   },
   "features": {
-    "eyebrow": "Lĩnh vực",
-    "title": "Những mảng chúng tôi làm",
-    "description": "Chúng tôi tập trung vào một số lĩnh vực AI thay vì nhận mọi thứ — đủ sâu để triển khai được vào hệ thống thật.",
+    "eyebrow": "Bài toán",
+    "title": "Những bài toán chúng tôi nhận",
+    "description": "Sáu bài toán vận hành trong sản xuất, tài chính, bán lẻ – logistics và giáo dục. Chúng tôi làm sâu vào số ít thay vì nhận mọi thứ.",
     "items": {
       "vision": {
-        "title": "Thị giác máy tính",
-        "description": "Nhận diện người, phương tiện, vật thể và hành vi bất thường từ luồng camera. Ứng dụng trong giám sát an ninh, kiểm soát ra vào và giám sát dây chuyền sản xuất."
+        "title": "Giám sát dây chuyền và kho bằng camera sẵn có",
+        "description": "Đếm sản lượng, phát hiện lỗi và cảnh báo vi phạm an toàn từ chính luồng camera đang lắp. Không phải thay thiết bị — mô hình chạy trên máy đặt tại chỗ hoặc trên server của bạn."
       },
       "education": {
-        "title": "AI cho giáo dục",
-        "description": "Cá nhân hoá lộ trình học, chấm và phản hồi tự động, theo dõi tiến độ từng học viên. Sản phẩm tiêu biểu: AI Mentor."
+        "title": "Chấm bài và theo dõi tiến độ từng học viên",
+        "description": "Chấm tự luận kèm nhận xét, gợi ý lộ trình học bám theo điểm yếu của từng người, báo cáo tiến độ cho giáo viên. Sản phẩm AI Mentor của chúng tôi đi theo hướng này."
       },
       "conversational": {
-        "title": "Ngôn ngữ và trợ lý ảo",
-        "description": "Trợ lý trả lời dựa trên tài liệu nội bộ, tổng hợp và phân loại văn bản, hỗ trợ khách hàng tự động."
+        "title": "Trợ lý trả lời dựa trên tài liệu nội bộ",
+        "description": "Nhân viên hỏi bằng tiếng Việt, hệ thống trả lời kèm trích dẫn đúng trang trong quy trình, hợp đồng hay sổ tay kỹ thuật. Không tìm thấy nguồn thì từ chối trả lời, không đoán."
       },
       "generative": {
-        "title": "AI tạo sinh",
-        "description": "Sinh nội dung, tóm tắt và trích xuất tri thức trên dữ liệu riêng của doanh nghiệp, có kiểm soát nguồn trích dẫn."
+        "title": "Soạn thảo và tóm tắt trên dữ liệu của riêng bạn",
+        "description": "Soạn báo cáo, tóm tắt biên bản, rút tri thức từ kho tài liệu nội bộ. Nếu bạn yêu cầu dữ liệu không được rời hạ tầng, chúng tôi triển khai trong mạng của bạn."
       },
       "document": {
-        "title": "Trí tuệ tài liệu",
-        "description": "Bóc tách dữ liệu có cấu trúc từ hoá đơn, hợp đồng và biểu mẫu scan, thay thế công đoạn nhập liệu thủ công."
+        "title": "Bóc tách hoá đơn, hợp đồng và biểu mẫu scan",
+        "description": "Chuyển chứng từ giấy thành dữ liệu có cấu trúc đẩy thẳng vào ERP hoặc phần mềm kế toán. Trường nào mô hình không chắc thì đưa sang hàng đợi cho người kiểm, không điền bừa."
       },
       "predictive": {
-        "title": "Phân tích và dự báo",
-        "description": "Dự báo nhu cầu, phát hiện bất thường và cảnh báo sớm rủi ro dựa trên dữ liệu lịch sử của doanh nghiệp."
+        "title": "Dự báo nhu cầu và cảnh báo bất thường sớm",
+        "description": "Dự báo tồn kho và đơn hàng cho bán lẻ – logistics, phát hiện giao dịch bất thường cho tài chính. Dựng trên dữ liệu lịch sử bạn đã có, không phải đi thu thập mới."
       }
     }
   },
   "howItWorks": {
-    "eyebrow": "Cách triển khai",
-    "title": "Từ ý tưởng tới hệ thống chạy thật",
-    "description": "Chúng tôi chứng minh hiệu quả bằng số liệu trước khi bạn cam kết đầu tư lớn.",
+    "eyebrow": "Cách làm việc",
+    "title": "Từ bài toán tới hệ thống chạy thật",
+    "description": "Bạn nhìn thấy số liệu trước khi cam kết ngân sách lớn.",
     "steps": {
       "discovery": {
-        "title": "Khảo sát bài toán và dữ liệu",
-        "description": "Làm rõ mục tiêu nghiệp vụ, đánh giá dữ liệu hiện có và xác định chỉ số thành công ngay từ đầu."
+        "title": "Chốt chỉ số trước khi viết dòng code nào",
+        "description": "Chúng tôi hỏi hôm nay bạn đang đo cái gì và con số nào cần thay đổi. Nếu dữ liệu hiện có không đủ để chạm tới con số đó, bạn nghe điều này ngay ở bước này chứ không phải sau khi đã ký hợp đồng."
       },
       "pilot": {
-        "title": "Xây dựng bản chạy thử",
-        "description": "Giao một bản PoC hoạt động được trong 4–6 tuần trên phạm vi hẹp, đo bằng đúng chỉ số đã thống nhất."
+        "title": "Chứng minh trên một phạm vi hẹp",
+        "description": "Một dây chuyền, một loại chứng từ, một chi nhánh. Bản chạy thử được đo bằng đúng chỉ số đã chốt, trên dữ liệu thật của bạn chứ không phải một tập mẫu sạch sẽ."
       },
       "rollout": {
-        "title": "Triển khai và vận hành",
-        "description": "Tích hợp vào hệ thống sẵn có, theo dõi chất lượng mô hình và huấn luyện lại định kỳ khi dữ liệu thay đổi."
+        "title": "Tích hợp, rồi ở lại vận hành",
+        "description": "Nối vào ERP, hệ camera hay kho dữ liệu bạn đang chạy; theo dõi chất lượng mô hình sau bàn giao và huấn luyện lại khi dữ liệu đổi."
       }
     }
   },
   "team": {
-    "eyebrow": "Đội ngũ chuyên gia",
-    "title": "Chuyên gia đồng hành cùng dự án của bạn",
-    "description": "Kỹ sư và nhà nghiên cứu AI có kinh nghiệm đưa hệ thống vào vận hành ở quy mô sản xuất, tham gia trực tiếp từ khâu khảo sát tới khi bàn giao."
+    "eyebrow": "Đội ngũ",
+    "title": "Người viết code chính là người bạn ngồi họp cùng",
+    "description": "Không có tầng bán hàng ở giữa. Kỹ sư khảo sát bài toán cũng là kỹ sư bàn giao hệ thống và trực khi có sự cố."
   },
   "testimonials": {
     "eyebrow": "Khách hàng nói gì",
@@ -100,7 +100,7 @@
   "contact": {
     "eyebrow": "Liên hệ",
     "title": "Bắt đầu từ bài toán của bạn",
-    "description": "Mô tả ngắn gọn vấn đề đang gặp, chúng tôi sẽ phản hồi trong 1 ngày làm việc.",
+    "description": "Nói ngắn gọn hôm nay bạn đang đo cái gì và muốn con số nào thay đổi. Chúng tôi phản hồi trong 1 ngày làm việc.",
     "orEmail": "Hoặc gửi email trực tiếp tới",
     "address": "Hà Nội, Việt Nam"
   },
@@ -109,7 +109,7 @@
     "email": "Email",
     "company": "Công ty",
     "phone": "Số điện thoại",
-    "message": "Bài toán bạn muốn giải",
+    "message": "Bạn đang đo cái gì, và muốn con số nào thay đổi?",
     "submit": "Gửi yêu cầu tư vấn",
     "submitting": "Đang gửi...",
     "successTitle": "Đã nhận được thông tin của bạn",

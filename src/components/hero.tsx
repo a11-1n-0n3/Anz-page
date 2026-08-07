@@ -5,7 +5,6 @@ import { Button } from "@/components/button";
 import { Scanlines } from "@/components/scanlines";
 import { Section } from "@/components/section";
 import { PartnerStrip } from "@/components/partner-strip";
-import { siteConfig } from "@/lib/site";
 import { Link } from "@/i18n/navigation";
 
 // py-0 sm:py-0 — twMerge leaves sm:py-28 if only p-0 is passed
@@ -27,7 +26,6 @@ export function Hero() {
 
           <h1 className="animate-rise mx-auto mt-4 max-w-3xl text-balance text-[2.5rem] leading-[1.06] font-semibold text-foreground sm:text-6xl lg:text-[4.25rem] [animation-delay:80ms]">
             {t.rich("title", {
-              name: siteConfig.name,
               hl: (chunks) => (
                 <span className="italic text-brand-ink">{chunks}</span>
               ),

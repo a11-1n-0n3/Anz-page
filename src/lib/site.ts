@@ -100,23 +100,16 @@ export const team: TeamMember[] = [
 export type Stat = { id: string; value: string; label: Localized };
 
 export const stats: Stat[] = [
+  // ⚠ REPLACE THE TWO VALUES. Labels are final; the numbers are yours.
   {
-    id: "s1",
-    value: "XX+",
-    label: {
-      vi: "hệ thống đã đưa vào vận hành",
-      en: "systems taken into production",
-    },
-  },
-  {
-    id: "s2",
+    id: "years",
     value: "XX",
-    label: { vi: "lĩnh vực AI chuyên sâu", en: "AI domains we go deep in" },
+    label: { vi: "năm hoạt động", en: "years in business" },
   },
   {
-    id: "s3",
-    value: "X–X",
-    label: { vi: "tuần cho một bản chạy thử", en: "weeks to a working pilot" },
+    id: "engineers",
+    value: "XX",
+    label: { vi: "kỹ sư trong đội", en: "engineers on the team" },
   },
 ];
 
