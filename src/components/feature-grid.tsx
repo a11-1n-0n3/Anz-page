@@ -36,16 +36,16 @@ export function FeatureGrid() {
           {features.map((feature) => (
             <li
               key={feature.id}
-              className="group relative overflow-hidden rounded-lg border border-border bg-card p-7 transition-shadow duration-300 hover:shadow-[0_18px_40px_-24px_rgba(11,22,32,0.35)]"
+              className="group relative overflow-hidden rounded-lg border border-border bg-card p-7 transition-[transform,border-color,box-shadow,background-color] duration-300 ease-out hover:-translate-y-1.5 hover:border-brand/40 hover:bg-brand-soft/40 hover:shadow-[0_22px_44px_-20px_rgba(0,7,205,0.35)]"
             >
               <div
                 aria-hidden
-                className="pointer-events-none absolute -top-16 -right-16 size-40 rounded-full bg-brand-soft opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
+                className="pointer-events-none absolute -top-16 -right-16 size-44 rounded-full bg-brand/20 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
               />
 
               <span
                 aria-hidden
-                className="flex size-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,var(--brand-soft),var(--card))] ring-1 ring-brand/25"
+                className="flex size-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,var(--brand-soft),var(--card))] ring-1 ring-brand/25 transition-[transform,background-color,box-shadow] duration-300 ease-out group-hover:scale-110 group-hover:bg-brand-soft group-hover:shadow-[0_10px_24px_-10px_rgba(0,7,205,0.45)] group-hover:ring-brand/40"
               >
                 <feature.icon
                   strokeWidth={1.5}
@@ -53,10 +53,10 @@ export function FeatureGrid() {
                 />
               </span>
 
-              <h3 className="mt-5 text-base font-semibold tracking-tight sm:text-lg">
+              <h3 className="mt-5 text-base font-semibold tracking-tight transition-colors duration-300 group-hover:text-brand-ink sm:text-lg">
                 {t(`items.${feature.id}.title`)}
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground sm:text-[15px]">
+              <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground/80 sm:text-[15px]">
                 {t(`items.${feature.id}.description`)}
               </p>
             </li>

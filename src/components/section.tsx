@@ -15,7 +15,7 @@ export function Section({
   className,
   ...props
 }: React.ComponentProps<"section">) {
-  return <section className={cn("py-20 sm:py-28", className)} {...props} />;
+  return <section className={cn("pb-20 sm:pb-28", className)} {...props} />;
 }
 
 export function Frame({ className, ...props }: React.ComponentProps<"div">) {

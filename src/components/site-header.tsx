@@ -24,12 +24,12 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label={t("mainLabel")} className="hidden md:block">
-          <ul className="flex items-center gap-1.5">
+          <ul className="flex items-center gap-6">
             {mainNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block rounded-sm bg-white/[0.06] px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-white/[0.12] hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                  className="block px-2.5 py-1.5 text-sm font-medium text-foreground underline decoration-transparent underline-offset-[6px] transition-colors hover:decoration-current focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
                 >
                   {t(item.labelKey)}
                 </Link>
@@ -40,7 +40,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher />
-          <Button asChild size="sm" className="hidden md:inline-flex">
+          <Button asChild size="sm" variant="brand" className="hidden md:inline-flex">
             <Link href="/#contact">
               <ArrowUpRight aria-hidden strokeWidth={2} className="size-4" />
               {t("contact")}

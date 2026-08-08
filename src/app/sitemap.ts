@@ -1,27 +1,42 @@
 import type { MetadataRoute } from "next";
 
-import { siteConfig } from "@/lib/site";
+import { posts, siteConfig } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 
-// TODO(anz): once there is a blog, emit one entry per post per locale
-export default function sitemap(): MetadataRoute.Sitemap {
-  const languages = Object.fromEntries(
-    routing.locales.map((locale) => [
-      locale,
-      locale === routing.defaultLocale
-        ? siteConfig.url
-        : `${siteConfig.url}/${locale}`,
-    ]),
-  );
+const staticPaths = ["", "/team", "/blog", "/careers"] as const;
 
-  return routing.locales.map((locale) => ({
-    url:
-      locale === routing.defaultLocale
-        ? siteConfig.url
-        : `${siteConfig.url}/${locale}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: locale === routing.defaultLocale ? 1 : 0.8,
-    alternates: { languages },
-  }));
+function localeUrl(locale: string, path: string) {
+  const base =
+    locale === routing.defaultLocale
+      ? siteConfig.url
+      : `${siteConfig.url}/${locale}`;
+  return path ? `${base}${path}` : base;
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const postPaths = posts.map((p) => `/blog/${p.slug}`);
+  const paths = [...staticPaths, ...postPaths];
+
+  return routing.locales.flatMap((locale) =>
+    paths.map((path) => {
+      const languages = Object.fromEntries(
+        routing.locales.map((l) => [l, localeUrl(l, path)]),
+      );
+
+      return {
+        url: localeUrl(locale, path),
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority:
+          path === ""
+            ? locale === routing.defaultLocale
+              ? 1
+              : 0.8
+            : path.startsWith("/blog/")
+              ? 0.5
+              : 0.6,
+        alternates: { languages },
+      };
+    }),
+  );
 }

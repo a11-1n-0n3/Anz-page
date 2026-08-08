@@ -1,6 +1,9 @@
+import { ArrowRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
+import { Button } from "@/components/button";
 import { Container, Frame, Section } from "@/components/section";
+import { Link } from "@/i18n/navigation";
 import { stats } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
 
@@ -20,16 +23,12 @@ export function StatBand() {
             className="pointer-events-none absolute -bottom-32 -left-20 -z-10 size-96 rounded-full bg-brand-soft blur-3xl"
           />
 
-          <p className="text-center text-[12px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-            {t("label")}
-          </p>
-
-          <dl className="mt-10 grid gap-8 sm:grid-cols-2 sm:gap-6">
+          <dl className="grid gap-8 sm:grid-cols-2 sm:gap-6">
             {stats.map((stat) => (
               <div key={stat.id} className="text-center">
                 <dt className="sr-only">{stat.label[locale]}</dt>
                 <dd>
-                  <span className="block text-4xl font-semibold tabular-nums text-brand-ink sm:text-5xl">
+                  <span className="block text-4xl font-semibold tabular-nums text-white sm:text-5xl">
                     {stat.value}
                   </span>
                   <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
@@ -39,6 +38,37 @@ export function StatBand() {
               </div>
             ))}
           </dl>
+
+          <div className="relative mt-12">
+            <div
+              aria-hidden
+              className="absolute top-0 left-0 h-5 w-20 rounded-tl-[var(--frame-radius)] bg-brand"
+            />
+            <div className="mt-5 rounded-frame rounded-tl-none bg-brand px-6 py-8 text-white sm:px-10 sm:py-9">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
+                <div className="min-w-0 max-w-xl">
+                  <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
+                    {t("title")}
+                  </h2>
+                  <p className="mt-2 text-pretty text-sm leading-relaxed text-white/85 sm:text-base">
+                    {t("body")}
+                  </p>
+                </div>
+
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="shrink-0 border-white/80 bg-transparent text-white hover:bg-white/10 hover:text-white"
+                >
+                  <Link href="/#contact">
+                    {t("cta")}
+                    <ArrowRight aria-hidden className="size-4" strokeWidth={2} />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
         </Frame>
       </Container>
     </Section>

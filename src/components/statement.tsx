@@ -1,11 +1,11 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { Container, Section } from "@/components/section";
 
 // Asymmetric on purpose — breaks the "eyebrow + heading + even grid" rhythm
 // that every other section on the page repeats.
-export function Statement() {
-  const t = useTranslations("statement");
+export async function Statement() {
+  const t = await getTranslations("statement");
 
   return (
     <Section className="pb-0">

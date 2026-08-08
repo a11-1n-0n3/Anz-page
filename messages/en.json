@@ -8,8 +8,9 @@
     "features": "What we solve",
     "howItWorks": "How we work",
     "contact": "Contact",
+    "blog": "Blog",
     "careers": "Careers",
-    "team": "Team"
+    "team": "Our people"
   },
   "languageSwitcher": {
     "label": "Language",
@@ -22,11 +23,14 @@
     "secondaryCta": "See what we solve"
   },
   "statement": {
-    "title": "The model is not the hard part. Getting it into a system that is already running is.",
-    "body": "A model that scores well on a test set can still be useless against a badly angled camera, a blurred scan, or hand-typed records with fields missing. We start from the business metric you already track, prove it on a narrow scope before handover, and stay on to watch quality as the data shifts."
+    "title": "Sharp talent. Real systems. Measurable impact.",
+    "body": "We don’t hand over prototypes—we deliver AI that runs in production. Our engineers cut time to value, harden what matters, and keep quality visible after go-live."
   },
   "stats": {
-    "label": "ANZ in numbers"
+    "label": "ANZ in numbers",
+    "title": "We're ready. Are you?",
+    "body": "ANZ provides scalable talent to deliver solutions that move your business forward.",
+    "cta": "Let's Talk"
   },
   "partners": {
     "label": "Trusted by"
@@ -37,27 +41,27 @@
     "description": "Six operational problems across manufacturing, finance, retail and logistics, and education. We go deep on a few rather than taking on everything.",
     "items": {
       "vision": {
-        "title": "Watch lines and warehouses with the cameras already installed",
+        "title": "Computer vision",
         "description": "Count output, catch defects and flag safety breaches from the feeds you already have. No hardware swap — the model runs on an edge box on site or on your own server."
       },
       "education": {
-        "title": "Mark work and track each learner's progress",
+        "title": "Education",
         "description": "Written feedback on open answers, learning paths that follow each learner's gaps, progress reports for teachers. Our AI Mentor product is built along these lines."
       },
       "conversational": {
-        "title": "An assistant that answers from your own documents",
+        "title": "Language & assistants",
         "description": "Staff ask in plain Vietnamese and get an answer citing the exact page of the procedure, contract or manual. When it cannot find a source it declines rather than guesses."
       },
       "generative": {
-        "title": "Drafting and summarising on top of your own data",
+        "title": "Generative AI",
         "description": "Draft reports, summarise minutes, pull knowledge out of an internal document store. If the data may not leave your infrastructure, we deploy inside your network."
       },
       "document": {
-        "title": "Read invoices, contracts and scanned forms",
+        "title": "Document intelligence",
         "description": "Turn paper into structured records that go straight into your ERP or accounting software. Fields the model is unsure of go to a review queue instead of being filled in blind."
       },
       "predictive": {
-        "title": "Forecast demand and flag anomalies early",
+        "title": "Analytics & forecasting",
         "description": "Stock and order forecasting for retail and logistics, anomaly detection for finance. Built on the history you already hold, not on a new data collection project."
       }
     }
@@ -82,20 +86,79 @@
     }
   },
   "team": {
-    "eyebrow": "The team",
-    "title": "The engineers who build it are the ones in the room",
-    "description": "No sales layer in between. The engineer who scopes the problem is the engineer who hands the system over and picks up the phone when it breaks."
+    "eyebrow": "Our people",
+    "title": "Our people",
+    "description": "The engineers who scope the problem are the ones who ship it — and pick up the phone when it breaks.",
+    "empty": "Team profiles coming soon.",
+    "ctaTitle": "Let’s build something that ships.",
+    "ctaBody": "Tell us what you measure today, or see if there’s an open role.",
+    "ctaContact": "Get in touch",
+    "ctaCareers": "View careers"
   },
-  "testimonials": {
-    "eyebrow": "Client voices",
-    "title": "Working with ANZ",
-    "description": "Feedback from the teams who took our systems into real operation."
+  "careers": {
+    "eyebrow": "Careers",
+    "searchTitle": "Careers",
+    "title": "Build applied AI that ships",
+    "description": "Open roles at ANZ.",
+    "empty": "No roles match these filters.",
+    "clearFilters": "Clear filters",
+    "resultCount": "{count, plural, =0 {No roles} one {# role} other {# roles}}",
+    "apply": "Apply now",
+    "cta": "Say hello",
+    "filters": {
+      "type": "Job type",
+      "department": "Department",
+      "location": "Location"
+    },
+    "types": {
+      "fulltime": "Full-time",
+      "intern": "Intern",
+      "contract": "Contract"
+    },
+    "departments": {
+      "engineering": "Engineering",
+      "ai": "Artificial Intelligence",
+      "product": "Product",
+      "design": "Design",
+      "operations": "Operations"
+    },
+    "locations": {
+      "hanoi": "Hanoi",
+      "hcm": "Ho Chi Minh City",
+      "remote": "Remote"
+    },
+    "talentTitle": "Join the ANZ talent community",
+    "talentBody": "Leave your CV so we can reach out when a matching role opens.",
+    "chooseFile": "Choose file",
+    "noFile": "No file selected",
+    "fileHint": "Formats: .doc, .docx, .pdf · max 3MB · Name_Role",
+    "submitCv": "Submit"
+  },
+  "industries": {
+    "title": "Deep industry expertise",
+    "description": "Real-world experience across the industries shaping how AI moves from lab to live operations."
   },
   "insights": {
     "eyebrow": "Insights",
     "title": "Writing from the team",
     "description": "Engineering notes and lessons from the AI projects we have shipped.",
-    "readMore": "Read post"
+    "readMore": "Read post",
+    "viewAll": "See more"
+  },
+  "blog": {
+    "eyebrow": "Blog",
+    "title": "Blog",
+    "description": "Articles from our engineering work.",
+    "back": "All posts",
+    "empty": "No posts in this category yet.",
+    "allCategories": "All articles",
+    "categoriesLabel": "Categories",
+    "categories": {
+      "vision": "Computer vision",
+      "documents": "Document intelligence",
+      "mlops": "MLOps",
+      "delivery": "Delivery"
+    }
   },
   "contact": {
     "eyebrow": "Contact",

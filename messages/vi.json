@@ -1,13 +1,14 @@
 {
   "site": {
     "tagline": "AI ứng dụng cho sản xuất, tài chính, bán lẻ và giáo dục",
-    "description": "ANZ tiếp nhận một bài toán vận hành cụ thể — kiểm đếm sản lượng trên dây chuyền, trích xuất dữ liệu từ chứng từ, dự báo tồn kho — và bàn giao hệ thống vận hành được trên hạ tầng sẵn có của doanh nghiệp."
+    "description": "ANZ nhận một yêu cầu vận hành cụ thể — kiểm đếm sản lượng trên dây chuyền, trích xuất dữ liệu từ chứng từ, dự báo tồn kho — và bàn giao hệ thống chạy được trên hạ tầng sẵn có của doanh nghiệp."
   },
   "nav": {
     "mainLabel": "Điều hướng chính",
-    "features": "Bài toán",
-    "howItWorks": "Quy trình triển khai",
+    "features": "Giải pháp",
+    "howItWorks": "Vận hành",
     "contact": "Liên hệ",
+    "blog": "Blog",
     "careers": "Tuyển dụng",
     "team": "Đội ngũ"
   },
@@ -19,55 +20,55 @@
   "hero": {
     "title": "Đưa AI vào <hl>hệ thống đang vận hành</hl>",
     "primaryCta": "Đặt lịch tư vấn",
-    "secondaryCta": "Xem các bài toán triển khai"
+    "secondaryCta": "Xem giải pháp"
   },
   "statement": {
-    "title": "Thách thức không nằm ở mô hình, mà ở việc đưa mô hình vào hệ thống đang vận hành.",
-    "body": "Một mô hình đạt độ chính xác cao trên tập kiểm thử vẫn có thể không sử dụng được khi gặp góc đặt camera sai lệch, ảnh quét chất lượng thấp hoặc dữ liệu nhập liệu thủ công thiếu trường thông tin. ANZ khởi đầu từ chỉ số nghiệp vụ doanh nghiệp đang theo dõi, chứng minh hiệu quả trên phạm vi thí điểm trước khi bàn giao, và tiếp tục giám sát chất lượng mô hình khi đặc tính dữ liệu thay đổi."
+    "title": "Đội ngũ tinh nhuệ. Hệ thống thực chiến. Hiệu quả đo được.",
+    "body": "Chúng tôi không bàn giao bản mẫu — mà AI chạy trên môi trường vận hành thật. Kỹ sư rút ngắn thời gian tạo giá trị, củng cố phần then chốt, và giữ chất lượng minh bạch sau khi hệ thống đi vào sử dụng."
   },
   "stats": {
     "label": "ANZ qua các chỉ số",
-    "title": "Sẵn sàng triển khai bài toán đầu tiên?",
-    "body": "Đội ngũ kỹ sư ANZ tiếp nhận khảo sát, xây dựng bản thí điểm và bàn giao hệ thống vận hành trên hạ tầng sẵn có của doanh nghiệp.",
+    "title": "Sẵn sàng bắt đầu dự án đầu tiên?",
+    "body": "Đội ngũ kỹ sư ANZ khảo sát hiện trạng, xây dựng bản triển khai thử và bàn giao hệ thống trên hạ tầng sẵn có của doanh nghiệp.",
     "cta": "Liên hệ với ANZ"
   },
   "partners": {
     "label": "Được tin dùng bởi"
   },
   "features": {
-    "eyebrow": "Bài toán",
-    "title": "Các bài toán ANZ triển khai",
-    "description": "Sáu bài toán vận hành thuộc lĩnh vực sản xuất, tài chính – ngân hàng, bán lẻ – logistics và giáo dục. ANZ tập trung chuyên sâu vào số ít thay vì mở rộng phạm vi.",
+    "eyebrow": "Giải pháp",
+    "title": "Những gì ANZ triển khai",
+    "description": "Sáu hướng vận hành trong sản xuất, tài chính – ngân hàng, bán lẻ – logistics và giáo dục. ANZ đi sâu vào ít lĩnh vực thay vì trải rộng.",
     "items": {
       "vision": {
-        "title": "Giám sát dây chuyền và kho vận trên hạ tầng camera sẵn có",
+        "title": "Thị giác máy tính",
         "description": "Kiểm đếm sản lượng, phát hiện lỗi sản phẩm và cảnh báo vi phạm an toàn lao động từ luồng camera đang vận hành. Không yêu cầu thay thế thiết bị — mô hình suy luận trên thiết bị biên đặt tại chỗ hoặc trên máy chủ nội bộ."
       },
       "education": {
-        "title": "Chấm điểm tự động và theo dõi tiến độ từng học viên",
+        "title": "Giáo dục",
         "description": "Chấm bài tự luận kèm nhận xét, cá nhân hoá lộ trình học theo năng lực từng học viên, báo cáo tiến độ cho giảng viên. Sản phẩm AI Mentor của ANZ được xây dựng theo định hướng này."
       },
       "conversational": {
-        "title": "Trợ lý hỏi đáp trên kho tài liệu nội bộ",
+        "title": "Ngôn ngữ & trợ lý",
         "description": "Nhân sự đặt câu hỏi bằng tiếng Việt, hệ thống phản hồi kèm trích dẫn đúng vị trí trong quy trình, hợp đồng hoặc tài liệu kỹ thuật. Khi không xác định được nguồn, hệ thống từ chối trả lời thay vì suy đoán."
       },
       "generative": {
-        "title": "Soạn thảo và tổng hợp nội dung trên dữ liệu nội bộ",
+        "title": "AI tạo sinh",
         "description": "Soạn thảo báo cáo, tổng hợp biên bản, trích xuất tri thức từ kho tài liệu của doanh nghiệp. Trường hợp dữ liệu không được phép rời hạ tầng, ANZ triển khai trọn bộ trong mạng nội bộ."
       },
       "document": {
-        "title": "Trích xuất dữ liệu từ hoá đơn, hợp đồng và biểu mẫu",
+        "title": "Trí tuệ tài liệu",
         "description": "Chuyển chứng từ giấy thành dữ liệu có cấu trúc, đồng bộ trực tiếp vào ERP hoặc phần mềm kế toán. Các trường có độ tin cậy thấp được chuyển sang quy trình kiểm duyệt thủ công thay vì tự động điền."
       },
       "predictive": {
-        "title": "Dự báo nhu cầu và cảnh báo bất thường",
+        "title": "Phân tích & dự báo",
         "description": "Dự báo tồn kho và đơn hàng cho bán lẻ – logistics, phát hiện giao dịch bất thường cho tài chính – ngân hàng. Xây dựng trên dữ liệu lịch sử sẵn có, không yêu cầu triển khai thu thập dữ liệu mới."
       }
     }
   },
   "howItWorks": {
-    "eyebrow": "Quy trình triển khai",
-    "title": "Từ bài toán nghiệp vụ đến hệ thống vận hành",
+    "eyebrow": "Vận hành",
+    "title": "Từ yêu cầu nghiệp vụ đến hệ thống vận hành",
     "description": "Doanh nghiệp có số liệu kiểm chứng trước khi phê duyệt ngân sách triển khai diện rộng.",
     "steps": {
       "discovery": {
@@ -75,8 +76,8 @@
         "description": "ANZ xác định chỉ số doanh nghiệp đang theo dõi và mức cải thiện cần đạt. Trường hợp dữ liệu hiện có không đủ để đạt mức đó, doanh nghiệp được thông báo ngay tại bước này, trước khi ký kết hợp đồng."
       },
       "pilot": {
-        "title": "Chứng minh hiệu quả trên phạm vi thí điểm",
-        "description": "Một dây chuyền, một loại chứng từ hoặc một chi nhánh. Bản thí điểm được đo bằng đúng chỉ số đã thống nhất, trên dữ liệu thực tế của doanh nghiệp thay vì tập dữ liệu mẫu đã làm sạch."
+        "title": "Chứng minh hiệu quả trên phạm vi hạn chế",
+        "description": "Một dây chuyền, một loại chứng từ hoặc một chi nhánh. Bản triển khai thử được đo bằng đúng chỉ số đã thống nhất, trên dữ liệu thực tế của doanh nghiệp thay vì tập dữ liệu mẫu đã làm sạch."
       },
       "rollout": {
         "title": "Tích hợp và đồng hành vận hành",
@@ -86,23 +87,82 @@
   },
   "team": {
     "eyebrow": "Đội ngũ",
-    "title": "Kỹ sư phát triển hệ thống trực tiếp làm việc cùng doanh nghiệp",
-    "description": "Không qua tầng trung gian kinh doanh. Kỹ sư khảo sát bài toán cũng là người bàn giao hệ thống và chịu trách nhiệm xử lý sự cố sau triển khai."
+    "title": "Đội ngũ",
+    "description": "Kỹ sư khảo sát bài toán cũng là người bàn giao hệ thống — và là người nghe máy khi có sự cố.",
+    "empty": "Hồ sơ đội ngũ sẽ sớm được cập nhật.",
+    "ctaTitle": "Cùng xây hệ thống đưa vào vận hành thật.",
+    "ctaBody": "Cho chúng tôi biết bạn đang đo gì, hoặc xem các vị trí đang mở.",
+    "ctaContact": "Liên hệ",
+    "ctaCareers": "Xem tuyển dụng"
   },
-  "testimonials": {
-    "eyebrow": "Phản hồi khách hàng",
-    "title": "Hợp tác cùng ANZ",
-    "description": "Phản hồi từ các tổ chức đã đưa hệ thống của ANZ vào vận hành thực tế."
+  "careers": {
+    "eyebrow": "Tuyển dụng",
+    "searchTitle": "Tuyển dụng",
+    "title": "Xây AI ứng dụng đưa vào vận hành thật",
+    "description": "Các vị trí đang mở tại ANZ.",
+    "empty": "Không có vị trí khớp bộ lọc này.",
+    "clearFilters": "Xóa bộ lọc",
+    "resultCount": "{count, plural, =0 {Không có vị trí} other {# vị trí}}",
+    "apply": "Ứng tuyển ngay",
+    "cta": "Liên hệ",
+    "filters": {
+      "type": "Loại công việc",
+      "department": "Ngành nghề",
+      "location": "Địa điểm"
+    },
+    "types": {
+      "fulltime": "Chính thức",
+      "intern": "Thực tập",
+      "contract": "Cộng tác viên"
+    },
+    "departments": {
+      "engineering": "Software",
+      "ai": "Artificial Intelligence",
+      "product": "Product Management",
+      "design": "Product Design",
+      "operations": "Operations"
+    },
+    "locations": {
+      "hanoi": "Thành phố Hà Nội",
+      "hcm": "Thành phố Hồ Chí Minh",
+      "remote": "Remote"
+    },
+    "talentTitle": "Tham gia cộng đồng nhân tài tại ANZ",
+    "talentBody": "Để lại hồ sơ giúp ANZ dễ dàng liên hệ với bạn khi có vị trí phù hợp.",
+    "chooseFile": "Chọn tệp",
+    "noFile": "Không có file nào được chọn",
+    "fileHint": "Hình thức: tệp .doc, .docx, .pdf, tối đa 3MB · Tên tệp: Họ tên_Vị trí ứng tuyển",
+    "submitCv": "Đăng ký"
+  },
+  "industries": {
+    "title": "Chuyên môn theo ngành",
+    "description": "Kinh nghiệm thực tế trên các ngành đang thúc đẩy đổi mới — từ sản xuất đến tài chính, logistics và giáo dục."
   },
   "insights": {
     "eyebrow": "Góc nhìn chuyên môn",
     "title": "Bài viết chuyên môn",
     "description": "Ghi chép kỹ thuật và kinh nghiệm đúc kết từ các dự án AI đã triển khai.",
-    "readMore": "Đọc tiếp"
+    "readMore": "Đọc tiếp",
+    "viewAll": "Xem thêm"
+  },
+  "blog": {
+    "eyebrow": "Blog",
+    "title": "Blog",
+    "description": "Bài viết từ công việc kỹ thuật của chúng tôi.",
+    "back": "Tất cả bài viết",
+    "empty": "Chưa có bài trong danh mục này.",
+    "allCategories": "Tất cả bài viết",
+    "categoriesLabel": "Danh mục",
+    "categories": {
+      "vision": "Thị giác máy tính",
+      "documents": "Trí tuệ tài liệu",
+      "mlops": "MLOps",
+      "delivery": "Triển khai"
+    }
   },
   "contact": {
     "eyebrow": "Liên hệ",
-    "title": "Bắt đầu từ bài toán của doanh nghiệp",
+    "title": "Bắt đầu từ nhu cầu của doanh nghiệp",
     "description": "Mô tả ngắn gọn chỉ số nghiệp vụ hiện tại và mục tiêu cần đạt. ANZ phản hồi trong vòng 01 ngày làm việc.",
     "orEmail": "Hoặc gửi email trực tiếp tới",
     "address": "Hà Nội, Việt Nam"
@@ -124,7 +184,7 @@
       "emailInvalid": "Email không hợp lệ",
       "companyTooLong": "Tên công ty quá dài",
       "phoneInvalid": "Số điện thoại không hợp lệ",
-      "messageTooShort": "Vui lòng mô tả ngắn gọn bài toán (tối thiểu 10 ký tự)",
+      "messageTooShort": "Vui lòng mô tả ngắn gọn nhu cầu của bạn (tối thiểu 10 ký tự)",
       "messageTooLong": "Nội dung quá dài"
     }
   },

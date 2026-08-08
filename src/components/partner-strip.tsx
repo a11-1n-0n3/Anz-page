@@ -1,20 +1,15 @@
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/section";
 import { partners } from "@/lib/site";
 
 export function PartnerStrip({ inFrame = false }: { inFrame?: boolean }) {
-  const t = useTranslations("partners");
-
   if (partners.length === 0) return null;
 
   const Wrapper = inFrame ? "div" : Container;
 
   return (
     <section
-      aria-labelledby="partners-label"
+      aria-label="Partners"
       className={cn(
         inFrame
           ? "relative isolate mt-16 pt-2"
@@ -29,26 +24,26 @@ export function PartnerStrip({ inFrame = false }: { inFrame?: boolean }) {
       ) : null}
 
       <Wrapper>
-        <p
-          id="partners-label"
-          className="text-center text-[12px] font-medium tracking-[0.16em] text-muted-foreground uppercase"
-        >
-          {t("label")}
-        </p>
-
-        <ul className="mt-7 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+        <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
           {partners.map((partner) => (
             <li key={partner.id}>
               {partner.logo ? (
-                <Image
+                // SVG marks: use <img> — next/image SVG policy is awkward, and
+                // on the dark hero we invert to white so black fills stay visible.
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
                   src={partner.logo}
                   alt={partner.name}
                   width={120}
                   height={32}
-                  className="h-7 w-auto opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+                  className={cn(
+                    "h-7 w-auto opacity-70 transition duration-300 hover:opacity-100",
+                    inFrame
+                      ? "brightness-0 invert"
+                      : "grayscale hover:grayscale-0",
+                  )}
                 />
               ) : (
-                // TODO(anz): swap for a real logo file
                 <span
                   className={cn(
                     "text-sm font-semibold tracking-[0.12em]",

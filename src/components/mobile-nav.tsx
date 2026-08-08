@@ -63,7 +63,7 @@ export function MobileNav() {
             </ul>
           </nav>
 
-          <Button asChild size="lg" className="mt-6 w-full">
+          <Button asChild size="lg" variant="brand" className="mt-6 w-full">
             <Link href="/#contact" onClick={() => setOpen(false)}>
               {t("contact")}
             </Link>
