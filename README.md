@@ -7,7 +7,7 @@ Comment trong code viết bằng tiếng Anh; tài liệu này viết tiếng Vi
 ## Chạy dự án
 
 ```bash
-cp .env.example .env.local     # điền giá trị nếu cần, để trống vẫn chạy được
+cp .env.example .env           # điền giá trị nếu cần, để trống vẫn chạy được
 npm run dev                    # http://localhost:3000
 npm run build && npm start     # bản production
 ```

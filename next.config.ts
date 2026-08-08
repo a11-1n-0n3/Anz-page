@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
+  // Smaller image for Docker — traces only the files the server needs
+  output: "standalone",
   images: {
     remotePatterns: [
       {
