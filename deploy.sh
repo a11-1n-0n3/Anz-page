@@ -3,8 +3,5 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
-git fetch origin main
-git reset --hard origin/main
-
-docker compose up -d --build
+docker compose --env-file "${ANZ_ENV_FILE:-$HOME/anz-page.env}" up -d --build
 docker image prune -f

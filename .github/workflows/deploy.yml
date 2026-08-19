@@ -13,8 +13,7 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v4
+
       - name: Build and deploy
-        run: |
-          set -euo pipefail
-          cd "${{ secrets.DEPLOY_PATH }}"
-          bash deploy.sh
+        run: bash deploy.sh
