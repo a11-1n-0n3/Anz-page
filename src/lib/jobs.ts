@@ -29,7 +29,7 @@ function toJob(row: JobRow): Job {
 }
 
 export async function listJobs(): Promise<Job[]> {
-  const { data, error } = await supabase
+  const { data, error } = await supabase()
     .from("jobs")
     .select("slug, title, type, department, locations, level, slots, jd_vi, jd_en")
     .order("created_at", { ascending: false });

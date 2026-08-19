@@ -76,7 +76,7 @@ function toProject(row: PostRow): Project {
 const SELECT = "slug, industry, title_vi, title_en, excerpt_vi, excerpt_en, cover, date, body_vi, body_en";
 
 export async function listPosts(): Promise<Project[]> {
-  const { data, error } = await supabase
+  const { data, error } = await supabase()
     .from("posts")
     .select(SELECT)
     .order("date", { ascending: false });
@@ -90,7 +90,7 @@ export async function listPosts(): Promise<Project[]> {
 }
 
 export async function getPost(slug: string): Promise<Project | undefined> {
-  const { data, error } = await supabase
+  const { data, error } = await supabase()
     .from("posts")
     .select(SELECT)
     .eq("slug", slug)

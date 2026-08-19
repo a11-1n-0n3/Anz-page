@@ -4,6 +4,10 @@ import { listPosts } from "@/lib/posts";
 import { siteConfig } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 
+// Reads Supabase, which only exists at container runtime, not at `next
+// build` time — render on every request rather than at build.
+export const dynamic = "force-dynamic";
+
 const staticPaths = ["", "/team", "/blog", "/careers"] as const;
 
 function localeUrl(locale: string, path: string) {

@@ -9,6 +9,10 @@ import { StatBand } from "@/components/stat-band";
 import { Statement } from "@/components/statement";
 import { listPosts } from "@/lib/posts";
 
+// The posts teaser reads Supabase, which only exists at container runtime,
+// not at `next build` time — render on every request rather than at build.
+export const dynamic = "force-dynamic";
+
 // StatBand renders null until its records in lib/site.ts are filled.
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
