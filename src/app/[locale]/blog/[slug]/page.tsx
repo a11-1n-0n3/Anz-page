@@ -3,21 +3,18 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
 import { ProjectDetail } from "@/components/project-detail";
-import { getPost, listPosts } from "@/lib/posts";
+import { getPost } from "@/lib/posts";
 import type { Locale } from "@/i18n/routing";
-import { routing } from "@/i18n/routing";
 
-export function generateStaticParams() {
-  return routing.locales.flatMap((locale) =>
-    listPosts().map((project) => ({ locale, slug: project.slug })),
-  );
-}
+// Posts live in Supabase and are added via the dashboard — render on every
+// request so a newly inserted row shows up without a redeploy.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/blog/[slug]">): Promise<Metadata> {
   const { locale, slug } = await params;
-  const project = getPost(slug);
+  const project = await getPost(slug);
   if (!project) return {};
 
   const loc = locale as Locale;
@@ -33,7 +30,7 @@ export default async function ProjectPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  const project = getPost(slug);
+  const project = await getPost(slug);
   if (!project) notFound();
 
   return <ProjectDetail project={project} />;

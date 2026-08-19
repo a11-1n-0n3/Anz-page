@@ -14,8 +14,9 @@ function localeUrl(locale: string, path: string) {
   return path ? `${base}${path}` : base;
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const projectPaths = listPosts().map((p) => `/blog/${p.slug}`);
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await listPosts();
+  const projectPaths = posts.map((p) => `/blog/${p.slug}`);
   const paths = [...staticPaths, ...projectPaths];
 
   return routing.locales.flatMap((locale) =>

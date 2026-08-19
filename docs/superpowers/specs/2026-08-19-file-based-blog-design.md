@@ -1,7 +1,37 @@
 # Blog file-based: một nguồn markdown, URL `/blog`
 
 Ngày: 2026-08-19
-Trạng thái: chờ duyệt
+Trạng thái: **superseded 2026-08-20** — xem ghi chú dưới đây.
+
+## Cập nhật 2026-08-20: chuyển sang Supabase
+
+Quyết định "file-based, không CMS" ở dưới đây **không còn áp dụng cho nội
+dung bài viết** (title/excerpt/body). Lý do đổi:
+
+- Cần jobs + posts hiển thị ngay khi thêm row trong DB, không đợi rebuild
+  Docker/redeploy — mục tiêu chính khi tích hợp Supabase cho `careers`.
+- Đồng bộ một cách quản lý nội dung (Supabase Studio) cho cả jobs và posts,
+  thay vì hai cơ chế khác nhau (file cho blog, DB cho jobs).
+
+Những gì đổi:
+
+- Bảng `posts` trong Supabase (`supabase/schema.sql`) thay cho
+  `public/blog/*.md`. Trường tương ứng: `title_vi/en`, `excerpt_vi/en`,
+  `body_vi/en`, `date`, `cover`, `industry`. Loader: `src/lib/posts.ts`
+  (query Supabase, không còn `fs.readFileSync`).
+- `/blog`, `/blog/[slug]` render động (`export const dynamic =
+  "force-dynamic"`) — không còn `generateStaticParams`.
+- **Ảnh vẫn giữ file-based** trong `public/blog/<slug>/*.png` (không di
+  chuyển sang Storage) — ngoài phạm vi thay đổi này. Markdown trong DB vẫn
+  dùng cú pháp ảnh tương đối như cũ (`![](quiz.png)` → rewrite thành
+  `/blog/<slug>/quiz.png` lúc đọc), qua `canonicalizeMarkdown` trong
+  `src/lib/posts.ts`.
+- Thêm bài mới: insert row vào bảng `posts` qua Supabase Studio (không cần
+  admin UI riêng trên site — theo quyết định giống `jobs`).
+
+Phần "Không làm" / "Format markdown" / "Luồng build" dưới đây mô tả thiết
+kế **cũ**, giữ lại để tham khảo lý do ban đầu — không phải trạng thái hiện
+tại của repo.
 
 ## Mục tiêu
 

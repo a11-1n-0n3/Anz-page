@@ -138,7 +138,15 @@
     "chooseFile": "Choose file",
     "noFile": "No file selected",
     "fileHint": "Formats: .doc, .docx, .pdf · max 3MB · Name_Role",
-    "submitCv": "Submit"
+    "submitCv": "Submit",
+    "applyingFor": "Applying for: {title}",
+    "clearSelection": "Apply as general instead",
+    "generalApplication": "General application",
+    "fileRequired": "Please attach your CV",
+    "fileTooLarge": "That file is over 3MB",
+    "fileTypeInvalid": "Use .doc, .docx, or .pdf",
+    "cvSuccessTitle": "CV received",
+    "cvSuccessBody": "We'll be in touch if there's a match."
   },
   "industries": {
     "title": "Deep industry expertise",

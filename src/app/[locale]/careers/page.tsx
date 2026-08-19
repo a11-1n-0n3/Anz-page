@@ -5,6 +5,10 @@ import { Careers } from "@/components/careers";
 import { listJobs } from "@/lib/jobs";
 import type { Locale } from "@/i18n/routing";
 
+// Jobs live in Supabase and are added via the dashboard — render on every
+// request so a newly inserted row shows up without a redeploy.
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/careers">): Promise<Metadata> {
@@ -22,5 +26,5 @@ export default async function CareersPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <Careers jobs={listJobs()} />;
+  return <Careers jobs={await listJobs()} />;
 }

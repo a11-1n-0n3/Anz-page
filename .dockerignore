@@ -42,9 +42,8 @@ docker-compose*.yml
 /*.md
 !public/blog/
 !public/blog/**
-!public/careers/
-!public/careers/**
 docs/
+supabase/
 .github/
 .gitlab-ci.yml
 

@@ -1,13 +1,21 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { ChevronDown, MapPin } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Button } from "@/components/button";
+import { Input } from "@/components/input";
 import { MarkdownBody } from "@/components/markdown-body";
 import { Container, Section } from "@/components/section";
-import { siteConfig, type Job, type JobDepartment, type JobLocation, type JobType } from "@/lib/site";
+import { submitApplicationAction } from "@/lib/application-action";
+import {
+  applicationFormSchema,
+  type ApplicationFormFields,
+} from "@/lib/application";
+import type { Job, JobDepartment, JobLocation, JobType } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/routing";
 
@@ -69,13 +77,10 @@ function locationLabel(t: ReturnType<typeof useTranslations<"careers">>, loc: Jo
   return loc === "hanoi" ? t("locations.hanoiOnsite") : t(`locations.${loc}`);
 }
 
-function JobCard({ job }: { job: Job }) {
+function JobCard({ job, onApply }: { job: Job; onApply: (job: Job) => void }) {
   const t = useTranslations("careers");
   const locale = useLocale() as Locale;
   const [open, setOpen] = useState(false);
-  const mailto = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
-    `Apply: ${job.title}`,
-  )}`;
 
   return (
     <article className="rounded-lg border border-border bg-card">
@@ -107,10 +112,17 @@ function JobCard({ job }: { job: Job }) {
             {t("slots", { count: job.slots })}
           </p>
         </button>
-        <Button asChild size="sm" variant="brand" className="shrink-0 self-start sm:self-center">
-          <a href={mailto} onClick={(e) => e.stopPropagation()}>
-            {t("apply")}
-          </a>
+        <Button
+          type="button"
+          size="sm"
+          variant="brand"
+          className="shrink-0 self-start sm:self-center"
+          onClick={(e) => {
+            e.stopPropagation();
+            onApply(job);
+          }}
+        >
+          {t("apply")}
         </Button>
       </div>
       {open ? (
@@ -122,24 +134,168 @@ function JobCard({ job }: { job: Job }) {
   );
 }
 
-function TalentCommunity() {
+function TalentCommunity({
+  applyingFor,
+  onClearApplyingFor,
+}: {
+  applyingFor: Job | null;
+  onClearApplyingFor: () => void;
+}) {
   const t = useTranslations("careers");
-  const [fileName, setFileName] = useState<string | null>(null);
+  const tForm = useTranslations("form");
+  const [file, setFile] = useState<File | null>(null);
+  const [fileErrorKey, setFileErrorKey] = useState<string | null>(null);
+  const [serverErrorKey, setServerErrorKey] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
 
-  const mailto = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
-    "CV — Talent community",
-  )}&body=${encodeURIComponent(
-    fileName
-      ? `Attached / file name: ${fileName}`
-      : "Please attach your CV (.pdf / .docx).",
-  )}`;
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ApplicationFormFields>({
+    resolver: zodResolver(applicationFormSchema),
+    defaultValues: { name: "", email: "", phone: "" },
+  });
+
+  function errorText(key?: string) {
+    return key ? tForm(`errors.${key}`) : undefined;
+  }
+
+  async function onSubmit(values: ApplicationFormFields) {
+    setServerErrorKey(null);
+    setFileErrorKey(null);
+
+    if (!file) {
+      setFileErrorKey("fileRequired");
+      return;
+    }
+
+    const roleName = applyingFor ? `Apply: ${applyingFor.title}` : t("generalApplication");
+    const result = await submitApplicationAction(
+      { ...values, jobSlug: applyingFor?.id, roleName },
+      file,
+    );
+
+    if (result.ok) {
+      setSubmitted(true);
+      return;
+    }
+
+    if (result.errorKey === "fileRequired" || result.errorKey === "fileTooLarge" || result.errorKey === "fileTypeInvalid") {
+      setFileErrorKey(result.errorKey);
+      return;
+    }
+    setServerErrorKey(result.errorKey);
+  }
+
+  if (submitted) {
+    return (
+      <div
+        data-talent-form
+        role="status"
+        className="rounded-lg border border-border bg-card p-5 text-center"
+      >
+        <p className="font-semibold">{t("cvSuccessTitle")}</p>
+        <p className="mt-2 text-sm text-muted-foreground">{t("cvSuccessBody")}</p>
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          className="mt-4"
+          onClick={() => {
+            setSubmitted(false);
+            setFile(null);
+            reset();
+            onClearApplyingFor();
+          }}
+        >
+          {t("clearSelection")}
+        </Button>
+      </div>
+    );
+  }
 
   return (
-    <div className="rounded-lg border border-border bg-card p-5">
+    <form
+      data-talent-form
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      className="rounded-lg border border-border bg-card p-5"
+    >
+      {/* honeypot */}
+      <div aria-hidden className="absolute left-[-9999px]">
+        <label htmlFor="app-website">Website</label>
+        <input id="app-website" tabIndex={-1} autoComplete="off" {...register("website")} />
+      </div>
+
       <h2 className="text-sm font-semibold tracking-tight">{t("talentTitle")}</h2>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
         {t("talentBody")}
       </p>
+
+      {applyingFor ? (
+        <div className="mt-3 space-y-1 rounded-sm bg-accent px-3 py-2 text-xs">
+          <p className="font-medium">{t("applyingFor", { title: applyingFor.title })}</p>
+          <button
+            type="button"
+            onClick={onClearApplyingFor}
+            className="font-medium text-brand-ink underline decoration-transparent underline-offset-2 hover:decoration-current"
+          >
+            {t("clearSelection")}
+          </button>
+        </div>
+      ) : null}
+
+      <div className="mt-4 space-y-3">
+        <div>
+          <label htmlFor="app-name" className="sr-only">
+            {tForm("name")}
+          </label>
+          <Input
+            id="app-name"
+            placeholder={tForm("name")}
+            autoComplete="name"
+            aria-invalid={!!errors.name}
+            {...register("name")}
+          />
+          {errors.name ? (
+            <p className="mt-1 text-xs text-destructive">{errorText(errors.name.message)}</p>
+          ) : null}
+        </div>
+        <div>
+          <label htmlFor="app-email" className="sr-only">
+            {tForm("email")}
+          </label>
+          <Input
+            id="app-email"
+            type="email"
+            placeholder={tForm("email")}
+            autoComplete="email"
+            aria-invalid={!!errors.email}
+            {...register("email")}
+          />
+          {errors.email ? (
+            <p className="mt-1 text-xs text-destructive">{errorText(errors.email.message)}</p>
+          ) : null}
+        </div>
+        <div>
+          <label htmlFor="app-phone" className="sr-only">
+            {tForm("phone")}
+          </label>
+          <Input
+            id="app-phone"
+            type="tel"
+            placeholder={tForm("phone")}
+            autoComplete="tel"
+            aria-invalid={!!errors.phone}
+            {...register("phone")}
+          />
+          {errors.phone ? (
+            <p className="mt-1 text-xs text-destructive">{errorText(errors.phone.message)}</p>
+          ) : null}
+        </div>
+      </div>
 
       <label className="mt-4 flex cursor-pointer flex-col gap-2">
         <span className="sr-only">{t("chooseFile")}</span>
@@ -150,22 +306,39 @@ function TalentCommunity() {
           type="file"
           accept=".pdf,.doc,.docx"
           className="sr-only"
-          onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)}
+          onChange={(e) => {
+            setFile(e.target.files?.[0] ?? null);
+            setFileErrorKey(null);
+          }}
         />
         <span className="truncate text-xs text-muted-foreground">
-          {fileName ?? t("noFile")}
+          {file?.name ?? t("noFile")}
         </span>
       </label>
 
       <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
         {t("fileHint")}
       </p>
+      {fileErrorKey ? (
+        <p className="mt-1 text-xs text-destructive">{t(fileErrorKey)}</p>
+      ) : null}
 
-      {/* ponytail: no upload API — open mail client with CV filename hint */}
-      <Button asChild size="sm" variant="brand" className="mt-4 w-full">
-        <a href={mailto}>{t("submitCv")}</a>
+      {serverErrorKey ? (
+        <p role="alert" className="mt-2 text-xs text-destructive">
+          {tForm(serverErrorKey)}
+        </p>
+      ) : null}
+
+      <Button
+        type="submit"
+        size="sm"
+        variant="brand"
+        disabled={isSubmitting}
+        className="mt-4 w-full"
+      >
+        {isSubmitting ? tForm("submitting") : t("submitCv")}
       </Button>
-    </div>
+    </form>
   );
 }
 
@@ -175,6 +348,18 @@ export function Careers({ jobs }: { jobs: Job[] }) {
   const [types, setTypes] = useState<JobType[]>([]);
   const [departments, setDepartments] = useState<JobDepartment[]>([]);
   const [locations, setLocations] = useState<JobLocation[]>([]);
+  const [applyingFor, setApplyingFor] = useState<Job | null>(null);
+  const formsRef = useRef<HTMLDivElement[]>([]);
+
+  function scrollToForm(job: Job) {
+    setApplyingFor(job);
+    const visible = formsRef.current.find((el) => el.offsetParent !== null);
+    visible?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function registerFormEl(el: HTMLDivElement | null) {
+    if (el && !formsRef.current.includes(el)) formsRef.current.push(el);
+  }
 
   const filtered = useMemo(() => {
     return jobs.filter((job) => {
@@ -242,8 +427,11 @@ export function Careers({ jobs }: { jobs: Job[] }) {
               </button>
             ) : null}
 
-            <div className="hidden lg:block">
-              <TalentCommunity />
+            <div ref={registerFormEl} className="hidden lg:block">
+              <TalentCommunity
+                applyingFor={applyingFor}
+                onClearApplyingFor={() => setApplyingFor(null)}
+              />
             </div>
           </aside>
 
@@ -265,14 +453,17 @@ export function Careers({ jobs }: { jobs: Job[] }) {
               <ul className="space-y-4">
                 {filtered.map((job) => (
                   <li key={job.id}>
-                    <JobCard job={job} />
+                    <JobCard job={job} onApply={scrollToForm} />
                   </li>
                 ))}
               </ul>
             )}
 
-            <div className="mt-10 lg:hidden">
-              <TalentCommunity />
+            <div ref={registerFormEl} className="mt-10 lg:hidden">
+              <TalentCommunity
+                applyingFor={applyingFor}
+                onClearApplyingFor={() => setApplyingFor(null)}
+              />
             </div>
           </div>
         </div>

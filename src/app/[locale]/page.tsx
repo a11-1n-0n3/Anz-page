@@ -23,7 +23,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <StatBand />
       <FeatureGrid />
       <HowItWorks />
-      <ProjectsTeaser posts={listPosts()} showAllLink />
+      <ProjectsTeaser posts={await listPosts()} showAllLink />
       <Contact />
     </>
   );

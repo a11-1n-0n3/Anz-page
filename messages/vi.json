@@ -138,7 +138,15 @@
     "chooseFile": "Chọn tệp",
     "noFile": "Không có file nào được chọn",
     "fileHint": "Hình thức: tệp .doc, .docx, .pdf, tối đa 3MB · Tên tệp: Họ tên_Vị trí ứng tuyển",
-    "submitCv": "Đăng ký"
+    "submitCv": "Đăng ký",
+    "applyingFor": "Đang ứng tuyển: {title}",
+    "clearSelection": "Ứng tuyển dạng chung thay vào đó",
+    "generalApplication": "Ứng tuyển chung",
+    "fileRequired": "Vui lòng đính kèm CV",
+    "fileTooLarge": "File vượt quá 3MB",
+    "fileTypeInvalid": "Chỉ nhận file .doc, .docx hoặc .pdf",
+    "cvSuccessTitle": "Đã nhận CV",
+    "cvSuccessBody": "ANZ sẽ liên hệ nếu có vị trí phù hợp."
   },
   "industries": {
     "title": "Chuyên môn theo ngành",
