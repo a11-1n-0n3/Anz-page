@@ -16,7 +16,7 @@ export function TeamPage() {
   return (
     <>
       <section className="surface-dark border-b border-border bg-background">
-        <Container className="flex flex-col items-center py-16 text-center sm:py-20">
+        <Container className="flex flex-col items-center py-8 text-center sm:py-12">
           <h1 className="max-w-3xl text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
             {t("title")}
           </h1>
@@ -26,7 +26,7 @@ export function TeamPage() {
         </Container>
       </section>
 
-      <Section className="pt-12 sm:pt-16">
+      <Section className="pt-8 sm:pt-10">
         <Container>
           {team.length === 0 ? (
             <p className="text-center text-sm text-muted-foreground">
@@ -75,7 +75,7 @@ export function TeamPage() {
         </Container>
       </Section>
 
-      <Section className="border-t border-border pt-16 sm:pt-20">
+      <Section className="border-t border-border pt-10 sm:pt-12">
         <Container className="flex flex-col items-center text-center">
           <h2 className="max-w-2xl text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
             {t("ctaTitle")}

@@ -13,8 +13,8 @@ export function SiteFooter() {
 
   return (
     <footer className="surface-dark mt-auto rounded-t-frame">
-      <Container className="py-16">
-        <div className="grid gap-12 md:grid-cols-4">
+      <Container className="py-10">
+        <div className="flex flex-col gap-10 md:grid md:grid-cols-4 md:gap-12">
           <div className="md:col-span-2">
             <BrandMark size="md" />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
@@ -33,23 +33,25 @@ export function SiteFooter() {
             </address>
           </div>
 
-          {footerNav.map((group) => (
-            <nav key={group.titleKey} aria-label={t(group.titleKey)}>
-              <p className="text-sm font-semibold">{t(group.titleKey)}</p>
-              <ul className="mt-4 space-y-3">
-                {group.items.map((item) => (
-                  <li key={`${group.titleKey}-${item.labelKey}`}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {tNav(item.labelKey)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
+          <div className="grid grid-cols-2 gap-8 md:contents">
+            {footerNav.map((group) => (
+              <nav key={group.titleKey} aria-label={t(group.titleKey)}>
+                <p className="text-sm font-semibold">{t(group.titleKey)}</p>
+                <ul className="mt-4 space-y-3">
+                  {group.items.map((item) => (
+                    <li key={`${group.titleKey}-${item.labelKey}`}>
+                      <Link
+                        href={item.href}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {tNav(item.labelKey)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
         </div>
 
         <p className="mt-12 border-t border-border pt-8 text-sm text-muted-foreground">

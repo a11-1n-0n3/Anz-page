@@ -25,15 +25,24 @@ export function MobileNav() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const close = () => {
+      if (mq.matches) setOpen(false);
+    };
+    mq.addEventListener("change", close);
+    return () => mq.removeEventListener("change", close);
+  }, []);
+
   return (
-    <div className="md:hidden">
+    <div className="relative md:hidden">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="mobile-nav-panel"
         aria-label={t("mainLabel")}
-        className="flex size-9 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-secondary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+        className="flex size-11 items-center justify-center rounded-md border border-border text-foreground transition-colors hover:bg-secondary focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
       >
         {open ? (
           <X aria-hidden strokeWidth={1.75} className="size-4.5" />
@@ -45,7 +54,7 @@ export function MobileNav() {
       {open ? (
         <div
           id="mobile-nav-panel"
-          className="fixed inset-x-4 top-[4.75rem] z-40 rounded-lg border border-border bg-card px-5 pb-6 pt-2 shadow-[0_16px_44px_-16px_rgba(29,29,31,0.35)]"
+          className="absolute top-full right-0 z-40 mt-3 w-[50vw] rounded-lg border border-border bg-card px-4 py-2 shadow-[0_16px_44px_-16px_rgba(29,29,31,0.35)]"
         >
           <nav aria-label={t("mainLabel")}>
             <ul className="divide-y divide-border">
@@ -54,7 +63,7 @@ export function MobileNav() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block py-4 text-base font-medium transition-colors hover:text-brand-ink"
+                    className="block py-3 text-base font-medium transition-colors hover:text-brand-ink"
                   >
                     {t(item.labelKey)}
                   </Link>
@@ -63,7 +72,7 @@ export function MobileNav() {
             </ul>
           </nav>
 
-          <Button asChild size="lg" variant="brand" className="mt-6 w-full">
+          <Button asChild size="lg" variant="brand" className="mt-3 mb-2 w-full">
             <Link href="/#contact" onClick={() => setOpen(false)}>
               {t("contact")}
             </Link>

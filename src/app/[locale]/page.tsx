@@ -4,10 +4,10 @@ import { Contact } from "@/components/contact";
 import { FeatureGrid } from "@/components/feature-grid";
 import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
-import { Industries } from "@/components/industries";
-import { Insights } from "@/components/insights";
+import { ProjectsTeaser } from "@/components/projects-teaser";
 import { StatBand } from "@/components/stat-band";
 import { Statement } from "@/components/statement";
+import { listPosts } from "@/lib/posts";
 
 // StatBand renders null until its records in lib/site.ts are filled.
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
@@ -23,8 +23,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <StatBand />
       <FeatureGrid />
       <HowItWorks />
-      <Industries />
-      <Insights showBlogLink />
+      <ProjectsTeaser posts={listPosts()} showAllLink />
       <Contact />
     </>
   );

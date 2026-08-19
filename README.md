@@ -12,7 +12,43 @@ npm run dev                    # http://localhost:3000
 npm run build && npm start     # bản production
 ```
 
-Yêu cầu Node >= 20.9 (Next 16).
+Yêu cầu Node >= 20.9 (Next 16). Docker: `docker compose up -d --build` (port host = `HOST_PORT`, mặc định 80).
+
+## CI/CD — push `main` thì deploy lên server
+
+GitHub Actions SSH vào máy, `git reset --hard origin/main`, rồi `docker compose up -d --build`. File `.env` trên server không bị ghi đè (untracked).
+
+**Một lần trên server**
+
+```bash
+# clone bằng SSH (để git pull không hỏi mật khẩu)
+git clone git@github.com:a11-1n-0n3/Anz-page.git ~/work/Anz-page
+cd ~/work/Anz-page
+cp .env.example .env           # HOST_PORT=80, SITE_URL, Resend nếu có
+chmod +x deploy.sh
+docker compose up -d --build
+```
+
+Thêm deploy key (read-only) vào repo GitHub nếu clone SSH: Settings → Deploy keys.
+
+**Một lần trên GitHub:** Settings → Secrets and variables → Actions → New repository secret:
+
+| Secret | Ví dụ |
+|---|---|
+| `DEPLOY_HOST` | IP hoặc hostname server |
+| `DEPLOY_USER` | `evg-user` |
+| `DEPLOY_KEY` | private key (cả khối `BEGIN…END OPENSSH PRIVATE KEY`) |
+| `DEPLOY_PATH` | `/home/evg-user/work/Anz-page` |
+
+Tạo key riêng cho deploy, không dùng key cá nhân:
+
+```bash
+ssh-keygen -t ed25519 -f anz-deploy -N "" -C "anz-github-deploy"
+# public → ~/.ssh/authorized_keys trên server
+# private → secret DEPLOY_KEY
+```
+
+Sau đó `git push origin main`. Tab **Actions** trên GitHub sẽ chạy job Deploy.
 
 ## Cấu trúc
 

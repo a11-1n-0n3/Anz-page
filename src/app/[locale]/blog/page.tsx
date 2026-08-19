@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { BlogIndex } from "@/components/blog-index";
+import { ProjectIndex } from "@/components/project-index";
 import type { Locale } from "@/i18n/routing";
+import { listPosts } from "@/lib/posts";
 
 export async function generateMetadata({
   params,
@@ -10,16 +11,16 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({
     locale: locale as Locale,
-    namespace: "blog",
+    namespace: "projects",
   });
-  return { title: t("title"), description: t("description") };
+  return { title: t("pageTitle"), description: t("pageDescription") };
 }
 
-export default async function BlogPage({
+export default async function ProjectsPage({
   params,
 }: PageProps<"/[locale]/blog">) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <BlogIndex />;
+  return <ProjectIndex posts={listPosts()} />;
 }

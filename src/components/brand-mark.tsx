@@ -24,7 +24,7 @@ export function BrandMark({
       : "mt-1 text-[9px] tracking-[0.26em]";
 
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
+    <span className={cn("inline-flex min-w-0 items-center gap-2 sm:gap-2.5", className)}>
       <Image
         src="/assets/logo.png"
         alt=""

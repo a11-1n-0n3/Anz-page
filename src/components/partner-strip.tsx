@@ -12,8 +12,8 @@ export function PartnerStrip({ inFrame = false }: { inFrame?: boolean }) {
       aria-label="Partners"
       className={cn(
         inFrame
-          ? "relative isolate mt-16 pt-2"
-          : "border-y border-border bg-card py-10",
+          ? "relative isolate mt-8 pt-2 sm:mt-12"
+          : "border-y border-border bg-card py-8",
       )}
     >
       {inFrame ? (
@@ -24,7 +24,7 @@ export function PartnerStrip({ inFrame = false }: { inFrame?: boolean }) {
       ) : null}
 
       <Wrapper>
-        <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+        <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 sm:gap-x-14 sm:gap-y-6">
           {partners.map((partner) => (
             <li key={partner.id}>
               {partner.logo ? (
@@ -37,7 +37,7 @@ export function PartnerStrip({ inFrame = false }: { inFrame?: boolean }) {
                   width={120}
                   height={32}
                   className={cn(
-                    "h-7 w-auto opacity-70 transition duration-300 hover:opacity-100",
+                    "h-5 w-auto opacity-70 transition duration-300 hover:opacity-100 sm:h-7",
                     inFrame
                       ? "brightness-0 invert"
                       : "grayscale hover:grayscale-0",

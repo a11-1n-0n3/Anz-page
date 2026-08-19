@@ -17,7 +17,7 @@ export function StatBand() {
   return (
     <Section className="pb-0">
       <Container>
-        <Frame className="surface-dark px-6 py-12 sm:px-12 sm:py-14">
+        <Frame className="surface-dark px-6 py-8 sm:px-12 sm:py-10">
           <div
             aria-hidden
             className="pointer-events-none absolute -bottom-32 -left-20 -z-10 size-96 rounded-full bg-brand-soft blur-3xl"
@@ -28,7 +28,7 @@ export function StatBand() {
               <div key={stat.id} className="text-center">
                 <dt className="sr-only">{stat.label[locale]}</dt>
                 <dd>
-                  <span className="block text-4xl font-semibold tabular-nums text-white sm:text-5xl">
+                  <span className="block text-3xl font-semibold tabular-nums text-white sm:text-5xl">
                     {stat.value}
                   </span>
                   <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
@@ -44,7 +44,7 @@ export function StatBand() {
               aria-hidden
               className="absolute top-0 left-0 h-5 w-20 rounded-tl-[var(--frame-radius)] bg-brand"
             />
-            <div className="mt-5 rounded-frame rounded-tl-none bg-brand px-6 py-8 text-white sm:px-10 sm:py-9">
+            <div className="mt-5 rounded-frame rounded-tl-none bg-brand px-4 py-5 text-white sm:px-10 sm:py-9">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
                 <div className="min-w-0 max-w-xl">
                   <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -59,7 +59,7 @@ export function StatBand() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="shrink-0 border-white/80 bg-transparent text-white hover:bg-white/10 hover:text-white"
+                  className="h-10 shrink-0 border-white/80 bg-transparent px-5 text-sm text-white hover:bg-white/10 hover:text-white sm:h-12 sm:px-8 sm:text-[15px]"
                 >
                   <Link href="/#contact">
                     {t("cta")}

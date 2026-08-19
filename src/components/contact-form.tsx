@@ -59,7 +59,7 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="space-y-5 rounded-lg border border-border bg-card p-6 sm:p-8"
+      className="space-y-4 rounded-lg border border-border bg-card p-4 sm:space-y-5 sm:p-8"
     >
       {/* honeypot */}
       <div aria-hidden className="absolute left-[-9999px]">
@@ -150,7 +150,7 @@ export function ContactForm() {
         </p>
       ) : null}
 
-      <Button type="submit" size="lg" disabled={isSubmitting} className="w-full">
+      <Button type="submit" size="lg" variant="brand" disabled={isSubmitting} className="w-full">
         {isSubmitting ? t("submitting") : t("submit")}
       </Button>
     </form>

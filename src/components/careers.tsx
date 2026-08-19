@@ -1,19 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { MapPin } from "lucide-react";
+import { ChevronDown, MapPin } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Button } from "@/components/button";
+import { MarkdownBody } from "@/components/markdown-body";
 import { Container, Section } from "@/components/section";
-import {
-  jobs,
-  siteConfig,
-  type Job,
-  type JobDepartment,
-  type JobLocation,
-  type JobType,
-} from "@/lib/site";
+import { siteConfig, type Job, type JobDepartment, type JobLocation, type JobType } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/routing";
 
@@ -71,27 +65,59 @@ function FilterGroup({
   );
 }
 
+function locationLabel(t: ReturnType<typeof useTranslations<"careers">>, loc: JobLocation) {
+  return loc === "hanoi" ? t("locations.hanoiOnsite") : t(`locations.${loc}`);
+}
+
 function JobCard({ job }: { job: Job }) {
   const t = useTranslations("careers");
   const locale = useLocale() as Locale;
+  const [open, setOpen] = useState(false);
   const mailto = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
-    `Apply: ${job.title.en}`,
+    `Apply: ${job.title}`,
   )}`;
 
   return (
-    <article className="flex flex-col gap-4 rounded-lg border border-border bg-card p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:p-6">
-      <div className="min-w-0">
-        <p className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-muted-foreground uppercase">
-          <MapPin aria-hidden strokeWidth={1.75} className="size-3.5 shrink-0" />
-          {t(`locations.${job.location}`)}
-        </p>
-        <h2 className="mt-2 text-balance text-base font-semibold tracking-tight sm:text-lg">
-          {job.title[locale]}
-        </h2>
+    <article className="rounded-lg border border-border bg-card">
+      <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:p-6">
+        <button
+          type="button"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="min-w-0 flex-1 text-left"
+        >
+          <p className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+            <MapPin aria-hidden strokeWidth={1.75} className="size-3.5 shrink-0" />
+            {job.locations.map((loc) => locationLabel(t, loc)).join(" · ")}
+          </p>
+          <h2 className="mt-2 flex items-center gap-2 text-balance text-base font-semibold tracking-tight sm:text-lg">
+            {job.title}
+            <ChevronDown
+              aria-hidden
+              strokeWidth={1.75}
+              className={cn(
+                "size-4 shrink-0 text-muted-foreground transition-transform",
+                open && "rotate-180",
+              )}
+            />
+          </h2>
+          <p className="mt-1.5 text-sm text-muted-foreground">
+            {t(`levels.${job.level}`)}
+            {" · "}
+            {t("slots", { count: job.slots })}
+          </p>
+        </button>
+        <Button asChild size="sm" variant="brand" className="shrink-0 self-start sm:self-center">
+          <a href={mailto} onClick={(e) => e.stopPropagation()}>
+            {t("apply")}
+          </a>
+        </Button>
       </div>
-      <Button asChild size="sm" variant="brand" className="shrink-0 self-start sm:self-center">
-        <a href={mailto}>{t("apply")}</a>
-      </Button>
+      {open ? (
+        <div className="border-t border-border px-5 pb-5 sm:px-6 sm:pb-6 [&_h2]:mt-6 [&_h2]:text-base">
+          <MarkdownBody markdown={job.jd[locale]} />
+        </div>
+      ) : null}
     </article>
   );
 }
@@ -144,7 +170,7 @@ function TalentCommunity() {
 }
 
 // Layout inspired by career.vng.com.vn job search — ANZ filters + roles only.
-export function Careers() {
+export function Careers({ jobs }: { jobs: Job[] }) {
   const t = useTranslations("careers");
   const [types, setTypes] = useState<JobType[]>([]);
   const [departments, setDepartments] = useState<JobDepartment[]>([]);
@@ -155,16 +181,17 @@ export function Careers() {
       if (types.length && !types.includes(job.type)) return false;
       if (departments.length && !departments.includes(job.department))
         return false;
-      if (locations.length && !locations.includes(job.location)) return false;
+      if (locations.length && !job.locations.some((l) => locations.includes(l)))
+        return false;
       return true;
     });
-  }, [types, departments, locations]);
+  }, [jobs, types, departments, locations]);
 
   const hasFilters =
     types.length > 0 || departments.length > 0 || locations.length > 0;
 
   return (
-    <Section className="pt-10 sm:pt-14">
+    <Section className="pt-6 sm:pt-8">
       <Container>
         <h1 className="text-balance text-center text-3xl font-semibold tracking-tight sm:text-4xl">
           {t("searchTitle")}

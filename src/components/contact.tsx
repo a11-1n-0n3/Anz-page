@@ -12,17 +12,17 @@ export function Contact() {
   return (
     <Section id="contact">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
           <div className="lg:pt-2">
             <Eyebrow>{t("eyebrow")}</Eyebrow>
-            <h2 className="mt-4 text-balance text-3xl font-semibold sm:text-4xl">
+            <h2 className="mt-3 text-balance text-2xl font-semibold sm:mt-4 sm:text-4xl">
               {t("title")}
             </h2>
-            <p className="mt-4 max-w-md text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-3 max-w-md text-pretty text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
               {t("description")}
             </p>
 
-            <dl className="mt-10 space-y-5 border-t border-border pt-8">
+            <dl className="mt-6 space-y-4 border-t border-border pt-6 sm:mt-10 sm:space-y-5 sm:pt-8">
               <div className="flex items-start gap-3">
                 <dt className="mt-0.5">
                   <Mail aria-hidden strokeWidth={1.5} className="size-5 text-brand-ink" />

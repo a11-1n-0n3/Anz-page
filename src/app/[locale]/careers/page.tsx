@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Careers } from "@/components/careers";
+import { listJobs } from "@/lib/jobs";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -21,5 +22,5 @@ export default async function CareersPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <Careers />;
+  return <Careers jobs={listJobs()} />;
 }

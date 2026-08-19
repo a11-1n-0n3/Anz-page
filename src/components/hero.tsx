@@ -13,12 +13,12 @@ export function Hero() {
   const tSite = useTranslations("site");
 
   return (
-    <Section className="py-0 sm:py-0 mb-32">
-      <div className="surface-dark relative isolate flex min-h-[min(88vh,52rem)] flex-col overflow-hidden bg-background px-5 pt-20 pb-10 sm:px-8 sm:pt-24 sm:pb-12">
+    <Section className="py-0 sm:py-0 mb-12 sm:mb-24">
+      <div className="surface-dark relative isolate flex min-h-0 flex-col overflow-hidden bg-background px-5 pt-12 pb-8 sm:px-8 sm:pt-16 sm:pb-10">
         {/* Desktop only — no room for it beside the headline at 375px */}
         <Scanlines className="pointer-events-none absolute inset-0 -z-20 max-sm:hidden" />
 
-        <div className="relative z-0 mx-auto flex w-full max-w-3xl flex-1 -translate-y-6 flex-col items-center justify-center text-center sm:-translate-y-10">
+        <div className="relative z-0 mx-auto flex w-full max-w-3xl flex-col items-center py-8 text-center sm:py-12">
           <p className="animate-rise inline-flex items-start gap-2 rounded-sm border border-border bg-card/70 px-3 py-1.5 text-[10px] font-medium tracking-[0.12em] text-foreground uppercase backdrop-blur-sm sm:px-3.5 sm:text-[12px] sm:tracking-[0.14em]">
             {/* mt keeps the marker on line one when the tagline wraps */}
             <span
@@ -28,7 +28,7 @@ export function Hero() {
             {tSite("tagline")}
           </p>
 
-          <h1 className="animate-rise mx-auto mt-4 max-w-3xl text-balance text-[2.5rem] leading-[1.06] font-semibold text-foreground sm:text-6xl lg:text-[4.25rem] [animation-delay:80ms]">
+          <h1 className="animate-rise mx-auto mt-4 max-w-3xl text-balance break-words text-[2rem] leading-[1.1] font-semibold text-foreground sm:text-5xl lg:text-[4.25rem] [animation-delay:80ms]">
             {t.rich("title", {
               hl: (chunks) => (
                 <span className="italic text-brand-ink">{chunks}</span>
@@ -40,8 +40,8 @@ export function Hero() {
             {tSite("description")}
           </p>
 
-          <div className="animate-rise mt-9 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4 [animation-delay:200ms]">
-            <Button asChild size="lg" variant="brand">
+          <div className="animate-rise mt-8 flex flex-wrap items-center justify-center gap-3 sm:mt-9 sm:gap-4 [animation-delay:200ms]">
+            <Button asChild size="lg" variant="brand" className="h-10 px-5 text-sm sm:h-12 sm:px-8 sm:text-[15px]">
               <Link href="/#contact">
                 <ArrowUpRight aria-hidden strokeWidth={2} className="size-4" />
                 {t("primaryCta")}
@@ -51,7 +51,7 @@ export function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="border-foreground/50 bg-background/60 text-foreground backdrop-blur-md hover:bg-background/80 hover:text-foreground"
+              className="h-10 border-foreground/50 bg-background/60 px-5 text-sm text-foreground backdrop-blur-md hover:bg-background/80 hover:text-foreground sm:h-12 sm:px-8 sm:text-[15px]"
             >
               <Link href="/#features">{t("secondaryCta")}</Link>
             </Button>

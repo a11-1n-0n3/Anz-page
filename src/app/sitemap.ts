@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
-import { posts, siteConfig } from "@/lib/site";
+import { listPosts } from "@/lib/posts";
+import { siteConfig } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 
 const staticPaths = ["", "/team", "/blog", "/careers"] as const;
@@ -14,8 +15,8 @@ function localeUrl(locale: string, path: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const postPaths = posts.map((p) => `/blog/${p.slug}`);
-  const paths = [...staticPaths, ...postPaths];
+  const projectPaths = listPosts().map((p) => `/blog/${p.slug}`);
+  const paths = [...staticPaths, ...projectPaths];
 
   return routing.locales.flatMap((locale) =>
     paths.map((path) => {

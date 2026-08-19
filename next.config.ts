@@ -13,6 +13,18 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/projects", destination: "/blog", permanent: true },
+      { source: "/projects/:slug", destination: "/blog/:slug", permanent: true },
+      { source: "/en/projects", destination: "/en/blog", permanent: true },
+      {
+        source: "/en/projects/:slug",
+        destination: "/en/blog/:slug",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");

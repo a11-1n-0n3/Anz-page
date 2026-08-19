@@ -10,8 +10,8 @@ export async function Statement() {
   return (
     <Section className="pb-0">
       <Container>
-        <div className="grid gap-8 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] md:items-end md:gap-16">
-          <h2 className="text-balance text-3xl leading-[1.12] font-semibold sm:text-4xl lg:text-[2.75rem]">
+        <div className="grid gap-8 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] md:items-end md:gap-12 lg:gap-16">
+          <h2 className="text-balance text-2xl leading-[1.12] font-semibold sm:text-4xl lg:text-[2.75rem]">
             {t("title")}
           </h2>
           <p className="text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">

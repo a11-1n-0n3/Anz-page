@@ -1,14 +1,15 @@
 {
   "site": {
-    "tagline": "Applied AI for manufacturing, finance, retail and education",
-    "description": "We take one concrete operational problem — counting output on a line, pulling data off paperwork, forecasting stock — and hand back a system running inside the infrastructure you already have."
+    "tagline": "Engineering intelligence for the real world.",
+    "description": "We empower businesses to harness AI as a strategic source of competitive advantage."
   },
   "nav": {
     "mainLabel": "Main navigation",
-    "features": "What we solve",
+    "home": "Home",
+    "features": "Solutions",
     "howItWorks": "How we work",
     "contact": "Contact",
-    "blog": "Blog",
+    "blog": "Insights",
     "careers": "Careers",
     "team": "Our people"
   },
@@ -18,70 +19,70 @@
     "en": "English"
   },
   "hero": {
-    "title": "Get AI into <hl>the systems you already run</hl>",
-    "primaryCta": "Describe your problem",
-    "secondaryCta": "See what we solve"
+    "title": "Turn AI into <hl>operational capability</hl>",
+    "primaryCta": "Schedule a consultation",
+    "secondaryCta": "Explore our solutions"
   },
   "statement": {
-    "title": "Sharp talent. Real systems. Measurable impact.",
-    "body": "We don’t hand over prototypes—we deliver AI that runs in production. Our engineers cut time to value, harden what matters, and keep quality visible after go-live."
+    "title": "Our capabilities are proven through systems built to perform in the real world.",
+    "body": "We pursue solutions built for lasting value — shaped by rigorous thinking, purposeful technology, and a deep understanding of the business context."
   },
   "stats": {
     "label": "ANZ in numbers",
-    "title": "We're ready. Are you?",
-    "body": "ANZ provides scalable talent to deliver solutions that move your business forward.",
-    "cta": "Let's Talk"
+    "title": "Ready to begin your first engagement?",
+    "body": "ANZ engineers assess your current estate, prove value on a controlled scope, and hand over a system that runs on the infrastructure you already operate.",
+    "cta": "Contact ANZ"
   },
   "partners": {
     "label": "Trusted by"
   },
   "features": {
-    "eyebrow": "What we solve",
-    "title": "The problems we take on",
-    "description": "Six operational problems across manufacturing, finance, retail and logistics, and education. We go deep on a few rather than taking on everything.",
+    "eyebrow": "Solutions",
+    "title": "AI capabilities, deployed in production",
+    "description": "ANZ delivers the AI capabilities that matter — designed around each enterprise’s operating context, infrastructure, and performance objectives.",
     "items": {
       "vision": {
         "title": "Computer vision",
-        "description": "Count output, catch defects and flag safety breaches from the feeds you already have. No hardware swap — the model runs on an edge box on site or on your own server."
+        "description": "Real-time operational oversight. Detect anomalies and risk at the point they emerge."
       },
       "education": {
         "title": "Education",
-        "description": "Written feedback on open answers, learning paths that follow each learner's gaps, progress reports for teachers. Our AI Mentor product is built along these lines."
+        "description": "Personalised assessment and learning pathways. Turn learning data into decisions you can defend."
       },
       "conversational": {
         "title": "Language & assistants",
-        "description": "Staff ask in plain Vietnamese and get an answer citing the exact page of the procedure, contract or manual. When it cannot find a source it declines rather than guesses."
+        "description": "Retrieve enterprise knowledge in natural language. Answers that are sourced and contextualised."
       },
       "generative": {
         "title": "Generative AI",
-        "description": "Draft reports, summarise minutes, pull knowledge out of an internal document store. If the data may not leave your infrastructure, we deploy inside your network."
+        "description": "Automate enterprise content and knowledge work. Deployed securely in controlled environments."
       },
       "document": {
         "title": "Document intelligence",
-        "description": "Turn paper into structured records that go straight into your ERP or accounting software. Fields the model is unsure of go to a review queue instead of being filled in blind."
+        "description": "Convert documents into structured data. Accelerate processing while governing input quality."
       },
       "predictive": {
         "title": "Analytics & forecasting",
-        "description": "Stock and order forecasting for retail and logistics, anomaly detection for finance. Built on the history you already hold, not on a new data collection project."
+        "description": "Turn operational data into forward-looking signal. Support faster, more precise decisions."
       }
     }
   },
   "howItWorks": {
     "eyebrow": "How we work",
-    "title": "From the problem to a system in production",
-    "description": "You see the numbers before you commit a large budget.",
+    "title": "From the business problem to a system in production",
+    "description": "We convert AI initiatives into operational capability that can be measured, integrated, and scaled across the enterprise.",
     "steps": {
       "discovery": {
-        "title": "Agree the number before any code is written",
-        "description": "We ask what you measure today and which figure has to move. If the data you hold cannot get to that figure, you hear it at this step rather than after the contract is signed."
+        "title": "Establish the objective",
+        "description": "Align on the business problem, KPIs, and evaluation criteria before any deployment. Investment decisions rest on evidence, not assumption."
       },
       "pilot": {
-        "title": "Prove it on a narrow scope",
-        "description": "One line, one document type, one branch. The pilot is measured on the figure we agreed, against your real data rather than a clean sample set."
+        "title": "Prove value before you scale",
+        "description": "Begin within a controlled scope. Measure impact on live data and processes to validate outcomes before expansion."
       },
       "rollout": {
-        "title": "Integrate, then stay on",
-        "description": "Wire into the ERP, camera network or data store you already run; watch model quality after handover and retrain when the data shifts."
+        "title": "Integrate and operate at enterprise scale",
+        "description": "Connect seamlessly to existing systems and data, then monitor and refine continuously so performance holds in live operations."
       }
     }
   },
@@ -104,6 +105,10 @@
     "clearFilters": "Clear filters",
     "resultCount": "{count, plural, =0 {No roles} one {# role} other {# roles}}",
     "apply": "Apply now",
+    "slots": "{count, plural, one {# slot} other {# slots}}",
+    "levels": {
+      "fresher": "Fresher"
+    },
     "cta": "Say hello",
     "filters": {
       "type": "Job type",
@@ -124,6 +129,7 @@
     },
     "locations": {
       "hanoi": "Hanoi",
+      "hanoiOnsite": "Hanoi onsite",
       "hcm": "Ho Chi Minh City",
       "remote": "Remote"
     },
@@ -138,32 +144,35 @@
     "title": "Deep industry expertise",
     "description": "Real-world experience across the industries shaping how AI moves from lab to live operations."
   },
-  "insights": {
+  "projects": {
     "eyebrow": "Insights",
-    "title": "Writing from the team",
-    "description": "Engineering notes and lessons from the AI projects we have shipped.",
-    "readMore": "Read post",
-    "viewAll": "See more"
-  },
-  "blog": {
-    "eyebrow": "Blog",
-    "title": "Blog",
-    "description": "Articles from our engineering work.",
-    "back": "All posts",
-    "empty": "No posts in this category yet.",
-    "allCategories": "All articles",
-    "categoriesLabel": "Categories",
+    "title": "AI solutions — from concept to operations",
+    "description": "AI systems purpose-built for the operational problems enterprises actually run.",
+    "readMore": "Read more",
+    "viewAll": "All insights",
+    "pageTitle": "Insights",
+    "pageDescription": "AI systems purpose-built for the operational problems enterprises actually run.",
+    "back": "All insights",
+    "empty": "No insights in this industry yet.",
+    "allCategories": "All industries",
+    "categoriesLabel": "Industries",
+    "problem": "Problem",
+    "solution": "Solution",
+    "outcome": "Outcome",
+    "minRead": "{count, plural, =1 {1 min read} other {# min read}}",
     "categories": {
-      "vision": "Computer vision",
-      "documents": "Document intelligence",
-      "mlops": "MLOps",
-      "delivery": "Delivery"
+      "manufacturing": "Manufacturing",
+      "finance": "Finance",
+      "retail": "Retail",
+      "education": "Education",
+      "real-estate": "Real Estate",
+      "computer-vision": "Computer Vision"
     }
   },
   "contact": {
     "eyebrow": "Contact",
-    "title": "Start with your problem",
-    "description": "Tell us briefly what you measure today and which number you want to move. We reply within one business day.",
+    "title": "A conversation about your enterprise challenge",
+    "description": "Every organisation has distinct problems and objectives. Share the issue that matters most — we will work with you to define the right approach.",
     "orEmail": "Or email us directly at",
     "address": "Hanoi, Vietnam"
   },
@@ -172,7 +181,7 @@
     "email": "Email",
     "company": "Company",
     "phone": "Phone number",
-    "message": "What do you measure today, and which number should move?",
+    "message": "Your enterprise requirement",
     "submit": "Request a consultation",
     "submitting": "Sending...",
     "successTitle": "We've got your details",

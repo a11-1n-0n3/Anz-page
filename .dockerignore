@@ -39,7 +39,11 @@ compose.yml
 docker-compose*.yaml
 docker-compose*.yml
 
-*.md
+/*.md
+!public/blog/
+!public/blog/**
+!public/careers/
+!public/careers/**
 docs/
 .github/
 .gitlab-ci.yml

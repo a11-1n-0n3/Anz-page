@@ -15,7 +15,7 @@ export function SiteHeader() {
 
   return (
     <header className="surface-dark sticky top-0 z-50 border-b border-border/60 bg-background/75 backdrop-blur-xl">
-      <Container className="flex h-16 items-center justify-between gap-4 sm:h-18">
+      <Container className="flex h-16 min-w-0 items-center justify-between gap-3 sm:h-18 sm:gap-4">
         <Link
           href="/"
           className="group rounded-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none"
@@ -24,12 +24,12 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label={t("mainLabel")} className="hidden md:block">
-          <ul className="flex items-center gap-6">
+          <ul className="flex items-center gap-1 lg:gap-6">
             {mainNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block px-2.5 py-1.5 text-sm font-medium text-foreground underline decoration-transparent underline-offset-[6px] transition-colors hover:decoration-current focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                  className="block px-2 py-1.5 text-[13px] font-medium text-foreground underline decoration-transparent underline-offset-[6px] transition-colors hover:decoration-current focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none lg:px-2.5 lg:text-sm"
                 >
                   {t(item.labelKey)}
                 </Link>
@@ -40,7 +40,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher />
-          <Button asChild size="sm" variant="brand" className="hidden md:inline-flex">
+          <Button asChild size="sm" variant="brand" className="hidden lg:inline-flex">
             <Link href="/#contact">
               <ArrowUpRight aria-hidden strokeWidth={2} className="size-4" />
               {t("contact")}
