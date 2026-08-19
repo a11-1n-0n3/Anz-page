@@ -63,10 +63,6 @@ export async function submitApplicationAction(
     });
     if (dbError) throw dbError;
 
-    const { data: signedUrl } = await admin.storage
-      .from("career-cvs")
-      .createSignedUrl(cvPath, 60 * 60 * 24);
-
     const to = process.env.CONTACT_NOTIFY_EMAIL ?? siteConfig.contact.email;
     await sendEmail({
       to,
@@ -77,9 +73,14 @@ export async function submitApplicationAction(
         `Name: ${name}`,
         `Email: ${email}`,
         `Phone: ${phone || "—"}`,
-        "",
-        signedUrl ? `View CV (24h link): ${signedUrl.signedUrl}` : `CV stored at: ${cvPath}`,
       ].join("\n"),
+      attachments: [
+        {
+          filename: file.name,
+          content: Buffer.from(await file.arrayBuffer()),
+          contentType: file.type,
+        },
+      ],
     });
 
     return { ok: true };
