@@ -42,27 +42,27 @@
     "description": "ANZ triển khai những năng lực AI trọng yếu, được thiết kế theo bối cảnh, hạ tầng và mục tiêu vận hành của từng doanh nghiệp.",
     "items": {
       "vision": {
-        "title": "Thị giác máy tính",
+        "title": "Computer vision",
         "description": "Giám sát vận hành theo thời gian thực. Phát hiện bất thường và rủi ro ngay tại điểm phát sinh."
       },
       "education": {
-        "title": "Giáo dục",
+        "title": "Education",
         "description": "Cá nhân hoá đánh giá và lộ trình học tập. Biến dữ liệu học tập thành quyết định có cơ sở."
       },
       "conversational": {
-        "title": "Ngôn ngữ & trợ lý",
+        "title": "Language & assistants",
         "description": "Truy xuất tri thức doanh nghiệp bằng ngôn ngữ tự nhiên. Câu trả lời có nguồn, có ngữ cảnh."
       },
       "generative": {
-        "title": "AI tạo sinh",
+        "title": "Generative AI",
         "description": "Tự động hoá nội dung và tri thức doanh nghiệp. Triển khai an toàn trong môi trường kiểm soát."
       },
       "document": {
-        "title": "Trí tuệ tài liệu",
+        "title": "Document intelligence",
         "description": "Chuyển tài liệu thành dữ liệu có cấu trúc. Tăng tốc xử lý và kiểm soát chất lượng đầu vào."
       },
       "predictive": {
-        "title": "Phân tích & dự báo",
+        "title": "Analytics & forecasting",
         "description": "Biến dữ liệu vận hành thành tín hiệu dự báo. Hỗ trợ quyết định nhanh hơn, chính xác hơn."
       }
     }
