@@ -164,12 +164,12 @@
     "outcome": "Kết quả",
     "minRead": "{count} phút đọc",
     "categories": {
-      "manufacturing": "Sản xuất",
-      "finance": "Tài chính",
-      "retail": "Bán lẻ",
-      "education": "Giáo dục",
-      "real-estate": "Bất động sản",
-      "vision": "Computer Vision"
+      "vision": "Computer vision",
+      "education": "Education",
+      "conversational": "Language & assistants",
+      "generative": "Generative AI",
+      "document": "Document intelligence",
+      "predictive": "Analytics & forecasting"
     }
   },
   "contact": {

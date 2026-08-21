@@ -164,12 +164,12 @@
     "outcome": "Outcome",
     "minRead": "{count, plural, =1 {1 min read} other {# min read}}",
     "categories": {
-      "manufacturing": "Manufacturing",
-      "finance": "Finance",
-      "retail": "Retail",
+      "vision": "Computer vision",
       "education": "Education",
-      "real-estate": "Real Estate",
-      "vision": "Computer Vision"
+      "conversational": "Language & assistants",
+      "generative": "Generative AI",
+      "document": "Document intelligence",
+      "predictive": "Analytics & forecasting"
     }
   },
   "contact": {
