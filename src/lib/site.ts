@@ -8,12 +8,6 @@ export const siteConfig = {
   ogTagline: "Applied AI · Computer Vision · Education AI · Generative AI",
   contact: {
     email: "anz.team.vn@gmail.com",
-    phone: "+84 000 000 000",
-  },
-  social: {
-    facebook: "https://facebook.com/",
-    linkedin: "https://linkedin.com/company/",
-    github: "https://github.com/",
   },
 } as const;
 
@@ -43,6 +37,24 @@ export const partners: Partner[] = [
   { id: "p5", name: "Gemini", logo: "/assets/partners/google.svg" },
 ];
 
+// Education uses a shipped case-study frame; vision/assistant/document are generated stills.
+export const features = [
+  { id: "vision", image: "/assets/solutions/solution-vision.png" },
+  { id: "education", image: "/assets/solutions/solution-education.png" },
+  { id: "conversational", image: "/assets/solutions/solution-assistant.png" },
+  {
+    id: "generative",
+    image:
+      "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=800&q=80",
+  },
+  { id: "document", image: "/assets/solutions/solution-document.png" },
+  {
+    id: "predictive",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+  },
+] as const;
+
 export type Localized = Record<Locale, string>;
 
 export type TeamMember = {
@@ -58,6 +70,9 @@ export const team: TeamMember[] = [
   {
     id: "m1",
     name: "Mr. Bùi Chí Minh",
+    // Temporary stock portrait — replace with owned asset before launch.
+    photo:
+      "https://media.licdn.com/dms/image/v2/D5603AQHTby3UXAfnKg/profile-displayphoto-scale_400_400/B56Z_GF2i7KYAg-/0/1785734854198?e=1788998400&v=beta&t=abkl54BcVD9LkH0_LL35HwIKTu5EHU_EstRiyPDaS1Y",
     role: {
       vi: "Tech Lead",
       en: "Tech Lead",
@@ -70,6 +85,8 @@ export const team: TeamMember[] = [
   {
     id: "m2",
     name: "Mr. Bùi Quốc Tuấn",
+    photo:
+      "https://media.licdn.com/dms/image/v2/D5603AQHKrtRuyNVlBg/profile-displayphoto-scale_400_400/B56aAanwdPIYAk-/0/1787153026702?e=1788998400&v=beta&t=lJF88VwoQAR1RqABGNzwtMFBojWBb-rYW2NHwSwYuNA",
     role: {
       vi: "CEO",
       en: "CEO",
@@ -115,74 +132,17 @@ export const stats: Stat[] = [
   },
 ];
 
-export type Industry = {
-  id: string;
-  name: Localized;
-  /** Path under /public, or remote URL allowed in next.config. */
-  image: string;
-};
+// Derived from `features` so the blog filter can never drift from the Solutions section.
+export type ProjectDomain = (typeof features)[number]["id"];
 
-// Temporary stock images — replace with owned assets before launch.
-export const industries: Industry[] = [
-  {
-    id: "finance",
-    name: { vi: "Tài chính & ngân hàng", en: "Financial services" },
-    image:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "healthcare",
-    name: { vi: "Y tế & khoa học sự sống", en: "Healthcare & life sciences" },
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "hightech",
-    name: { vi: "Công nghệ cao", en: "High-tech" },
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "logistics",
-    name: { vi: "Logistics & chuỗi cung ứng", en: "Logistics & supply chain" },
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "manufacturing",
-    name: { vi: "Sản xuất", en: "Manufacturing" },
-    image:
-      "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "education",
-    name: { vi: "Giáo dục", en: "Education" },
-    image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
-  },
-];
-
-export type ProjectIndustry =
-  | "manufacturing"
-  | "finance"
-  | "retail"
-  | "education"
-  | "real-estate"
-  | "vision";
-
-export const projectIndustries: ProjectIndustry[] = [
-  "manufacturing",
-  "finance",
-  "retail",
-  "education",
-  "real-estate",
-  "vision",
-];
+export const projectDomains: ProjectDomain[] = features.map((f) => f.id);
 
 export type Project = {
-  id: string;
+  /** Primary key; also the blog-media folder name. */
+  id: number;
+  /** URL only — /blog/<slug>. Safe to change; images hang off `id`. */
   slug: string;
-  industry?: ProjectIndustry;
+  domain?: ProjectDomain;
   title: Localized;
   /** Anonymized until the client permits a real name. */
   client?: Localized;
@@ -211,10 +171,10 @@ export type JobDepartment =
   | "operations";
 export type JobLocation = "hanoi" | "hcm" | "remote";
 
-export type JobLevel = "fresher";
+export type JobLevel = "intern" | "fresher" | "junior" | "middle" | "senior";
 
 export type Job = {
-  id: string;
+  id: number;
   title: string;
   type: JobType;
   department: JobDepartment;

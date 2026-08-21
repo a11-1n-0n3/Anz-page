@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "media:push": "node scripts/media-push.mjs",
+    "media:move-ids": "node scripts/media-move-to-ids.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.7.1",

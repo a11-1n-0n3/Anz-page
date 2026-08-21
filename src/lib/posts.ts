@@ -1,27 +1,31 @@
 import "server-only";
 
-import { supabase } from "@/lib/supabase";
-import type { Project, ProjectIndustry } from "@/lib/site";
+import { mediaUrl } from "@/lib/media";
+import { isSupabaseConfigured, supabase } from "@/lib/supabase";
+import type { Project, ProjectDomain } from "@/lib/site";
 
 const EXT = "png|jpe?g|gif|webp|svg|avif";
 
-/** Filename → /blog/{slug}/file; http(s) and /path stay. */
-export function resolveAsset(slug: string, src: string) {
+/** Filename → storage URL; http(s) stays; legacy `/blog/<…>/x.png` keeps only the filename. */
+export function resolveAsset(id: number, src: string) {
   const s = src.trim().replace(/^\.\//, "");
   if (!s) return s;
-  if (/^https?:\/\//i.test(s) || s.startsWith("/")) return s;
-  return `/blog/${slug}/${s}`;
+  if (/^https?:\/\//i.test(s)) return s;
+  const legacy = /^\/blog\/[^/]+\/(.+)$/.exec(s);
+  if (legacy) return mediaUrl(`${id}/${legacy[1]}`);
+  if (s.startsWith("/")) return s;
+  return mediaUrl(`${id}/${s}`);
 }
 
 /**
- * Rewrite image refs when the post is read (drop-in "upload"):
- *   quiz.png              → ![](/blog/{slug}/quiz.png)
- *   ![alt](quiz.png)      → ![alt](/blog/{slug}/quiz.png)
+ * Rewrite image refs when the post is read:
+ *   quiz.png              → ![](<storage>/blog-media/{id}/quiz.png)
+ *   ![alt](quiz.png)      → ![alt](<storage>/blog-media/{id}/quiz.png)
  *   ![alt](https://...)   → keep URL
  *   ![1]                  → gallery[1] if listed
  */
 export function canonicalizeMarkdown(
-  slug: string,
+  id: number,
   md: string,
   gallery: string[] = [],
 ) {
@@ -35,7 +39,7 @@ export function canonicalizeMarkdown(
     return src ? `![](${src})` : m;
   });
   out = out.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt: string, src: string) => {
-    return `![${alt}](${resolveAsset(slug, src)})`;
+    return `![${alt}](${resolveAsset(id, src)})`;
   });
   return out;
 }
@@ -49,7 +53,7 @@ function firstMarkdownImage(md: string) {
 type PostRow = {
   id: number;
   slug: string;
-  domain: ProjectIndustry | null;
+  domain: ProjectDomain | null;
   title_vi: string;
   title_en: string;
   excerpt_vi: string;
@@ -61,24 +65,28 @@ type PostRow = {
 };
 
 function toProject(row: PostRow): Project {
-  const viBody = canonicalizeMarkdown(row.slug, row.body_vi);
-  const enBody = canonicalizeMarkdown(row.slug, row.body_en);
+  const viBody = canonicalizeMarkdown(row.id, row.body_vi);
+  const enBody = canonicalizeMarkdown(row.id, row.body_en);
+  const cover = row.cover?.trim() ? resolveAsset(row.id, row.cover) : undefined;
 
   return {
-    id: row.slug,
+    id: row.id,
     slug: row.slug,
-    industry: row.domain ?? undefined,
+    domain: row.domain ?? undefined,
     title: { vi: row.title_vi, en: row.title_en },
     excerpt: { vi: row.excerpt_vi, en: row.excerpt_en },
     date: row.date,
-    cover: row.cover ?? firstMarkdownImage(viBody || enBody),
+    cover: cover || firstMarkdownImage(viBody || enBody),
     body: { vi: viBody, en: enBody },
   };
 }
 
-const SELECT = "id, slug, domain, title_vi, title_en, excerpt_vi, excerpt_en, cover, date, body_vi, body_en";
+const SELECT =
+  "id, slug, domain, title_vi, title_en, excerpt_vi, excerpt_en, cover, date, body_vi, body_en";
 
 export async function listPosts(): Promise<Project[]> {
+  if (!isSupabaseConfigured()) return [];
+
   const { data, error } = await supabase()
     .from("posts")
     .select(SELECT)
@@ -93,6 +101,8 @@ export async function listPosts(): Promise<Project[]> {
 }
 
 export async function getPost(slug: string): Promise<Project | undefined> {
+  if (!isSupabaseConfigured()) return undefined;
+
   const { data, error } = await supabase()
     .from("posts")
     .select(SELECT)
@@ -105,4 +115,18 @@ export async function getPost(slug: string): Promise<Project | undefined> {
   }
 
   return toProject(data as PostRow);
+}
+
+/** Stray `/blog/<id>` links resolve here so they can 308 to the slug URL. */
+export async function getPostSlugById(id: number): Promise<string | undefined> {
+  if (!isSupabaseConfigured()) return undefined;
+
+  const { data, error } = await supabase()
+    .from("posts")
+    .select("slug")
+    .eq("id", id)
+    .maybeSingle();
+
+  if (error || !data) return undefined;
+  return (data as { slug: string }).slug;
 }

@@ -40,10 +40,9 @@ docker-compose*.yaml
 docker-compose*.yml
 
 /*.md
-!public/blog/
-!public/blog/**
 docs/
 supabase/
+scripts/
 .github/
 .gitlab-ci.yml
 
