@@ -42,11 +42,11 @@ export async function submitApplicationAction(
     return { ok: false, errorKey: "fileTypeInvalid" };
   }
 
-  const { name, email, phone, jobSlug, roleName } = parsed.data;
+  const { name, email, phone, jobId, roleName } = parsed.data;
 
   try {
     const admin = supabaseAdmin();
-    const cvPath = `${jobSlug ?? "general"}/${crypto.randomUUID()}/${file.name}`;
+    const cvPath = `${jobId ?? "general"}/${crypto.randomUUID()}/${file.name}`;
 
     const { error: uploadError } = await admin.storage
       .from("career-cvs")
@@ -54,7 +54,7 @@ export async function submitApplicationAction(
     if (uploadError) throw uploadError;
 
     const { error: dbError } = await admin.from("applications").insert({
-      job_slug: jobSlug || null,
+      job_id: jobId ? Number(jobId) : null,
       role_name: roleName,
       candidate_name: name,
       candidate_email: email,
@@ -67,12 +67,12 @@ export async function submitApplicationAction(
     await sendEmail({
       to,
       replyTo: email,
-      subject: `[CV] ${roleName} — ${name}`,
+      subject: `[CV] ${roleName} - ${name}`,
       text: [
         `Position: ${roleName}`,
         `Name: ${name}`,
         `Email: ${email}`,
-        `Phone: ${phone || "—"}`,
+        `Phone: ${phone || "-"}`,
       ].join("\n"),
       attachments: [
         {

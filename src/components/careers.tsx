@@ -173,7 +173,7 @@ function TalentCommunity({
 
     const roleName = applyingFor ? `Apply: ${applyingFor.title}` : t("generalApplication");
     const result = await submitApplicationAction(
-      { ...values, jobSlug: applyingFor?.id, roleName },
+      { ...values, jobId: applyingFor?.id, roleName },
       file,
     );
 

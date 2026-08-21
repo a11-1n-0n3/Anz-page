@@ -168,7 +168,7 @@ export type ProjectIndustry =
   | "retail"
   | "education"
   | "real-estate"
-  | "computer-vision";
+  | "vision";
 
 export const projectIndustries: ProjectIndustry[] = [
   "manufacturing",
@@ -176,7 +176,7 @@ export const projectIndustries: ProjectIndustry[] = [
   "retail",
   "education",
   "real-estate",
-  "computer-vision",
+  "vision",
 ];
 
 export type Project = {

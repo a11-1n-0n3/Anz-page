@@ -44,9 +44,13 @@ function firstMarkdownImage(md: string) {
   return md.match(/!\[[^\]]*\]\(([^)]+)\)/)?.[1];
 }
 
+// `posts` is keyed by `id` in Supabase; `legacy_slug` is the stable URL
+// slug (pre-dates the id-keyed schema, kept for routing) and `domain`
+// replaced the old `industry` column.
 type PostRow = {
-  slug: string;
-  industry: ProjectIndustry | null;
+  id: number;
+  legacy_slug: string;
+  domain: ProjectIndustry | null;
   title_vi: string;
   title_en: string;
   excerpt_vi: string;
@@ -58,13 +62,13 @@ type PostRow = {
 };
 
 function toProject(row: PostRow): Project {
-  const viBody = canonicalizeMarkdown(row.slug, row.body_vi);
-  const enBody = canonicalizeMarkdown(row.slug, row.body_en);
+  const viBody = canonicalizeMarkdown(row.legacy_slug, row.body_vi);
+  const enBody = canonicalizeMarkdown(row.legacy_slug, row.body_en);
 
   return {
-    id: row.slug,
-    slug: row.slug,
-    industry: row.industry ?? undefined,
+    id: row.legacy_slug,
+    slug: row.legacy_slug,
+    industry: row.domain ?? undefined,
     title: { vi: row.title_vi, en: row.title_en },
     excerpt: { vi: row.excerpt_vi, en: row.excerpt_en },
     date: row.date,
@@ -73,7 +77,7 @@ function toProject(row: PostRow): Project {
   };
 }
 
-const SELECT = "slug, industry, title_vi, title_en, excerpt_vi, excerpt_en, cover, date, body_vi, body_en";
+const SELECT = "id, legacy_slug, domain, title_vi, title_en, excerpt_vi, excerpt_en, cover, date, body_vi, body_en";
 
 export async function listPosts(): Promise<Project[]> {
   const { data, error } = await supabase()
@@ -93,7 +97,7 @@ export async function getPost(slug: string): Promise<Project | undefined> {
   const { data, error } = await supabase()
     .from("posts")
     .select(SELECT)
-    .eq("slug", slug)
+    .eq("legacy_slug", slug)
     .maybeSingle();
 
   if (error || !data) {
