@@ -17,14 +17,14 @@ export const applicationSchema = z.object({
     .regex(/^[0-9+()\s.-]{8,20}$/, "phoneInvalid")
     .optional()
     .or(z.literal("")),
-  jobId: z.string().max(100).optional(),
+  jobId: z.coerce.number().int().positive().optional(),
   roleName: z.string().trim().min(1).max(200),
   website: z.string().max(500).optional(), // honeypot
 });
 
 export type ApplicationFields = z.infer<typeof applicationSchema>;
 
-// What the on-page form collects - jobId/roleName are derived, not typed in.
+// What the on-page form collects — jobId/roleName are derived, not typed in.
 export const applicationFormSchema = applicationSchema.omit({
   jobId: true,
   roleName: true,

@@ -54,7 +54,7 @@ export async function submitApplicationAction(
     if (uploadError) throw uploadError;
 
     const { error: dbError } = await admin.from("applications").insert({
-      job_id: jobId ? Number(jobId) : null,
+      job_id: jobId ?? null,
       role_name: roleName,
       candidate_name: name,
       candidate_email: email,

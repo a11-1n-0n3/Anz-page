@@ -1,6 +1,6 @@
 import "server-only";
 
-import { supabase } from "@/lib/supabase";
+import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 import type { Job } from "@/lib/site";
 
 // `jobs` is keyed by `id` in Supabase — there is no slug column.
@@ -18,7 +18,7 @@ type JobRow = {
 
 function toJob(row: JobRow): Job {
   return {
-    id: String(row.id),
+    id: row.id,
     title: row.title,
     type: row.type,
     department: row.department,
@@ -30,6 +30,8 @@ function toJob(row: JobRow): Job {
 }
 
 export async function listJobs(): Promise<Job[]> {
+  if (!isSupabaseConfigured()) return [];
+
   const { data, error } = await supabase()
     .from("jobs")
     .select("id, title, type, department, locations, level, slots, jd_vi, jd_en")
