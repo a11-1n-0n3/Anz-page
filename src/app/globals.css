@@ -108,12 +108,24 @@
   --radius-frame: var(--frame-radius);
 
   --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-dropdown: dropdown 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes rise {
   from {
     opacity: 0;
     transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
   }
   to {
     opacity: 1;

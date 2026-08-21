@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
-import { Container, Section } from "@/components/section";
+import { Container, Section } from "@/components/primitives/section";
 
 // Asymmetric on purpose — breaks the "eyebrow + heading + even grid" rhythm
 // that every other section on the page repeats.

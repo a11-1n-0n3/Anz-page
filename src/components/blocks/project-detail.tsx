@@ -2,8 +2,8 @@ import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 
-import { MarkdownBody } from "@/components/markdown-body";
-import { Container, Section } from "@/components/section";
+import { MarkdownBody } from "@/components/primitives/markdown-body";
+import { Container, Section } from "@/components/primitives/section";
 import type { Project } from "@/lib/site";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -29,6 +29,7 @@ function expandGalleryMarkers(body: string, gallery: string[]) {
 
 export function ProjectDetail({ project }: { project: Project }) {
   const t = useTranslations("projects");
+  const tDomain = useTranslations("features");
   const locale = useLocale() as Locale;
   const format = useFormatter();
   const gallery = project.gallery ?? [];
@@ -55,9 +56,9 @@ export function ProjectDetail({ project }: { project: Project }) {
         </Link>
 
         <div className="mt-8 flex flex-wrap items-center gap-3 text-[12px] font-medium tracking-[0.14em] text-brand-ink uppercase">
-          {project.industry ? (
+          {project.domain ? (
             <>
-              {t(`categories.${project.industry}`)}
+              {tDomain(`items.${project.domain}.title`)}
               <span aria-hidden className="text-muted-foreground">
                 ·
               </span>

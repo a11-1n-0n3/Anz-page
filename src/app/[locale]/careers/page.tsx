@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { Careers } from "@/components/careers";
+import { Careers } from "@/components/blocks/careers";
 import { listJobs } from "@/lib/jobs";
 import type { Locale } from "@/i18n/routing";
 

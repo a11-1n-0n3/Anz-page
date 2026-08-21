@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { ProjectIndex } from "@/components/project-index";
+import { ProjectIndex } from "@/components/blocks/project-index";
 import type { Locale } from "@/i18n/routing";
 import { listPosts } from "@/lib/posts";
 

@@ -1,8 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
-import { Button } from "@/components/button";
-import { Container, Frame, Section } from "@/components/section";
+import { Button } from "@/components/primitives/button";
+import { Container, Frame, Section } from "@/components/primitives/section";
 import { Link } from "@/i18n/navigation";
 import { stats } from "@/lib/site";
 import type { Locale } from "@/i18n/routing";
@@ -57,9 +57,8 @@ export function StatBand() {
 
                 <Button
                   asChild
-                  size="lg"
                   variant="outline"
-                  className="h-10 shrink-0 border-white/80 bg-transparent px-5 text-sm text-white hover:bg-white/10 hover:text-white sm:h-12 sm:px-8 sm:text-[15px]"
+                  className="shrink-0 border-white/80 bg-transparent text-white hover:bg-white/10 hover:text-white"
                 >
                   <Link href="/#contact">
                     {t("cta")}

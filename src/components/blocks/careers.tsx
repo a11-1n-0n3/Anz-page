@@ -2,22 +2,23 @@
 
 import { useMemo, useRef, useState } from "react";
 import { ChevronDown, MapPin } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 
-import { Button } from "@/components/button";
-import { Input } from "@/components/input";
-import { MarkdownBody } from "@/components/markdown-body";
-import { Container, Section } from "@/components/section";
+import { Button } from "@/components/primitives/button";
+import { Form } from "@/components/primitives/form";
+import { MarkdownBody } from "@/components/primitives/markdown-body";
+import { Container, Section } from "@/components/primitives/section";
 import { submitApplicationAction } from "@/lib/application-action";
-import {
-  applicationFormSchema,
-  type ApplicationFormFields,
-} from "@/lib/application";
+import { applicationFormSchema } from "@/lib/application";
 import type { Job, JobDepartment, JobLocation, JobType } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/routing";
+
+const FILE_ERRORS = new Set([
+  "fileRequired",
+  "fileTooLarge",
+  "fileTypeInvalid",
+]);
 
 const TYPES: JobType[] = ["fulltime", "intern", "contract"];
 const DEPARTMENTS: JobDepartment[] = [
@@ -114,7 +115,6 @@ function JobCard({ job, onApply }: { job: Job; onApply: (job: Job) => void }) {
         </button>
         <Button
           type="button"
-          size="sm"
           variant="brand"
           className="shrink-0 self-start sm:self-center"
           onClick={(e) => {
@@ -217,128 +217,124 @@ function TalentCommunity({
   }
 
   return (
-    <form
-      data-talent-form
-      onSubmit={handleSubmit(onSubmit)}
-      noValidate
-      className="rounded-lg border border-border bg-card p-5"
-    >
-      {/* honeypot */}
-      <div aria-hidden className="absolute left-[-9999px]">
-        <label htmlFor="app-website">Website</label>
-        <input id="app-website" tabIndex={-1} autoComplete="off" {...register("website")} />
-      </div>
+    <Form
+      schema={applicationFormSchema}
+      defaultValues={{ name: "", email: "", phone: "", website: "" }}
+      fields={[
+        {
+          name: "name",
+          label: tForm("name"),
+          placeholder: tForm("name"),
+          autoComplete: "name",
+          required: true,
+          srOnlyLabel: true,
+        },
+        {
+          name: "email",
+          label: tForm("email"),
+          type: "email",
+          placeholder: tForm("email"),
+          autoComplete: "email",
+          required: true,
+          srOnlyLabel: true,
+        },
+        {
+          name: "phone",
+          label: tForm("phone"),
+          type: "tel",
+          placeholder: tForm("phone"),
+          autoComplete: "tel",
+          srOnlyLabel: true,
+        },
+      ]}
+      header={
+        <>
+          <h2 className="text-sm font-semibold tracking-tight">
+            {t("talentTitle")}
+          </h2>
 
-      <h2 className="text-sm font-semibold tracking-tight">{t("talentTitle")}</h2>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-        {t("talentBody")}
-      </p>
-
-      {applyingFor ? (
-        <div className="mt-3 space-y-1 rounded-sm bg-accent px-3 py-2 text-xs">
-          <p className="font-medium">{t("applyingFor", { title: applyingFor.title })}</p>
-          <button
-            type="button"
-            onClick={onClearApplyingFor}
-            className="font-medium text-brand-ink underline decoration-transparent underline-offset-2 hover:decoration-current"
-          >
-            {t("clearSelection")}
-          </button>
-        </div>
-      ) : null}
-
-      <div className="mt-4 space-y-3">
-        <div>
-          <label htmlFor="app-name" className="sr-only">
-            {tForm("name")}
-          </label>
-          <Input
-            id="app-name"
-            placeholder={tForm("name")}
-            autoComplete="name"
-            aria-invalid={!!errors.name}
-            {...register("name")}
-          />
-          {errors.name ? (
-            <p className="mt-1 text-xs text-destructive">{errorText(errors.name.message)}</p>
+          {applyingFor ? (
+            <div className="space-y-1 rounded-sm bg-accent px-3 py-2 text-xs">
+              <p className="font-medium">
+                {t("applyingFor", { title: applyingFor.title })}
+              </p>
+              <button
+                type="button"
+                onClick={onClearApplyingFor}
+                className="font-medium text-brand-ink underline decoration-transparent underline-offset-2 hover:decoration-current"
+              >
+                {t("clearSelection")}
+              </button>
+            </div>
           ) : null}
+        </>
+      }
+      beforeSubmit={
+        <div className="space-y-2">
+          <Button variant="secondary" className="w-full" asChild>
+            <label className="cursor-pointer">
+              <span className="sr-only">{t("chooseFile")}</span>
+              {t("chooseFile")}
+              <input
+                type="file"
+                accept=".pdf,.doc,.docx"
+                className="sr-only"
+                onChange={(e) => {
+                  setFile(e.target.files?.[0] ?? null);
+                  setFileErrorKey(null);
+                }}
+              />
+            </label>
+          </Button>
+          <span className="block truncate text-xs text-muted-foreground">
+            {file?.name ?? t("noFile")}
+          </span>
+          <p className="text-[11px] leading-relaxed text-muted-foreground">
+            {t("fileHint")}
+          </p>
         </div>
-        <div>
-          <label htmlFor="app-email" className="sr-only">
-            {tForm("email")}
-          </label>
-          <Input
-            id="app-email"
-            type="email"
-            placeholder={tForm("email")}
-            autoComplete="email"
-            aria-invalid={!!errors.email}
-            {...register("email")}
-          />
-          {errors.email ? (
-            <p className="mt-1 text-xs text-destructive">{errorText(errors.email.message)}</p>
-          ) : null}
-        </div>
-        <div>
-          <label htmlFor="app-phone" className="sr-only">
-            {tForm("phone")}
-          </label>
-          <Input
-            id="app-phone"
-            type="tel"
-            placeholder={tForm("phone")}
-            autoComplete="tel"
-            aria-invalid={!!errors.phone}
-            {...register("phone")}
-          />
-          {errors.phone ? (
-            <p className="mt-1 text-xs text-destructive">{errorText(errors.phone.message)}</p>
-          ) : null}
-        </div>
-      </div>
-
-      <label className="mt-4 flex cursor-pointer flex-col gap-2">
-        <span className="sr-only">{t("chooseFile")}</span>
-        <span className="inline-flex h-10 items-center justify-center rounded-full border border-border bg-secondary px-4 text-sm font-medium transition-colors hover:bg-accent">
-          {t("chooseFile")}
-        </span>
-        <input
-          type="file"
-          accept=".pdf,.doc,.docx"
-          className="sr-only"
-          onChange={(e) => {
-            setFile(e.target.files?.[0] ?? null);
-            setFileErrorKey(null);
-          }}
-        />
-        <span className="truncate text-xs text-muted-foreground">
-          {file?.name ?? t("noFile")}
-        </span>
-      </label>
-
-      <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
-        {t("fileHint")}
-      </p>
-      {fileErrorKey ? (
-        <p className="mt-1 text-xs text-destructive">{t(fileErrorKey)}</p>
-      ) : null}
-
-      {serverErrorKey ? (
-        <p role="alert" className="mt-2 text-xs text-destructive">
-          {tForm(serverErrorKey)}
-        </p>
-      ) : null}
-
-      <Button
-        type="submit"
-        size="sm"
-        variant="brand"
-        disabled={isSubmitting}
-        className="mt-4 w-full"
-      >
-        {isSubmitting ? tForm("submitting") : t("submitCv")}
-      </Button>
-    </form>
+      }
+      extraError={fileErrorKey ? t(fileErrorKey) : null}
+      onSubmit={async (values) => {
+        setFileErrorKey(null);
+        if (!file) {
+          setFileErrorKey("fileRequired");
+          return { ok: false, errorKey: "fileRequired" };
+        }
+        const roleName = applyingFor
+          ? `Apply: ${applyingFor.title}`
+          : t("generalApplication");
+        const result = await submitApplicationAction(
+          { ...values, jobId: applyingFor?.id, roleName },
+          file,
+        );
+        if (
+          !result.ok &&
+          FILE_ERRORS.has(result.errorKey)
+        ) {
+          setFileErrorKey(result.errorKey);
+        }
+        return result;
+      }}
+      translateError={(key) =>
+        key === "serverError" ? tForm("serverError") : tForm(`errors.${key}`)
+      }
+      submitLabel={t("submitCv")}
+      submittingLabel={tForm("submitting")}
+      success={{
+        title: t("cvSuccessTitle"),
+        body: t("cvSuccessBody"),
+        dismissLabel: t("clearSelection"),
+      }}
+      onDismiss={() => {
+        setFile(null);
+        setFileErrorKey(null);
+        onClearApplyingFor();
+      }}
+      className="space-y-3 p-5 sm:space-y-3 sm:p-5"
+      idPrefix="app"
+      formProps={{ "data-talent-form": "" }}
+    />
   );
 }
 

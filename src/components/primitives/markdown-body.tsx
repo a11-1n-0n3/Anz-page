@@ -2,6 +2,8 @@ import Image from "next/image";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import { isStorageUrl } from "@/lib/media";
+
 const imgClass =
   "my-6 h-auto w-full max-w-full rounded-lg border border-border bg-card object-contain";
 
@@ -84,9 +86,9 @@ export function MarkdownBody({ markdown }: { markdown: string }) {
           },
           img: ({ src, alt }) => {
             if (typeof src !== "string") return null;
-            if (/^https?:\/\//i.test(src)) {
+            if (/^https?:\/\//i.test(src) && !isStorageUrl(src)) {
               return (
-                // ponytail: arbitrary remote hosts; next/image needs a domain allowlist
+                // arbitrary remote hosts; next/image needs a domain allowlist
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={src} alt={alt ?? ""} className={imgClass} />
               );

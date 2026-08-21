@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
-import { Button } from "@/components/button";
-import { Container } from "@/components/section";
+import { Button } from "@/components/primitives/button";
+import { Container } from "@/components/primitives/section";
 import { Link } from "@/i18n/navigation";
 
 export default function NotFound() {

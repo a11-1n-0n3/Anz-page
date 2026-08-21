@@ -1,10 +1,10 @@
 import { Mail, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { Container, Eyebrow, Section } from "@/components/section";
+import { Container, Eyebrow, Section } from "@/components/primitives/section";
 import { siteConfig } from "@/lib/site";
 
-import { ContactForm } from "./contact-form";
+import { ContactForm } from "@/components/blocks/contact-form";
 
 export function Contact() {
   const t = useTranslations("contact");

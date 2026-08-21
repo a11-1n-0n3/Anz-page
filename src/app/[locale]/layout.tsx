@@ -8,8 +8,8 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
 import { siteConfig } from "@/lib/site";
 import { ogLocales, routing, type Locale } from "@/i18n/routing";
 
@@ -122,7 +122,8 @@ export default async function LocaleLayout({
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main>{children}</main>
+          {/* flex-1 on footer (not main) so short pages fill with dark, not a white gap above */}
           <SiteFooter />
         </NextIntlClientProvider>
       </body>

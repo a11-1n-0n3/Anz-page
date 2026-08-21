@@ -28,13 +28,9 @@
     "body": "Chúng tôi theo đuổi những giải pháp có giá trị lâu dài — được hình thành từ tư duy sâu, công nghệ phù hợp và sự am hiểu bối cảnh doanh nghiệp."
   },
   "stats": {
-    "label": "ANZ qua các chỉ số",
     "title": "Sẵn sàng bắt đầu dự án đầu tiên?",
     "body": "Đội ngũ kỹ sư ANZ khảo sát hiện trạng, xây dựng bản triển khai thử và bàn giao hệ thống trên hạ tầng sẵn có của doanh nghiệp.",
     "cta": "Liên hệ với ANZ"
-  },
-  "partners": {
-    "label": "Được tin dùng bởi"
   },
   "features": {
     "eyebrow": "Giải pháp",
@@ -107,7 +103,11 @@
     "apply": "Ứng tuyển ngay",
     "slots": "{count} slot",
     "levels": {
-      "fresher": "Fresher"
+      "intern": "Intern",
+      "fresher": "Fresher",
+      "junior": "Junior",
+      "middle": "Middle",
+      "senior": "Senior"
     },
     "cta": "Liên hệ",
     "filters": {
@@ -134,7 +134,6 @@
       "remote": "Remote"
     },
     "talentTitle": "Tham gia cộng đồng nhân tài tại ANZ",
-    "talentBody": "Để lại hồ sơ giúp ANZ dễ dàng liên hệ với bạn khi có vị trí phù hợp.",
     "chooseFile": "Chọn tệp",
     "noFile": "Không có file nào được chọn",
     "fileHint": "Hình thức: tệp .doc, .docx, .pdf, tối đa 3MB · Tên tệp: Họ tên_Vị trí ứng tuyển",
@@ -148,10 +147,6 @@
     "cvSuccessTitle": "Đã nhận CV",
     "cvSuccessBody": "ANZ sẽ liên hệ nếu có vị trí phù hợp."
   },
-  "industries": {
-    "title": "Chuyên môn theo ngành",
-    "description": "Kinh nghiệm thực tế trên các ngành đang thúc đẩy đổi mới — từ sản xuất đến tài chính, logistics và giáo dục."
-  },
   "projects": {
     "eyebrow": "Bài viết",
     "title": "AI Solutions — Từ ý tưởng đến vận hành",
@@ -161,9 +156,9 @@
     "pageTitle": "Bài viết",
     "pageDescription": "Khám phá những hệ thống AI được xây dựng cho các bài toán thực tế của doanh nghiệp.",
     "back": "Tất cả bài viết",
-    "empty": "Chưa có bài viết trong ngành này.",
-    "allCategories": "Tất cả ngành",
-    "categoriesLabel": "Ngành",
+    "empty": "Chưa có bài viết cho giải pháp này.",
+    "allCategories": "Tất cả giải pháp",
+    "categoriesLabel": "Giải pháp",
     "problem": "Bài toán",
     "solution": "Cách làm",
     "outcome": "Kết quả",

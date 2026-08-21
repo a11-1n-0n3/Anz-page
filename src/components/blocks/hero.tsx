@@ -1,10 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { Button } from "@/components/button";
-import { Scanlines } from "@/components/scanlines";
-import { Section } from "@/components/section";
-import { PartnerStrip } from "@/components/partner-strip";
+import { Button } from "@/components/primitives/button";
+import { Scanlines } from "@/components/primitives/scanlines";
+import { Section } from "@/components/primitives/section";
+import { PartnerStrip } from "@/components/blocks/partner-strip";
 import { Link } from "@/i18n/navigation";
 
 // py-0 sm:py-0 — twMerge leaves sm:py-28 if only p-0 is passed
@@ -41,7 +41,7 @@ export function Hero() {
           </p>
 
           <div className="animate-rise mt-8 flex flex-wrap items-center justify-center gap-3 sm:mt-9 sm:gap-4 [animation-delay:200ms]">
-            <Button asChild size="lg" variant="brand" className="h-10 px-5 text-sm sm:h-12 sm:px-8 sm:text-[15px]">
+            <Button asChild variant="brand">
               <Link href="/#contact">
                 <ArrowUpRight aria-hidden strokeWidth={2} className="size-4" />
                 {t("primaryCta")}
@@ -49,16 +49,15 @@ export function Hero() {
             </Button>
             <Button
               asChild
-              size="lg"
               variant="outline"
-              className="h-10 border-foreground/50 bg-background/60 px-5 text-sm text-foreground backdrop-blur-md hover:bg-background/80 hover:text-foreground sm:h-12 sm:px-8 sm:text-[15px]"
+              className="border-foreground/50 bg-background/60 text-foreground backdrop-blur-md hover:bg-background/80 hover:text-foreground"
             >
               <Link href="/#features">{t("secondaryCta")}</Link>
             </Button>
           </div>
         </div>
 
-        <PartnerStrip inFrame />
+        <PartnerStrip />
       </div>
     </Section>
   );

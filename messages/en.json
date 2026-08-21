@@ -28,13 +28,9 @@
     "body": "We pursue solutions built for lasting value — shaped by rigorous thinking, purposeful technology, and a deep understanding of the business context."
   },
   "stats": {
-    "label": "ANZ in numbers",
     "title": "Ready to begin your first engagement?",
     "body": "ANZ engineers assess your current estate, prove value on a controlled scope, and hand over a system that runs on the infrastructure you already operate.",
     "cta": "Contact ANZ"
-  },
-  "partners": {
-    "label": "Trusted by"
   },
   "features": {
     "eyebrow": "Solutions",
@@ -107,7 +103,11 @@
     "apply": "Apply now",
     "slots": "{count, plural, one {# slot} other {# slots}}",
     "levels": {
-      "fresher": "Fresher"
+      "intern": "Intern",
+      "fresher": "Fresher",
+      "junior": "Junior",
+      "middle": "Middle",
+      "senior": "Senior"
     },
     "cta": "Say hello",
     "filters": {
@@ -134,7 +134,6 @@
       "remote": "Remote"
     },
     "talentTitle": "Join the ANZ talent community",
-    "talentBody": "Leave your CV so we can reach out when a matching role opens.",
     "chooseFile": "Choose file",
     "noFile": "No file selected",
     "fileHint": "Formats: .doc, .docx, .pdf · max 3MB · Name_Role",
@@ -148,10 +147,6 @@
     "cvSuccessTitle": "CV received",
     "cvSuccessBody": "We'll be in touch if there's a match."
   },
-  "industries": {
-    "title": "Deep industry expertise",
-    "description": "Real-world experience across the industries shaping how AI moves from lab to live operations."
-  },
   "projects": {
     "eyebrow": "Insights",
     "title": "AI solutions — from concept to operations",
@@ -161,9 +156,9 @@
     "pageTitle": "Insights",
     "pageDescription": "AI systems purpose-built for the operational problems enterprises actually run.",
     "back": "All insights",
-    "empty": "No insights in this industry yet.",
-    "allCategories": "All industries",
-    "categoriesLabel": "Industries",
+    "empty": "No insights for this solution yet.",
+    "allCategories": "All solutions",
+    "categoriesLabel": "Solutions",
     "problem": "Problem",
     "solution": "Solution",
     "outcome": "Outcome",

@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
-import { BrandMark } from "@/components/brand-mark";
-import { Container } from "@/components/section";
+import { BrandMark } from "@/components/primitives/brand-mark";
+import { Container } from "@/components/primitives/section";
 import { footerNav, siteConfig } from "@/lib/site";
 import { Link } from "@/i18n/navigation";
 
@@ -12,7 +12,7 @@ export function SiteFooter() {
   const tContact = useTranslations("contact");
 
   return (
-    <footer className="surface-dark mt-auto rounded-t-frame">
+    <footer className="surface-dark mt-auto flex flex-1 flex-col justify-end rounded-t-frame">
       <Container className="py-10">
         <div className="flex flex-col gap-10 md:grid md:grid-cols-4 md:gap-12">
           <div className="md:col-span-2">
