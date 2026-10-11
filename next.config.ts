@@ -25,7 +25,7 @@ function supabaseHostPattern(): RemotePattern[] {
 
 const nextConfig: NextConfig = {
   // Smaller image for Docker — traces only the files the server needs
-  output: "standalone",
+  output: process.env.VERCEL ? undefined : "standalone",
   images: {
     remotePatterns: [
       {
