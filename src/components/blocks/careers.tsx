@@ -304,14 +304,7 @@ export function Careers({ jobs }: { jobs: Job[] }) {
   return (
     <Section className="pt-6 sm:pt-8">
       <Container>
-        <h1 className="text-balance text-center text-3xl font-semibold tracking-tight sm:text-4xl">
-          {t("searchTitle")}
-        </h1>
-        <p className="mx-auto mt-3 max-w-2xl text-pretty text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
-          {t("description")}
-        </p>
-
-        <div className="mt-10 grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
+        <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
           <aside className="space-y-8 lg:sticky lg:top-24 lg:self-start">
             <FilterGroup
               title={t("filters.type")}

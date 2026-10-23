@@ -28,7 +28,7 @@ function FeaturedProject({ project }: { project: Project }) {
   return (
     <Link
       href={`/blog/${project.slug}`}
-      className="group grid overflow-hidden rounded-lg border border-border bg-card transition-shadow duration-300 hover:shadow-[0_22px_48px_-24px_rgba(11,22,32,0.4)] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none md:grid-cols-2"
+      className="group grid overflow-hidden rounded-lg border border-border bg-card transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_40px_-24px_rgba(11,22,32,0.35)] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none md:grid-cols-2"
     >
       <div className="relative min-h-40 overflow-hidden sm:min-h-72">
         {project.cover ? (

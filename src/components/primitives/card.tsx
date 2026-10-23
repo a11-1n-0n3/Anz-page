@@ -28,9 +28,16 @@ const aspectClass: Record<CardVariant, string> = {
   portrait: "aspect-[4/5]",
 };
 
+/** Shared hover — same timing for every bordered card. */
+const hoverShell =
+  "transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-border hover:shadow-[0_18px_40px_-24px_rgba(11,22,32,0.35)]";
+
+const hoverImage =
+  "object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]";
+
 /**
- * Shared image+copy card. Variants keep the three existing looks:
- * - media: feature grid (border + long hover)
+ * Shared image+copy card.
+ * - media: feature grid
  * - project: blog teaser (link + meta/action)
  * - portrait: team member (4:5, text below, no outer chrome)
  */
@@ -91,10 +98,8 @@ export function Card({
         {meta}
         <Title
           className={cn(
-            "text-sm font-semibold tracking-tight sm:text-lg",
+            "text-sm font-semibold tracking-tight transition-colors duration-300 group-hover:text-brand-ink sm:text-lg",
             variant === "project" && "mt-2 text-balance sm:mt-3",
-            variant === "media" &&
-              "transition-colors duration-[1500ms] group-hover:text-brand-ink",
           )}
         >
           {title}
@@ -105,8 +110,7 @@ export function Card({
               "text-[13px] leading-relaxed text-muted-foreground",
               variant === "project" &&
                 "mt-2 line-clamp-2 flex-1 sm:mt-2.5 sm:text-sm",
-              variant === "media" &&
-                "mt-1.5 transition-colors duration-[1500ms] group-hover:text-foreground/80 sm:mt-2.5 sm:text-[15px]",
+              variant === "media" && "mt-1.5 sm:mt-2.5 sm:text-[15px]",
             )}
           >
             {description}
@@ -119,37 +123,21 @@ export function Card({
 
   const shellClass = cn(
     "group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card",
-    variant === "media" &&
-      "[transition-property:transform,border-color,box-shadow,background-color] [transition-duration:3s,1.5s,1.5s,1.5s] ease-out hover:-translate-y-1.5 hover:border-brand/40 hover:bg-brand-soft/40 hover:shadow-[0_22px_44px_-20px_rgba(0,7,205,0.35)]",
-    variant === "project" &&
-      "transition-shadow duration-300 hover:shadow-[0_18px_40px_-24px_rgba(11,22,32,0.35)] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none",
+    hoverShell,
+    href &&
+      "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none",
     className,
   );
 
   if (href) {
     return (
       <Link href={href as "/"} className={shellClass}>
-        {variant === "media" ? <MediaGlow /> : null}
         {body}
       </Link>
     );
   }
 
-  return (
-    <div className={shellClass}>
-      {variant === "media" ? <MediaGlow /> : null}
-      {body}
-    </div>
-  );
-}
-
-function MediaGlow() {
-  return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute -top-16 -right-16 size-44 rounded-full bg-brand/20 opacity-0 blur-2xl transition-opacity duration-[1500ms] group-hover:opacity-100"
-    />
-  );
+  return <div className={shellClass}>{body}</div>;
 }
 
 function CardMedia({
@@ -177,7 +165,7 @@ function CardMedia({
           alt=""
           width={640}
           height={360}
-          className="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          className={cn("aspect-[16/9] w-full object-top", hoverImage)}
         />
       );
     }
@@ -190,10 +178,8 @@ function CardMedia({
           fill
           sizes={sizes}
           className={cn(
-            "object-cover",
-            variant === "portrait"
-              ? "transition-transform duration-500 group-hover:scale-[1.03]"
-              : "object-top transition-transform duration-[1500ms] ease-out group-hover:scale-[1.03]",
+            hoverImage,
+            variant !== "portrait" && "object-top",
           )}
         />
       </div>

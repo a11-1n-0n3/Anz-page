@@ -94,9 +94,7 @@
   },
   "careers": {
     "eyebrow": "Tuyển dụng",
-    "searchTitle": "Tuyển dụng",
     "title": "Xây AI ứng dụng đưa vào vận hành thật",
-    "description": "Các vị trí đang mở tại ANZ.",
     "empty": "Không có vị trí khớp bộ lọc này.",
     "clearFilters": "Xóa bộ lọc",
     "resultCount": "{count, plural, =0 {Không có vị trí} other {# vị trí}}",

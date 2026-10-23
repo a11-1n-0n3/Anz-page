@@ -17,7 +17,7 @@ export async function generateMetadata({
     locale: locale as Locale,
     namespace: "careers",
   });
-  return { title: t("searchTitle"), description: t("description") };
+  return { title: t("title") };
 }
 
 export default async function CareersPage({
