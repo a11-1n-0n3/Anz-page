@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/routing";
+import { mediaUrl } from "@/lib/media";
 
 export const siteConfig = {
   name: "ANZ",
@@ -70,9 +71,7 @@ export const team: TeamMember[] = [
   {
     id: "m1",
     name: "Mr. Bùi Chí Minh",
-    // Temporary stock portrait — replace with owned asset before launch.
-    photo:
-      "https://media.licdn.com/dms/image/v2/D5603AQHTby3UXAfnKg/profile-displayphoto-scale_400_400/B56Z_GF2i7KYAg-/0/1785734854198?e=1788998400&v=beta&t=abkl54BcVD9LkH0_LL35HwIKTu5EHU_EstRiyPDaS1Y",
+    photo: mediaUrl("aminh.jpeg", "media"),
     role: {
       vi: "Tech Lead",
       en: "Tech Lead",
@@ -85,8 +84,7 @@ export const team: TeamMember[] = [
   {
     id: "m2",
     name: "Mr. Bùi Quốc Tuấn",
-    photo:
-      "https://media.licdn.com/dms/image/v2/D5603AQHKrtRuyNVlBg/profile-displayphoto-scale_400_400/B56aAanwdPIYAk-/0/1787153026702?e=1788998400&v=beta&t=lJF88VwoQAR1RqABGNzwtMFBojWBb-rYW2NHwSwYuNA",
+    photo: mediaUrl("atuan.jpeg", "media"),
     role: {
       vi: "CEO",
       en: "CEO",
@@ -99,6 +97,7 @@ export const team: TeamMember[] = [
   {
     id: "m3",
     name: "Mr. Văn Sang",
+    photo: mediaUrl("asang.jpeg", "media"),
     role: {
       vi: "Senior AI Engineer",
       en: "Senior AI Engineer",
