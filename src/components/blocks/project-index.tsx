@@ -38,7 +38,7 @@ function FeaturedProject({ project }: { project: Project }) {
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+            className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
           />
         ) : (
           <div

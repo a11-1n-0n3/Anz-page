@@ -165,7 +165,10 @@ function CardMedia({
           alt=""
           width={640}
           height={360}
-          className={cn("aspect-[16/9] w-full object-top", hoverImage)}
+          className={cn(
+            hoverImage,
+            "aspect-[16/9] w-full object-contain",
+          )}
         />
       );
     }
